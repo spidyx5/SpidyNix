@@ -122,12 +122,14 @@
     tpm2-tools            # TPM2 utilities
     lynis                 # Security auditing tool
 
-    # Hardware acceleration & GPU
+    # 
     seatd
     mods
     pciutils
     google-fonts
     fontforge-gtk
+    tinygettext           
+
     # ==========================================================================
     # TERMINAL EMULATORS & SHELL UI
     # ==========================================================================
@@ -145,6 +147,28 @@
     btop                  # Modern resource monitor
     fastfetch             # System information display
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+        # LLVM/Clang toolchain
+    llvm                  # LLVM compiler infrastructure
+    clang                 # LLVM C/C++/Objective-C compiler
+    llvmPackages.clang-unwrapped
+    llvmPackages.clang-tools
+    llvm-manpages
+    libllvm
+    llvmPackages.libc-full
+    llvmPackages.libllvm
+    llvmPackages.stdenv
+    libclang
+    llvmPackages.bintools
+    llvmPackages.compiler-rt
+    llvmPackages.libcxxClang
+    llvmPackages.clangUseLLVM
+    mold                  # Linker, faster than lld
+    flang                 # Fortran frontend for LLVM
+    # Rust toolchain
+    rustc
+
+    zluda
+    electron
   ];
 
   # ============================================================================
@@ -183,7 +207,6 @@
       vulkan-loader
       vulkan-headers
       vulkan-tools
-      zluda
     ];
   };
 }

@@ -61,7 +61,7 @@ The configuration might require x86_64-v3 CPU support. If your CPU is different,
 
 ⚠️ **Note**: The installation script (`spidynix`) is experimental and may not work in all environments.
 
-```bash
+```
 # Make the script executable
 chmod +x spidynix
 

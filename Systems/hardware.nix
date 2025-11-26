@@ -58,10 +58,12 @@
     ] ++ lib.optionals config.hardwareType.intel [
       intel-media-driver      # Modern VAAPI driver for Intel GPUs (Broadwell+)
       intel-compute-runtime   # OpenCL support for Intel GPUs
+      vpl-gpu-rt             # Intel Video Processing Library
     ] ++ lib.optionals config.hardwareType.amd [
       # AMD GPU Drivers & Acceleration
       amdvlk                 # AMD Vulkan driver
       rocm-opencl-icd        # AMD OpenCL
+      mesa-vdpau             # VDPAU support for AMD GPUs
     ] ++ lib.optionals config.hardwareType.nvidia [
       # NVIDIA GPU Drivers (if needed, but usually handled by services.xserver.videoDrivers)
     ];

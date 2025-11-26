@@ -34,22 +34,6 @@
     nodejs
     nodePackages.npm
 
-    # LLVM/Clang toolchain
-    llvm                  # LLVM compiler infrastructure
-    clang                 # LLVM C/C++/Objective-C compiler
-    llvmPackages.clang-unwrapped
-    llvmPackages.clang-tools
-    llvm-manpages
-    libllvm
-    llvmPackages.libc-full
-    llvmPackages.libllvm
-    llvmPackages.stdenv
-    libclang
-    llvmPackages.bintools
-    llvmPackages.compiler-rt
-    llvmPackages.libcxxClang
-    llvmPackages.clangUseLLVM
-
     # Build systems
     gnumake               # GNU Make
     ninja
@@ -58,19 +42,13 @@
     binutils
     libtool               # libtool replacement
     samurai               # Ninja replacement
-    tinygettext
-    mold                  # Linker, faster than lld
-    flang                 # Fortran frontend for LLVM
 
     # Shell enhancements
     zoxide                # Smarter cd command
     carapace              # Multi-shell completion
     inshellisense         # IDE-like shell completions
-
-    # Rust toolchain
-    rustc
-
-    electron
+    fzf                   # Fuzzy finder
+    ripgrep               # Fast grep alternative
   ];
 }
 # ============================================================================
