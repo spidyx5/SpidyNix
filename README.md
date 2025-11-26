@@ -166,7 +166,6 @@ SpidyNix/
 │   │   └── nix.md
 │   ├── Secrets/
 │   │   ├── .sops.yaml
-│   │   ├── password
 │   │   └── secrets.yaml
 │   ├── Spidy/
 │   │   ├── configuration.nix
