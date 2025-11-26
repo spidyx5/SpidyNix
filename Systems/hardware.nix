@@ -59,6 +59,7 @@
       intel-media-driver      # Modern VAAPI driver for Intel GPUs (Broadwell+)
       intel-compute-runtime   # OpenCL support for Intel GPUs
       vpl-gpu-rt             # Intel Video Processing Library
+      intel-graphics-compiler
     ] ++ lib.optionals config.hardwareType.amd [
       # AMD GPU Drivers & Acceleration
       amdvlk                 # AMD Vulkan driver
