@@ -24,7 +24,7 @@
     calibre-web           # Calibre web interface
     yt-dlp                # YouTube downloader
     parabolic
-
+    qbittorrent           # Torrent client
     # ==========================================================================
     # NETWORKING & SECURITY
     # ==========================================================================
