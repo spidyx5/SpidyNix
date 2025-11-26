@@ -8,10 +8,10 @@ A  NixOS configuration with niri.
 
 ```bash
 # For existing NixOS systems
-sudo git clone https://github.com/spidyx5x/SpidyNix /etc/nixos
+sudo git clone https://github.com/spidyx5/SpidyNix /etc/nixos
 
 # For live ISO installations
-sudo git clone https://github.com/spidyx5x/SpidyNix /mnt/etc/nixos
+sudo git clone https://github.com/spidyx5/SpidyNix /mnt/etc/nixos
 ```
 # Make sure you choose your driver,local,keyboard from the user-config or script
 
