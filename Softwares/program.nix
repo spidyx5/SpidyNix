@@ -57,6 +57,7 @@
     extraCompatPackages = with pkgs; [
       proton-ge-bin                     # Proton GE for better compatibility
     ];
+    platformOptimizations.enable = true;  # Enable platform optimizations
   };
 }
 # ============================================================================
