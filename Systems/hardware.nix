@@ -53,6 +53,7 @@
       mesa
       libva-utils
       libva
+      mesa-gl-headers
 
       # Intel GPU Drivers & Acceleration
     ] ++ lib.optionals config.hardwareType.intel [
