@@ -46,6 +46,7 @@
     "mitigations=off"                        # Disable CPU mitigations (performance over security)
     "rootflags=noatime"                      # Disable access time updates
     "nowatchdog"                             # Disable watchdog entirely
+    "threadirqs"                             # Use threaded interrupts for lower latency
     "kernel.split_lock_mitigate=0"            # Crucial for gaming (prevents fps drops)
 
     # --- Security Hardening ---
@@ -72,6 +73,7 @@
     "intel_idle.max_cstate=4"                # Intel CPU C-state limit
     "intel_pstate=passive"                   # Intel P-state passive mode
     "intel_iommu=on"                         # Enable Intel IOMMU
+    "i915.enable_gvt=1"                      # Enable Intel GVT-g
     "kvm-intel.nested=0"                     # Disable nested virtualization
   ] ++ lib.optionals config.hardwareType.amd [
     "amd_pstate=passive"                     # AMD P-state passive mode
@@ -109,6 +111,7 @@
   ] ++ lib.optionals config.hardwareType.intel [
     "kvm-intel"      # Intel KVM virtualization
     "i915"           # Intel graphics
+    "kvmgt"          # Intel GVT-g mediated devices
   ] ++ lib.optionals config.hardwareType.amd [
     "kvm-amd"        # AMD KVM virtualization
     "amdgpu"         # AMD graphics

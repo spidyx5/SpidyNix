@@ -30,6 +30,7 @@
         group = "kvm"                   # Use kvm group
         dynamic_ownership = 1          # Enable dynamic ownership
         remember_owner = 0             # Don't remember owner
+        ga = "enabled"                 # Enable QEMU guest agent channel
       '';
     };
 

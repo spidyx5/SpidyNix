@@ -11,7 +11,7 @@ lib.mkIf config.myConfig.virtualization {
     # VM management
     virt-viewer           # Virtual machine viewer
     virt-top              # Monitor VM performance
-    looking-glass-client  # Low-latency VM display
+    looking-glass-client  # Low-latency VM display (includes host)
     scream
 
     # QEMU/KVM
@@ -26,6 +26,9 @@ lib.mkIf config.myConfig.virtualization {
     spice-protocol        # SPICE protocol headers
     virglrenderer         # Virtual GPU support
     virtio-win
+    spice-vdagent
+    spice-autorandr
+    qemu_full
   ];
 
   # ============================================================================
