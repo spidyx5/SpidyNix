@@ -27,7 +27,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration variables
-REPO_URL="https://github.com/yourusername/SpidyNix.git"  # Replace with actual repo URL
+REPO_URL="https://github.com/spidyx5/SpidyNix.git"  # Replace with actual repo URL
 
 # Detect if we're in a live ISO environment and set appropriate mount point
 if [[ -d "/mnt" ]] && mountpoint -q /mnt 2>/dev/null; then
@@ -43,7 +43,7 @@ CONFIG_DIR="/etc/nixos/SpidyNix"
 SPIDYNIX_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Script configuration
-VERSION="2.0.0"
+VERSION="0.1"
 DRY_RUN=false
 
 # Initialize user configuration
@@ -1490,7 +1490,7 @@ else
     print_info "Running as user (some features may require sudo)"
 fi
 
-print_info "SpidyNix v$VERSION - Enhanced Installation Script"
+print_info "SpidyNix v$VERSION - Installation Script"
 
 # Main execution
 main_menu
