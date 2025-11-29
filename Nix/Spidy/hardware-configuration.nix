@@ -66,6 +66,11 @@
       fsType = "btrfs";
       options = [ "compress=zstd:7" "noatime" ];
     };
+    "/flat" = {
+      device = "/dev/mapper/mock-noxian";
+      fsType = "btrfs";
+      options = [ "subvolid=5" ];
+    };
   };
 
   # ============================================================================
