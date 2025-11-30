@@ -44,7 +44,7 @@
     ./packages/development.nix
   ];
 
-  home = {
+  config.home = {
     username = "spidy";
     homeDirectory = "/home/spidy";
     stateVersion = "26.05";

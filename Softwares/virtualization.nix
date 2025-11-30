@@ -1,9 +1,11 @@
 # /etc/nixos/SpidyNix/Softwares/virtualization.nix
 { config, pkgs, lib, inputs, ... }:
 {
+  # ============================================================================
   # LIBVIRT - VIRTUAL MACHINE MANAGEMENT
-  # KVM virtualization with QEMU backend
-  virtualisation.libvirtd = {
+  # ============================================================================
+    # KVM virtualization with QEMU backend
+    virtualisation.libvirtd = {
     enable = true;                     # Enable libvirtd service
 
     # Start libvirtd on boot
@@ -41,25 +43,25 @@
     ];
   };
 
-  # DOCKER CONFIGURATION
-  # virtualisation.docker = lib.mkIf config.virtualizationTools.docker {
-  #   enable = true;                    # Enable Docker
+    # DOCKER CONFIGURATION
+    # virtualisation.docker = lib.mkIf config.virtualizationTools.docker {
+    #   enable = true;                    # Enable Docker
 
-  #   # Enable on boot
-  #   enableOnBoot = false;            # Don't start Docker on boot
+    #   # Enable on boot
+    #   enableOnBoot = false;            # Don't start Docker on boot
 
-  #   # Storage driver
-  #   storageDriver = "overlay2";       # Use overlay2 storage driver
+    #   # Storage driver
+    #   storageDriver = "overlay2";       # Use overlay2 storage driver
 
-  #   # Auto-prune resources
-  #   autoPrune = {
-  #     enable = true;                 # Enable auto-prune
-  #     dates = "weekly";               # Run weekly
-  #   };
-  # };
+    #   # Auto-prune resources
+    #   autoPrune = {
+    #     enable = true;                 # Enable auto-prune
+    #     dates = "weekly";               # Run weekly
+    #   };
+    # };
 
-  # PODMAN CONFIGURATION
-  virtualisation.podman = {
+    # PODMAN CONFIGURATION
+    virtualisation.podman = {
     enable = true;                    # Enable Podman
 
     # Create a "docker" alias for podman
@@ -79,29 +81,29 @@
     };
   };
 
-  # SPICE USB REDIRECTION
-  virtualisation.spiceUSBRedirection.enable = true;  # Enable SPICE USB redirection
+    # SPICE USB REDIRECTION
+    virtualisation.spiceUSBRedirection.enable = true;  # Enable SPICE USB redirection
 
 
-  # VM STORAGE DIRECTORIES
-  systemd.tmpfiles.rules = [
-    # ISO storage directory
-    "d /var/lib/libvirt/isos 0755 qemu-libvirtd kvm -"
+    # VM STORAGE DIRECTORIES
+    systemd.tmpfiles.rules = [
+      # ISO storage directory
+      "d /var/lib/libvirt/isos 0755 qemu-libvirtd kvm -"
 
-    # VM disk images directory
-    "d /var/lib/libvirt/images 0755 qemu-libvirtd kvm -"
+      # VM disk images directory
+      "d /var/lib/libvirt/images 0755 qemu-libvirtd kvm -"
 
-    # VM snapshots directory
-    "d /var/lib/libvirt/snapshots 0755 qemu-libvirtd kvm -"
-  ];
+      # VM snapshots directory
+      "d /var/lib/libvirt/snapshots 0755 qemu-libvirtd kvm -"
+    ];
 
-  # WAYDROID CONFIGURATION
-  virtualisation.waydroid.enable = true;
+    # WAYDROID CONFIGURATION
+    virtualisation.waydroid.enable = true;
 
-  # SHELL ALIASES
-  environment.shellAliases = {
-    waydroid-stop = "sudo waydroid container stop | waydroid session stop";
-  };
+    # SHELL ALIASES
+    environment.shellAliases = {
+      waydroid-stop = "sudo waydroid container stop | waydroid session stop";
+    };
 }
 
 # ============================================================================
