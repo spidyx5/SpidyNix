@@ -1,6 +1,6 @@
 # SpidyNix
 
-A  NixOS configuration with niri.
+A modular NixOS configuration featuring the Niri window manager.
 
 ## Installation
 
@@ -13,11 +13,10 @@ sudo git clone https://github.com/spidyx5/SpidyNix.git /etc/nixos/SpidyNix
 # For live ISO installations
 sudo git clone https://github.com/spidyx5/SpidyNix.git /mnt/etc/nixos/SpidyNix
 ```
-# Make sure you choose your driver,local,keyboard from the user-config or script
 
 ### Generate Hardware Configuration
 
-Before applying the configuration, generate a hardware configuration for your system:
+Generate a hardware configuration for your system:
 
 ```bash
 # Generate hardware configuration
@@ -30,95 +29,58 @@ sudo nixos-generate-config --show-hardware-config > /etc/nixos/SpidyNix/Nix/Spid
 
 ```bash
 sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
-
-
 ```
 
 #### For Fresh Installations (Live ISO)
 
-After setting up partitions and mounting them to `/mnt`:
+After partitioning and mounting to `/mnt`:
 
 ```bash
-sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy --cores 0 --max-jobs 0 
+sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy --cores 0 --max-jobs 0
 ```
 
-### Rebuild & Switch
+### Post-Installation
 
-After initial installation, you can rebuild and switch to a new configuration:
+Rebuild and switch to apply changes:
 
 ```bash
-# Using home-manager
-home-manager switch
-
-# Or using nh (faster alternative)
+# Using nh (recommended)
 nh os switch /etc/nixos/SpidyNix --hostname Spidy
+
+# Or using nixos-rebuild
+sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
+```
+
+**Default Credentials:**
+- Username: `spidy`
+- Password: `spidy`
 
 ### ⚠️ CPU Compatibility Note
 
-The configuration might require x86_64-v3 CPU support. If your CPU is different, comment out lines 82-91 in `/etc/nixos/SpidyNix/Systems/nixos.nix`.
-
-### Using the Installation Script
-
-⚠️ **Note**: The installation script (`spidynix`) is experimental and may not work in all environments.
-
-```
-# Make the script executable
-chmod +x spidynix
-
-# Run the interactive installer
-sudo ./spidynix
-```
-
-### Changing Configuration Settings
-
-```bash
-# Make the settings script executable
-chmod +x change-settings
-
-# Run the settings configurator
-sudo ./change-settings
-```
-
-### Rebuild Your System
-
-```bash
-# Apply configuration changes
-sudo nixos-rebuild switch
-```
-- **Username**: spidy
-- **Password**: spidy
+This configuration may require x86_64-v3 CPU support. If your CPU lacks this, comment out lines 82-91 in `Systems/nixos.nix`.
 
 ## Secrets Management (SOPS)
 
-This configuration uses **SOPS (Secrets OPerationS)** for managing encrypted secrets such as passwords, API keys, and other sensitive data.
+This configuration uses SOPS for managing encrypted secrets.
 
-### SOPS Configuration Files
-
-- **`.sops.yaml`** - SOPS configuration defining encryption rules and keys
-- **`secrets.yaml`** - Encrypted secrets file (contains actual secret values)
-- **`password`** - Age/SOPS private key for decryption
+### Key Files
+- `Nix/Secrets/.sops.yaml` - SOPS configuration
+- `Nix/Secrets/secrets.yaml` - Encrypted secrets
+- `Nix/Secrets/password` - Age private key
 
 ### Managing Secrets
 
-**To edit encrypted secrets:**
+Edit secrets:
 ```bash
-# Decrypt and edit secrets
-sops secrets.yaml
-
-# Or use your preferred editor
-SOPS_AGE_KEY_FILE=Nix/Secrets/password sops --input-type yaml --output-type yaml secrets.yaml
+sops Nix/Secrets/secrets.yaml
 ```
 
-**To encrypt new secrets:**
+Encrypt new data:
 ```bash
-# Add new secret to secrets.yaml
-sops --encrypt --in-place secrets.yaml
+sops --encrypt --in-place Nix/Secrets/secrets.yaml
 ```
 
-### SOPS Setup
-
-The configuration is set up to automatically decrypt secrets during system builds. The Age key file should be kept secure.
-
+Secrets are automatically decrypted during builds.
 
 ## Directory Structure
 
@@ -126,75 +88,28 @@ The configuration is set up to automatically decrypt secrets during system build
 SpidyNix/
 ├── flake.nix
 ├── flake.lock
+├── readme.md
 ├── Homes/
 │   ├── home.nix
-│   ├── apps/
-│   │   ├── chromium-flag.nix
-│   │   ├── edge.nix
-│   │   ├── fuzzel.nix
-│   │   ├── obs.nix
-│   │   ├── qutebrowser.nix
-│   │   ├── twitch.nix
-│   │   ├── yazi.nix
-│   │   └── zen-browser.nix
-│   ├── configs/
-│   │   ├── mako.nix
-│   │   ├── niri.nix
-│   │   ├── rnnoise.nix
-│   │   ├── theme.nix
-│   │   ├── vm.nix
-│   │   └── xdg.nix
-│   ├── devs/
-│   │   ├── git.nix
-│   │   ├── helix.nix
-│   │   ├── neovim.nix
-│   │   ├── nushell.nix
-│   │   ├── terminal.nix
-│   │   ├── vscode.nix
-│   │   └── zed.nix
-│   └── packages/
-│       ├── desktop.nix
-│       ├── development.nix
-│       ├── gaming.nix
-│       └── productive.nix
+│   ├── apps/          # Application configurations
+│   ├── configs/       # System configs (niri, mako, etc.)
+│   ├── devs/          # Development tools
+│   └── packages/      # Package sets
 ├── Nix/
-│   ├── Persist/
-│   │   ├── niri.md
-│   │   └── nix.md
-│   ├── Secrets/
-│   │   ├── .sops.yaml
-│   │   └── secrets.yaml
-│   |── Spidy/
-│       ├── configuration.nix
-│       ├── hardware-configuration.nix
-│       └── spidy-profile.nix
-├── Softwares/
-│   ├── basic.nix
-│   ├── font.nix
-│   ├── program.nix
-│   ├── software.nix
-│   ├── virtualization.nix
-│   └── wayland.nix
-└── Systems/
-    ├── blacklist.nix
+│   ├── Persist/       # Persistent data docs
+│   ├── Secrets/       # Encrypted secrets
+│   └── Spidy/         # Host-specific configs
+└── Systems/           # System-wide modules
     ├── boot.nix
     ├── hardware.nix
-    ├── login.nix
     ├── network.nix
     ├── nixos.nix
-    ├── power.nix
-    ├── security.nix
-    ├── service.nix
     ├── sound.nix
-    ├── system.nix
-    └── user.nix
+    ├── user.nix
+    └── ...
 ```
-## TODO
-Many things
 
 ## Credits
 
-linuxmobile/kaku
-```
-theblackdon/black-don-os 
-```
+- [linuxmobile/kaku](https://github.com/linuxmobile/kaku) - 
+- [theblackdon/black-don-os](https://gitlab.com/theblackdon/black-don-os) - 
