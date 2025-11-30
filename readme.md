@@ -39,7 +39,7 @@ sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
 After setting up partitions and mounting them to `/mnt`:
 
 ```bash
-sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy
+sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy --cores 0 --max-jobs 0 
 ```
 
 ### Rebuild & Switch
