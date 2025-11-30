@@ -7,32 +7,6 @@ lib.mkIf config.myConfig.virtualization {
   # ============================================================================
   # User-level virtualization and VM management tools
   # ============================================================================
-  home.packages = with pkgs; [
-    # VM management
-    virt-viewer           # Virtual machine viewer
-    virt-top              # Monitor VM performance
-    looking-glass-client  # Low-latency VM display (includes host)
-    scream
-
-    # QEMU/KVM
-    OVMF                  # UEFI firmware for VMs
-    swtpm                 # TPM emulation
-    libguestfs            # VM disk tools
-    freerdp
-
-    # SPICE support
-    spice                 # SPICE protocol support
-    spice-gtk             # SPICE client GTK
-    spice-protocol        # SPICE protocol headers
-    virglrenderer         # Virtual GPU support
-    virtio-win
-    spice-vdagent
-    spice-autorandr
-    qemu_full
-  ];
-
-  # ============================================================================
-  # DCONF SETTINGS - VIRT-MANAGER
   # ============================================================================
   # Virt-manager GUI preferences and VM defaults
   # ============================================================================

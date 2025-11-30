@@ -3,7 +3,7 @@
 
   inputs = {
     # Core dependencies
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/unstable";
     nur.url = "github:nix-community/NUR";
 
     # Development utilities

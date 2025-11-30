@@ -1,7 +1,7 @@
 # /etc/nixos/SpidyNix/Homes/packages/gaming.nix
 { config, lib, pkgs, ... }:
 
-lib.mkIf config.myConfig.gaming {
+ {
   # ============================================================================
   # GAMING PACKAGES
   # ============================================================================

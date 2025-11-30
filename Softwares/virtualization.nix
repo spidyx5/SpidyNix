@@ -42,31 +42,31 @@
   };
 
   # DOCKER CONFIGURATION
-  virtualisation.docker = lib.mkIf config.virtualizationTools.docker {
-    enable = true;                    # Enable Docker
+  # virtualisation.docker = lib.mkIf config.virtualizationTools.docker {
+  #   enable = true;                    # Enable Docker
 
-    # Enable on boot
-    enableOnBoot = false;            # Don't start Docker on boot
+  #   # Enable on boot
+  #   enableOnBoot = false;            # Don't start Docker on boot
 
-    # Storage driver
-    storageDriver = "overlay2";       # Use overlay2 storage driver
+  #   # Storage driver
+  #   storageDriver = "overlay2";       # Use overlay2 storage driver
 
-    # Auto-prune resources
-    autoPrune = {
-      enable = true;                 # Enable auto-prune
-      dates = "weekly";               # Run weekly
-    };
-  };
+  #   # Auto-prune resources
+  #   autoPrune = {
+  #     enable = true;                 # Enable auto-prune
+  #     dates = "weekly";               # Run weekly
+  #   };
+  # };
 
   # PODMAN CONFIGURATION
   virtualisation.podman = lib.mkIf config.virtualizationTools.podman {
     enable = true;                    # Enable Podman
 
     # Create a "docker" alias for podman
-    dockerCompat = false;             # Don't create docker alias
+    dockerCompat = true;             # Don't create docker alias
 
     # Make the Podman socket available at /var/run/docker.sock
-    dockerSocket.enable = false;     # Don't enable Docker socket
+    dockerSocket.enable = true;     # Don't enable Docker socket
 
     # Enable the DNS plugin for the default network
     defaultNetwork.settings.dns_enabled = true;  # Enable DNS for containers

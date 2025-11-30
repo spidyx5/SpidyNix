@@ -52,7 +52,6 @@
     # CONTAINER & VIRTUALIZATION CLI
     # ==========================================================================
     distrobox             # Containerized development environment
-    docker-client         # Docker CLI
     podman                # Podman CLI
     podman-compose
     winboat

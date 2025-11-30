@@ -6,21 +6,6 @@
   # ============================================================================
   # Options to enable/disable different hardware configurations
   # ============================================================================
-  options.hardwareType = {
-    intel = lib.mkEnableOption "Intel hardware configuration";
-    amd = lib.mkEnableOption "AMD hardware configuration";
-    nvidia = lib.mkEnableOption "NVIDIA hardware configuration";
-    vm = lib.mkEnableOption "VM hardware configuration";
-  };
-
-  config = {
-    # Default hardware type (Intel)
-    hardwareType = {
-      intel = lib.mkDefault true;
-      amd = lib.mkDefault false;
-      nvidia = lib.mkDefault false;
-      vm = lib.mkDefault false;
-    };
 
     # Disable CUDA support since no NVIDIA GPU
     nixpkgs.config.cudaSupport = false;
@@ -31,7 +16,6 @@
 
   # CPU MICROCODE - Apply CPU updates for security and stability
   hardware.cpu.intel.updateMicrocode = lib.mkIf config.hardwareType.intel true;
-  hardware.cpu.amd.updateMicrocode = lib.mkIf config.hardwareType.amd true;
 
   # FIRMWARE - Device firmware including redistributable firmware
   hardware.enableRedistributableFirmware = true;
@@ -57,49 +41,23 @@
       libva-utils
       libva
       mesa-gl-headers
-
-      # Intel GPU Drivers & Acceleration
-    ] ++ lib.optionals config.hardwareType.intel [
       intel-media-driver      # Modern VAAPI driver for Intel GPUs (Broadwell+)
       intel-compute-runtime   # OpenCL support for Intel GPUs
       vpl-gpu-rt             # Intel Video Processing Library
       intel-graphics-compiler
-    ] ++ lib.optionals config.hardwareType.amd [
-      # AMD GPU Drivers & Acceleration
-      amdvlk                 # AMD Vulkan driver
-      rocm-opencl-icd        # AMD OpenCL
-      mesa-vdpau             # VDPAU support for AMD GPUs
-    ] ++ lib.optionals config.hardwareType.nvidia [
-      # NVIDIA GPU Drivers (if needed, but usually handled by services.xserver.videoDrivers)
     ];
 
     # 32-bit versions of the same drivers for compatibility.
-    extraPackages32 = with pkgs.pkgsi686Linux; [
+    extraPackages32 = with pkgs; [
       mesa
-    ] ++ lib.optionals config.hardwareType.intel [
       intel-media-driver
       libva
-    ] ++ lib.optionals config.hardwareType.amd [
-      # AMD 32-bit drivers if available
     ];
-  };
-
-  # NVIDIA DRIVERS (if enabled)
-  services.xserver.videoDrivers = lib.mkIf config.hardwareType.nvidia [ "nvidia" ];
-  hardware.nvidia = lib.mkIf config.hardwareType.nvidia {
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # ENVIRONMENT VARIABLES FOR VIDEO ACCELERATION
   environment.sessionVariables = lib.mkMerge [
-    (lib.mkIf config.hardwareType.intel {
       LIBVA_DRIVER_NAME = "iHD";
-    })
-    (lib.mkIf config.hardwareType.amd {
-      LIBVA_DRIVER_NAME = "radeonsi";
-    })
   ];
 
   # DEPRECATED OPENGL OPTION (For Reference)

@@ -9,25 +9,7 @@
     ../../Softwares/software.nix   # Software packages and services
   ];
 
-  # ============================================================================
-  # VIRTUALIZATION
-  # ============================================================================
-  # Options for virtual machines and containers
-  options.virtualizationTools = {
-    libvirt = lib.mkEnableOption "libvirt/QEMU/KVM for virtual machines";
-    docker = lib.mkEnableOption "Docker container runtime";
-    podman = lib.mkEnableOption "Podman container runtime";
-    waydroid = lib.mkEnableOption "Waydroid Android emulation";
-  };
-
-  config = {
-    # Default virtualization settings
-    virtualizationTools = {
-      libvirt = lib.mkDefault true;
-      docker = lib.mkDefault true;
-      podman = lib.mkDefault true;
-      waydroid = lib.mkDefault true;
-    };
+ 
 
     # ============================================================================
     # HOME MANAGER CONFIGURATION
@@ -37,7 +19,7 @@
     home-manager = {
       useGlobalPkgs = true;                # Use global packages
       useUserPackages = true;             # Use user-specific packages
-      extraSpecialArgs = { inherit inputs; userConfig = import ../../user-config.nix; };  # Pass inputs and user config to home-manager
+      extraSpecialArgs = { inherit inputs; };  # Pass inputs and user config to home-manager
       backupFileExtension = "backup";       # Backup existing files with .backup extension
 
       users.spidy = {

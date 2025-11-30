@@ -13,30 +13,15 @@
     # ==========================================================================
     # Language servers (CLI tools)
     nixd                  # Fast Nix LSP
-    rust-analyzer         # Rust LSP
-    nodePackages.bash-language-server  # Bash LSP
 
-    # Formatters & linters
-    nixpkgs-fmt           # Nix formatter
-    rustfmt               # Rust formatter
-    nodePackages.prettier # Multi-language formatter
-    shellcheck            # Shell script linter
-    shfmt                 # Bash formatter
-
-    # Code tools
-    tree-sitter           # Required by treesitter
-    yaml-language-server
-    marksman              # Markdown language server
 
     # Runtime environments
-    python3               # Python runtime
-    python3Packages.pip
+    python315               # Python runtime
+    python313Packages.pip
     nodejs
     nodePackages.npm
 
     # Build systems
-    gnumake               # GNU Make
-    ninja
     meson
     cmake
     binutils
@@ -48,7 +33,26 @@
     carapace              # Multi-shell completion
     inshellisense         # IDE-like shell completions
     fzf                   # Fuzzy finder
-    ripgrep               # Fast grep alternative
+        # VM management
+    virt-viewer           # Virtual machine viewer
+    virt-top              # Monitor VM performance
+    looking-glass-client  # Low-latency VM display (includes host)
+    scream
+
+    # QEMU/KVM
+    OVMF                  # UEFI firmware for VMs
+    swtpm                 # TPM emulation
+    libguestfs            # VM disk tools
+    freerdp
+
+    # SPICE support
+    spice                 # SPICE protocol support
+    spice-gtk             # SPICE client GTK
+    spice-protocol        # SPICE protocol headers
+    virglrenderer         # Virtual GPU support
+    virtio-win
+    spice-vdagent
+    spice-autorandr
   ];
 }
 # ============================================================================

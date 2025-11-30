@@ -13,7 +13,7 @@
     p7zip
     p7zip-rar
     usbutils              # USB utilities (lsusb)
-    nvtopPackages.full   # Hardware info
+    nvtopPackages.intel   # Hardware info
     imv                   # Image viewer
     jaq                   # JSON processor (jq alternative)
     matugen               # Material Design color generation
@@ -45,13 +45,12 @@
     ueberzugpp
     dosfstools
     evtest
-    # fuzzel               # Application launcher (move to home config)
 
     # ==========================================================================
     # SYSTEM GUI APPLICATIONS
     # ==========================================================================
     networkmanagerapplet  # Network manager applet
-    hyprpolkitagent                      # Modern Polkit Agent (Replaces polkit-gnome)
+    #hyprpolkitagent                      # Modern Polkit Agent (Replaces polkit-gnome)
     # ==========================================================================
     # SYSTEM PACKAGES
     # ==========================================================================
@@ -169,7 +168,8 @@
     rustc
 
     zluda
-    electron
+    elogind
+    material-symbols
   ];
 
   # ============================================================================

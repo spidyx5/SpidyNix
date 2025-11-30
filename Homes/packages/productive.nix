@@ -28,11 +28,8 @@
 
     # ==========================================================================
     # VIDEO EDITING (Conditional)
-    # ==========================================================================
-  ] ++ lib.optionals config.myConfig.productivity.davinciResolve [
-    davinci-resolve       # DaVinci Resolve
-  ] ++ lib.optionals config.myConfig.productivity.davinciResolveStudio [
-    davinci-resolve-studio # DaVinci Resolve Studio
+    # ========================================================================= 
+    #davinci-resolve-studio # DaVinci Resolve Studio
   ];
 }
 # ============================================================================

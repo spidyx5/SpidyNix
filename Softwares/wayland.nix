@@ -60,8 +60,7 @@
     # Qt5 compatibility (for DMS)
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquick3d
-    kdePackages.qt5compat
-    kdePackages.qtwebengine
+    libsForQt5.qt5.qtwebengine
     # ==========================================================================
     # WAYLAND & DISPLAY
     # ==========================================================================
@@ -77,7 +76,7 @@
     kanshi                # Dynamic display configuration
     xdg-desktop-portal-wlr
     xdg-desktop-portal-gtk
-    python3Packages.anyqt
+    python313Packages.anyqt
   ];
   # ============================================================================
   # Qt libraries available to dynamically linked programs

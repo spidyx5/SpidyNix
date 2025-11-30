@@ -29,13 +29,13 @@
     xanmod-kernel.configuration = {
       boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
     };
-    rt-kernel.configuration = {
-      boot.kernelPackages = pkgs.linuxPackages-rt_latest;
+   # rt-kernel.configuration = {
+    #  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
       # Disable SCX for RT kernel compatibility (RT kernels don't support SCX)
-      boot.kernelParams = [ "scx.scheduler=best" ];
+    #  boot.kernelParams = [ "scx.scheduler=best" ];
       # Override SCX service to disable it for RT kernel (use mkForce to override base config)
-      services.scx.enable = lib.mkForce false;
-    };
+    #  services.scx.enable = lib.mkForce false;
+   # };
   };
 
   # ============================================================================
@@ -113,20 +113,9 @@
     "tun"           # TUN/TAP devices for VM networking
     "vhost_net"     # Vhost-net for better network performance
     #"vfio_virqfd"
-  ] ++ lib.optionals config.hardwareType.intel [
     "kvm-intel"      # Intel KVM virtualization
     "i915"           # Intel graphics
     "kvmgt"          # Intel GVT-g mediated devices
-  ] ++ lib.optionals config.hardwareType.amd [
-    "kvm-amd"        # AMD KVM virtualization
-    "amdgpu"         # AMD graphics
-  ] ++ lib.optionals config.hardwareType.nvidia [
-    # NVIDIA modules if needed
-  ] ++ lib.optionals config.hardwareType.vm [
-    "virtio"         # VirtIO for VMs
-    "virtio_pci"
-    "virtio_net"
-    "virtio_blk"
   ];
 
   # ============================================================================
@@ -155,17 +144,7 @@
       "vfio"
       "vfio_iommu_type1"
       "kvm"
-    ] ++ lib.optionals config.hardwareType.intel [
       "i915"         # Intel graphics (early load)
-    ] ++ lib.optionals config.hardwareType.amd [
-      "amdgpu"       # AMD graphics (early load)
-    ] ++ lib.optionals config.hardwareType.nvidia [
-      # NVIDIA early load if needed
-    ] ++ lib.optionals config.hardwareType.vm [
-      "virtio"       # VirtIO for VMs
-      "virtio_pci"
-      "virtio_net"
-      "virtio_blk"
     ];
   };
 

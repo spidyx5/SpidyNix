@@ -106,13 +106,6 @@
     # '';
   };
 
-  # ============================================================================
-  # QUTEBROWSER PACKAGE
-  # ============================================================================
-  # Qutebrowser as home package
-  home.packages = with pkgs; [
-    qutebrowser  # Qutebrowser binary
-  ];
 }
 # Notes
 #
