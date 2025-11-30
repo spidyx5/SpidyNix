@@ -11,7 +11,7 @@
   ];
 
   # System configuration
-  system.stateVersion = "26.05";  # Version of NixOS this configuration is designed for
+  system.stateVersion = "25.11";  # Version of NixOS this configuration is designed for
   
   # Hardware configuration is imported above
   

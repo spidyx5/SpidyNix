@@ -140,7 +140,7 @@
     home = {
       username = "spidy";
       homeDirectory = "/home/spidy";
-      stateVersion = "26.05";
+      stateVersion = "25.11";
     };
   };
 }

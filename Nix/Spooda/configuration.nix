@@ -39,7 +39,7 @@
   services.nginx = {
     enable = false;
   };
-  system.stateVersion = "26.05";  # Set system state version
+  system.stateVersion = "25.11";  # Set system state version
   # ============================================================================
   # TEST CONFIGURATION NOTES
   # ============================================================================
