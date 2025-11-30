@@ -1,7 +1,7 @@
 # /etc/nixos/SpidyNix/Homes/configs/vm.nix
 { config, pkgs, lib, ... }:
 
-lib.mkIf config.myConfig.virtualization {
+{
   # ============================================================================
   # VIRTUALIZATION PACKAGES
   # ============================================================================

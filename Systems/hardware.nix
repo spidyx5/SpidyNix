@@ -7,15 +7,12 @@
   # Options to enable/disable different hardware configurations
   # ============================================================================
 
-    # Disable CUDA support since no NVIDIA GPU
-    nixpkgs.config.cudaSupport = false;
+  # Disable CUDA support since no NVIDIA GPU
+  nixpkgs.config.cudaSupport = false;
 
   # ============================================================================
   # SECTION 1: CORE SYSTEM HARDWARE
   # ============================================================================
-
-  # CPU MICROCODE - Apply CPU updates for security and stability
-  hardware.cpu.intel.updateMicrocode = lib.mkIf config.hardwareType.intel true;
 
   # FIRMWARE - Device firmware including redistributable firmware
   hardware.enableRedistributableFirmware = true;
@@ -57,7 +54,7 @@
 
   # ENVIRONMENT VARIABLES FOR VIDEO ACCELERATION
   environment.sessionVariables = lib.mkMerge [
-      LIBVA_DRIVER_NAME = "iHD";
+    { LIBVA_DRIVER_NAME = "iHD"; }
   ];
 
   # DEPRECATED OPENGL OPTION (For Reference)
@@ -70,7 +67,6 @@
   # ============================================================================
   # SECTION 3: PERIPHERALS & INPUT DEVICES
   # ============================================================================
-
 
   # CONTROLLER SUPPORT
   hardware.steam-hardware.enable = true; # Udev rules for Steam Controller/Deck
@@ -98,7 +94,6 @@
 
   # HARDWARE CLOCK
   time.hardwareClockInLocalTime = lib.mkDefault false;
-  };
 }
 # HARDWARE CONFIGURATION
 # ============================================================================

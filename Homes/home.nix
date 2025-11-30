@@ -43,10 +43,10 @@
     ./packages/productive.nix
     ./packages/development.nix
   ];
-    home = {
-      username = "spidy";
-      homeDirectory = "/home/spidy";
-      stateVersion = "26.05";
-    };
+
+  home = {
+    username = "spidy";
+    homeDirectory = "/home/spidy";
+    stateVersion = "26.05";
   };
 }

@@ -3,7 +3,7 @@
 {
   # LIBVIRT - VIRTUAL MACHINE MANAGEMENT
   # KVM virtualization with QEMU backend
-  virtualisation.libvirtd = lib.mkIf config.virtualizationTools.libvirt {
+  virtualisation.libvirtd = {
     enable = true;                     # Enable libvirtd service
 
     # Start libvirtd on boot
@@ -59,7 +59,7 @@
   # };
 
   # PODMAN CONFIGURATION
-  virtualisation.podman = lib.mkIf config.virtualizationTools.podman {
+  virtualisation.podman = {
     enable = true;                    # Enable Podman
 
     # Create a "docker" alias for podman
@@ -84,7 +84,7 @@
 
 
   # VM STORAGE DIRECTORIES
-  systemd.tmpfiles.rules = lib.mkIf config.virtualizationTools.libvirt [
+  systemd.tmpfiles.rules = [
     # ISO storage directory
     "d /var/lib/libvirt/isos 0755 qemu-libvirtd kvm -"
 
@@ -96,10 +96,10 @@
   ];
 
   # WAYDROID CONFIGURATION
-  virtualisation.waydroid.enable = config.virtualizationTools.waydroid;
+  virtualisation.waydroid.enable = true;
 
   # SHELL ALIASES
-  environment.shellAliases = lib.mkIf config.virtualizationTools.waydroid {
+  environment.shellAliases = {
     waydroid-stop = "sudo waydroid container stop | waydroid session stop";
   };
 }

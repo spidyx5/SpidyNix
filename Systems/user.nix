@@ -2,7 +2,7 @@
 { config, pkgs, lib, ... }:
 {
   # Timezone - configurable via user preferences
-  time.timeZone = config.myConfig.systemPrefs.timezone or "Asia/Singapore";
+  time.timeZone = "Asia/Singapore";
   i18n = {
     defaultLocale = "en_SG.UTF-8";
     extraLocaleSettings = {
@@ -57,8 +57,8 @@
   users.defaultUserShell = pkgs.nushell;
 
   # Keyboard layout - XKB fallback (when not using keyd)
-  services.xserver.xkb.layout = config.myConfig.systemPrefs.keyboard.layout or "us";
-  services.xserver.xkb.variant = config.myConfig.systemPrefs.keyboard.variant or "";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "";
 
   # Keyd - Colemak-DH keyboard mapping (your custom settings preserved)
   services.keyd.enable = true;
