@@ -120,7 +120,7 @@
         nix-index-db.nixosModules.nix-index
         inputs.musnix.nixosModules.musnix
         hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
-        nur.modules.nixos.default
+        #nur.modules.nixos.default
         sops-nix.nixosModules.sops
         nix-topology.nixosModules.default
         { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
