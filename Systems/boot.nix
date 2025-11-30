@@ -33,8 +33,8 @@
       boot.kernelPackages = pkgs.linuxPackages-rt_latest;
       # Disable SCX for RT kernel compatibility (RT kernels don't support SCX)
       boot.kernelParams = [ "scx.scheduler=best" ];
-      # Override SCX service to disable it for RT kernel
-      services.scx.enable = false;
+      # Override SCX service to disable it for RT kernel (use mkForce to override base config)
+      services.scx.enable = lib.mkDefault false;
     };
   };
 
