@@ -41,6 +41,13 @@ sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy --cores 0 -
 
 ### Post-Installation
 
+Update the flake to get the latest package versions:
+
+```bash
+cd /etc/nixos/SpidyNix
+nix flake update
+```
+
 Rebuild and switch to apply changes:
 
 ```bash
