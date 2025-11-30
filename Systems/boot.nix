@@ -31,6 +31,8 @@
     };
     rt-kernel.configuration = {
       boot.kernelPackages = pkgs.linuxPackages-rt_latest;
+      # Disable SCX for RT kernel compatibility (RT kernels don't support SCX)
+      boot.kernelParams = [ "scx.scheduler=best" ];
     };
   };
 

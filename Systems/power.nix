@@ -98,11 +98,11 @@
   '';
 
   # Enable SCX scheduler
-  #services.scx = {
-  #  enable = true;
+  services.scx = {
+    enable = true;
     # Force use of scx_lavd scheduler
-   # scheduler = lib.mkForce "scx_lavd";  # Options: scx_rusty, scx_lavd, scx_bpfland
- # };
+    scheduler = lib.mkForce "scx_lavd";  # Options: scx_rusty, scx_lavd, scx_bpfland
+  };
 
   # Enable thermald for thermal management (Intel processors)
   services.thermald.enable = true;
