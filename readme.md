@@ -155,5 +155,5 @@ SpidyNix/
 
 ## Credits
 
-- [linuxmobile/kaku](https://github.com/linuxmobile/kaku) - 
-- [theblackdon/black-don-os](https://gitlab.com/theblackdon/black-don-os) - 
+- [linuxmobile/kaku](https://github.com/linuxmobile/kaku)
+- [theblackdon/black-don-os](https://gitlab.com/theblackdon/black-don-os)
