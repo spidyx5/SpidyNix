@@ -91,22 +91,66 @@ SpidyNix/
 ├── readme.md
 ├── Homes/
 │   ├── home.nix
-│   ├── apps/          # Application configurations
-│   ├── configs/       # System configs (niri, mako, etc.)
-│   ├── devs/          # Development tools
-│   └── packages/      # Package sets
+│   ├── apps/           
+│   │   ├── chromium-flag.nix
+│   │   ├── edge.nix
+│   │   ├── fuzzel.nix
+│   │   ├── obs.nix
+│   │   ├── qutebrowser.nix
+│   │   ├── twitch.nix
+│   │   ├── yazi.nix
+│   │   └── zen-browser.nix
+│   ├── configs/        
+│   │   ├── mako.nix
+│   │   ├── niri.nix
+│   │   ├── rnnoise.nix
+│   │   ├── theme.nix
+│   │   ├── vm.nix
+│   │   └── xdg.nix
+│   ├── devs/           
+│   │   ├── git.nix
+│   │   ├── helix.nix
+│   │   ├── neovim.nix
+│   │   ├── nushell.nix
+│   │   ├── terminal.nix
+│   │   ├── vscode.nix
+│   │   └── zed.nix
+│   └── packages/       
+│       ├── desktop.nix
+│       ├── development.nix
+│       ├── gaming.nix
+│       └── productive.nix
 ├── Nix/
-│   ├── Persist/       # Persistent data docs
-│   ├── Secrets/       # Encrypted secrets
-│   └── Spidy/         # Host-specific configs
-└── Systems/           # System-wide modules
+│   ├── Persist/        
+│   │   ├── niri.md
+│   │   └── user_readme.md
+│   ├── Secrets/        
+│   │   ├── .sops.yaml
+│   │   └── secrets.yaml
+│   └── Spidy/          
+│       ├── configuration.nix
+│       ├── hardware-configuration.nix
+│       └── spidy-profile.nix
+├── Softwares/          
+│   ├── basic.nix
+│   ├── font.nix
+│   ├── program.nix
+│   ├── software.nix
+│   ├── virtualization.nix
+│   └── wayland.nix
+└── Systems/            
+    ├── blacklist.nix
     ├── boot.nix
     ├── hardware.nix
+    ├── login.nix
     ├── network.nix
     ├── nixos.nix
+    ├── power.nix
+    ├── security.nix
+    ├── service.nix
     ├── sound.nix
-    ├── user.nix
-    └── ...
+    ├── system.nix
+    └── user.nix
 ```
 
 ## Credits
