@@ -207,11 +207,9 @@
       ${completions ["git" "nix" "man" "rg" "gh" "glow" "bat"]}
 
       # Custom function: Change directory with fuzzy search
-      def fcd [] {
-        let dir = (fd --type d | sk | str trim)
-        if ($dir != "") {
-          cd $dir
-        }
+      def --env fcd [] {
+        let selected = (fd --type d --strip-cwd-prefix | sk --ansi)
+        if not ($selected | is-empty) { cd $selected }
       }
 
       # Custom function: List installed packages

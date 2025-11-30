@@ -71,7 +71,7 @@
       nix_shell = {
         disabled = false;  # Nix shell disabled
         heuristic = false;  # Nix shell heuristic
-        format = "[   ](fg:bright-blue bold)";  # Nix shell format
+        format = "[   ](fg:bright-blue bold)";  # Nix shell format
         impure_msg = "";  # Impure message
         pure_msg = "";  # Pure message
         unknown_msg = "";  # Unknown message

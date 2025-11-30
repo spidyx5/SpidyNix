@@ -147,6 +147,7 @@
     btop                  # Modern resource monitor
     fastfetch             # System information display
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    quickshell
         # LLVM/Clang toolchain
     llvm                  # LLVM compiler infrastructure
     clang                 # LLVM C/C++/Objective-C compiler
