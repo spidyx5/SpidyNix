@@ -175,11 +175,8 @@
   networking.firewall.checkReversePath = false;
 
   # Trusted interfaces for VM/container networking
-  networking.firewall.trustedInterfaces = lib.mkMerge [
-    (lib.mkIf config.virtualizationTools.libvirt [ "virbr0" ])
-    (lib.mkIf config.virtualizationTools.docker [ "docker0" ])
-    (lib.mkIf config.virtualizationTools.podman [ "podman0" ])
-  ];
+  networking.firewall.trustedInterfaces =  [
+   "virbr0" "docker0"  "podman0"  ];
   # ============================================================================
   # NETWORK MANAGER FEATURES
   # ============================================================================

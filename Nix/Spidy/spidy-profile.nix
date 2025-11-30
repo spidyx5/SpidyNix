@@ -17,17 +17,7 @@
   home-manager = {
     useGlobalPkgs = true;                # Use global packages
     useUserPackages = true;             # Use user-specific packages
-    extraSpecialArgs = {
-      inherit inputs;
-      myConfig = {
-        systemPrefs = {
-          keyboard = {
-            layout = "us";
-            variant = "";
-          };
-        };
-      };
-    };  # Pass inputs and user config to home-manager
+    extraSpecialArgs = {inherit inputs; };  # Pass inputs and user config to home-manager
     backupFileExtension = "backup";       # Backup existing files with .backup extension
 
     users.spidy = {

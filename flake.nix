@@ -4,82 +4,87 @@
   inputs = {
     # Core dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-lib.follows = "nixpkgs";
     nur = {
       url = "github:nix-community/NUR";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Development utilities
     systems.url = "github:nix-systems/default-linux";
     flake-utils = {
       url = "github:numtide/flake-utils";
-      follows = "systems";
+      inputs.systems.follows = "systems";
     };
     flake-compat.url = "github:edolstra/flake-compat";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
     # Audio/music production
     musnix = {
       url = "github:musnix/musnix";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # User environment management
     home-manager = {
       url = "github:nix-community/home-manager";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Performance optimizations & custom kernels
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-topology = {
       url = "github:oddlama/nix-topology";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Desktop environment & window manager
     niri = {
       url = "github:sodiboo/niri-flake";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     quickshell = {
       url = "github:outfoxxed/quickshell";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Applications & tools
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     helium-browser = {
       url = "github:fpletz/flake";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hosts.url = "github:StevenBlack/hosts";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
-      follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
-      follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

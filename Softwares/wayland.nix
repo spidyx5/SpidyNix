@@ -60,7 +60,7 @@
     # Qt5 compatibility (for DMS)
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquick3d
-    libsForQt5.qt5.qtwebengine
+    #libsForQt5.qt5.qtwebengine
     # ==========================================================================
     # WAYLAND & DISPLAY
     # ==========================================================================
