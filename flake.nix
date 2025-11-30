@@ -4,6 +4,7 @@
   inputs = {
     # Core dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-lib.follows = "nixpkgs";
     nur = {
       url = "github:nix-community/NUR";
       follows = "nixpkgs";
