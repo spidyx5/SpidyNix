@@ -22,6 +22,9 @@
       vm = lib.mkDefault false;
     };
 
+    # Disable CUDA support since no NVIDIA GPU
+    nixpkgs.config.cudaSupport = false;
+
   # ============================================================================
   # SECTION 1: CORE SYSTEM HARDWARE
   # ============================================================================
