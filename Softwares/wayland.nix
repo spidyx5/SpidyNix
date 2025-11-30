@@ -25,7 +25,19 @@
 
     # Java application settings
     _JAVA_AWT_WM_NONREPARENTING = "1";   # Fix Java apps on tiling WMs
-  };
+
+    # OpenGL and Mesa settings for performance
+    __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json";
+    LIBGL_ALWAYS_INDIRECT = "0";
+
+    # Electron application settings for Wayland
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+   };
+
+   # Prepend OpenGL driver to LD_LIBRARY_PATH
+   environment.extraInit = ''
+     export LD_LIBRARY_PATH="/run/opengl-driver/lib:$LD_LIBRARY_PATH"
+   '';
 
   # XDG Desktop Portal configuration
   xdg.portal = {
