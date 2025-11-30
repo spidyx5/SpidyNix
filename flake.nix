@@ -4,37 +4,82 @@
   inputs = {
     # Core dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
+    nur = {
+      url = "github:nix-community/NUR";
+      follows = "nixpkgs";
+    };
 
     # Development utilities
     systems.url = "github:nix-systems/default-linux";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      follows = "systems";
+    };
     flake-compat.url = "github:edolstra/flake-compat";
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     # Audio/music production
-    musnix.url = "github:musnix/musnix";
+    musnix = {
+      url = "github:musnix/musnix";
+      follows = "nixpkgs";
+    };
 
     # User environment management
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      follows = "nixpkgs";
+    };
 
     # Performance optimizations & custom kernels
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    nix-topology.url = "github:oddlama/nix-topology";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      follows = "nixpkgs";
+    };
+    nix-topology = {
+      url = "github:oddlama/nix-topology";
+      follows = "nixpkgs";
+    };
 
     # Desktop environment & window manager
-    niri.url = "github:sodiboo/niri-flake";
-    quickshell.url = "github:outfoxxed/quickshell";
-    dms.url = "github:AvengeMedia/DankMaterialShell";
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      follows = "nixpkgs";
+    };
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
+      follows = "nixpkgs";
+    };
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      follows = "nixpkgs";
+    };
 
     # Applications & tools
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    helium-browser.url = "github:fpletz/flake";
-    sops-nix.url = "github:Mic92/sops-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      follows = "nixpkgs";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      follows = "nixpkgs";
+    };
+    helium-browser = {
+      url = "github:fpletz/flake";
+      follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      follows = "nixpkgs";
+    };
     hosts.url = "github:StevenBlack/hosts";
-    nix-gaming.url = "github:fufexan/nix-gaming";
-    nix-index-db.url = "github:Mic92/nix-index-database";
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      follows = "nixpkgs";
+    };
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      follows = "nixpkgs";
+    };
   };
 
   # Outputs for the flake
@@ -58,7 +103,6 @@
       modules = [
          # Global Unfree Config (Fixes firmware/software errors)
          { nixpkgs.config.allowUnfree = true; }
-         { nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ]; }
         ./Nix/Spidy/configuration.nix
         inputs.spicetify-nix.nixosModules.default
         # User environment management
