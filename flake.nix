@@ -56,8 +56,9 @@
 
       # Modules to include in the configuration
       modules = [
-        # Global Unfree Config (Fixes firmware/software errors)
-        { nixpkgs.config.allowUnfree = true; }
+         # Global Unfree Config (Fixes firmware/software errors)
+         { nixpkgs.config.allowUnfree = true; }
+         { nixpkgs.config.permittedInsecurePackages = [ "qtwebengine-5.15.19" ]; }
         ./Nix/Spidy/configuration.nix
         inputs.spicetify-nix.nixosModules.default
         # User environment management
