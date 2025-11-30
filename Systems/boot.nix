@@ -24,13 +24,13 @@
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
  specialisation = {
     lqx-kernel.configuration = {
-      boot.kernelPackages = linuxPackages_lqx;
+      boot.kernelPackages = pkgs.linuxPackages_lqx;
     };
     xanmod-kernel.configuration = {
-      boot.kernelPackages = linuxPackages_xanmod_latest;
+      boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
     };
     rt-kernel.configuration = {
-      boot.kernelPackages = linuxPackages_rt_latest;
+      boot.kernelPackages = pkgs.linuxPackages-rt_latest;
     };
   };
 
