@@ -35,8 +35,7 @@
     zstd                  # Compression utility
     age                   # Modern encryption tool
     dig                   # DNS lookup utility
-    # bat                   # Better cat with syntax highlighting (listed above)
-    electron
+    #electron
     # & CLI tools
     tldr                  # Simplified man pages
 
@@ -145,7 +144,6 @@
     # ==========================================================================
     btop                  # Modern resource monitor
     fastfetch             # System information display
-    inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     quickshell
         # LLVM/Clang toolchain
     llvm                  # LLVM compiler infrastructure

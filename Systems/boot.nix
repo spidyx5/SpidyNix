@@ -73,9 +73,6 @@
        #"acpi_sleep=nonvs"
        #"mem_sleep_default=deep"
        # resume=/dev/mapper/mock-fan
-    ]
-    # Intel specific params
-    ++ [
       "intel_idle.max_cstate=4"                # Intel CPU C-state limit
       "intel_pstate=passive"                   # Intel P-state passive mode
       "intel_iommu=on"                         # Enable Intel IOMMU
@@ -99,7 +96,6 @@
       "efivarfs"       # EFI variable filesystem
       "uinput"         # User input device
       "tcp_bbr"        # BBR congestion control
-      "uinput"           # User input device emulation
       "hid_nintendo"     # Nintendo Switch controllers
       "xpad"             # Xbox controllers
       # Networking

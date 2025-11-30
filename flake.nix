@@ -4,10 +4,10 @@
   inputs = {
     # Core dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-   # nur = {
-   #   url = "github:nix-community/NUR";
-   #   inputs.nixpkgs.follows = "nixpkgs";
-   # };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Development utilities
     systems.url = "github:nix-systems/default-linux";
@@ -90,7 +90,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, niri, zen-browser, nix-gaming, nix-index-db,
-    musnix, spicetify-nix, helium-browser, nix-topology, hosts, sops-nix, ... }@inputs:
+    musnix, spicetify-nix, helium-browser, nix-topology, hosts, nur, sops-nix, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";
@@ -120,7 +120,7 @@
         nix-index-db.nixosModules.nix-index
         inputs.musnix.nixosModules.musnix
         hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
-        #nur.modules.nixos.default
+        nur.modules.nixos.default
         sops-nix.nixosModules.sops
         nix-topology.nixosModules.default
         { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
