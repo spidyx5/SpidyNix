@@ -10,7 +10,7 @@
     #};
 
     # Development utilities
-    #systems.url = "github:nix-systems/default-linux";
+    systems.url = "github:nix-systems/default-linux";
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs.systems.follows = "systems";
