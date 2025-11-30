@@ -112,6 +112,7 @@
     # Networking
     "tun"           # TUN/TAP devices for VM networking
     "vhost_net"     # Vhost-net for better network performance
+    #"vfio_virqfd"
   ] ++ lib.optionals config.hardwareType.intel [
     "kvm-intel"      # Intel KVM virtualization
     "i915"           # Intel graphics
@@ -153,7 +154,6 @@
       "vfio_pci"
       "vfio"
       "vfio_iommu_type1"
-      "vfio_virqfd"
       "kvm"
     ] ++ lib.optionals config.hardwareType.intel [
       "i915"         # Intel graphics (early load)
