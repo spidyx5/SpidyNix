@@ -24,9 +24,9 @@
     # Default virtualization settings
     virtualizationTools = {
       libvirt = lib.mkDefault true;
-      docker = lib.mkDefault false;
+      docker = lib.mkDefault true;
       podman = lib.mkDefault true;
-      waydroid = lib.mkDefault false;
+      waydroid = lib.mkDefault true;
     };
 
     # ============================================================================

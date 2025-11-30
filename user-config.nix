@@ -29,7 +29,7 @@
     browsers = {
       chromium = false; # Chromium browser
       qutebrowser = false; # Keyboard-driven browser
-      zen = false;      # Zen browser (Firefox-based)
+      zen = true;      # Zen browser (Firefox-based)
     };
 
     /*
@@ -55,8 +55,8 @@
     # FEATURES - Enable/disable major feature sets
     # ============================================================================
     */
-    virtualization = false;   # VM and container tools
-    gaming = false;           # Gaming-related software
+    virtualization = true;   # VM and container tools
+    gaming = true;           # Gaming-related software
 
     /*
     # ============================================================================
@@ -65,7 +65,7 @@
     */
     productivity = {
       davinciResolve = false;     # Video editing software
-      davinciResolveStudio = false; # Full DaVinci Resolve Studio
+      davinciResolveStudio = true; # Full DaVinci Resolve Studio
     };
 
     /*
@@ -86,10 +86,10 @@
     # ============================================================================
     */
     virtualizationTools = {
-      libvirt = false;    # Enable libvirt/QEMU/KVM for virtual machines
-      docker = false;    # Enable Docker container runtime (conflicts with podman)
-      podman = false;     # Enable Podman container runtime
-      waydroid = false;  # Enable Waydroid Android emulation
+      libvirt = true;    # Enable libvirt/QEMU/KVM for virtual machines
+      docker = true;    # Enable Docker container runtime (conflicts with podman)
+      podman = true;     # Enable Podman container runtime
+      waydroid = true;  # Enable Waydroid Android emulation
     };
 
     /*
