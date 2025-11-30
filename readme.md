@@ -126,9 +126,6 @@ The configuration is set up to automatically decrypt secrets during system build
 SpidyNix/
 ├── flake.nix
 ├── flake.lock
-├── SpidyNix.sh
-├── change-settings.sh
-├── user-config.nix
 ├── Homes/
 │   ├── home.nix
 │   ├── apps/
@@ -167,14 +164,10 @@ SpidyNix/
 │   ├── Secrets/
 │   │   ├── .sops.yaml
 │   │   └── secrets.yaml
-│   ├── Spidy/
-│   │   ├── configuration.nix
-│   │   ├── hardware-configuration.nix
-│   │   └── spidy-profile.nix
-│   └── Spooda/
+│   |── Spidy/
 │       ├── configuration.nix
 │       ├── hardware-configuration.nix
-│       └── spooda-profile.nix
+│       └── spidy-profile.nix
 ├── Softwares/
 │   ├── basic.nix
 │   ├── font.nix

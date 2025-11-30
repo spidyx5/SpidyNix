@@ -1,6 +1,4 @@
-# Spidy Profile Configuration
-# This file contains the main configuration for the Spidy profile
-
+# /etc/nixos/SpidyNix/Nix/Spidy/configuration.nix
 { inputs, lib, config, pkgs, ... }:
 
 {

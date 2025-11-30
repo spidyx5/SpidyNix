@@ -1,3 +1,4 @@
+# /etc/nixos/SpidyNix/Nix/Spidy/spidy-profile.nix
 { config, pkgs, lib, inputs, ... }:
 {
   # ============================================================================
