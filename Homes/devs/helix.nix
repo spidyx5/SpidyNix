@@ -1,7 +1,7 @@
 # /etc/nixos/SpidyNix/Homes/devs/helix.nix
 { config, pkgs, lib, ... }:
 
-lib.mkIf config.myConfig.editors.helix {
+ {
   # ============================================================================
   # HELIX CONFIGURATION
   # ============================================================================

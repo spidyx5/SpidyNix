@@ -75,35 +75,6 @@
         { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
       ];
     };
-
-    # Test configuration for spooda host
-    nixosConfigurations.Spooda = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      # Only pass inputs. Do NOT pass 'pkgs' here to avoid conflicts.
-      specialArgs = { inherit inputs; };
-
-      # Modules to include in the configuration
-      modules = [
-        { nixpkgs.config.allowUnfree = true; }
-        ./Nix/Spooda/configuration.nix
-        inputs.spicetify-nix.nixosModules.default
-        # User environment management
-        home-manager.nixosModules.home-manager
-        # Modules
-        chaotic.nixosModules.default
-        inputs.nix-gaming.nixosModules.pipewireLowLatency  # Low-latency PipeWire
-        nix-gaming.nixosModules.platformOptimizations
-        nix-index-db.nixosModules.nix-index
-        inputs.musnix.nixosModules.musnix
-        hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
-        nur.modules.nixos.default
-        sops-nix.nixosModules.sops
-        nix-topology.nixosModules.default
-        { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
-      ];
-    };
-
     # Formatter for Nix files
     formatter.${system} = pkgs.alejandra;
 
