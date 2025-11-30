@@ -23,9 +23,9 @@
     # KERNEL CONFIGURATION
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
     specialisation = {
-      lqx-kernel.configuration = {
-        boot.kernelPackages = pkgs.linuxPackages_lqx;
-      };
+      #lqx-kernel.configuration = {
+      #  boot.kernelPackages = pkgs.linuxPackages_lqx;
+      #};
       xanmod-kernel.configuration = {
         boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
       };
@@ -101,7 +101,7 @@
       # Networking
       "tun"           # TUN/TAP devices for VM networking
       "vhost_net"     # Vhost-net for better network performance
-      #"vfio_virqfd"
+      "vfio_virqfd"
       "kvm-intel"      # Intel KVM virtualization
       "i915"           # Intel graphics
       "kvmgt"          # Intel GVT-g mediated devices
