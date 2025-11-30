@@ -1,5 +1,5 @@
 # /etc/nixos/SpidyNix/Homes/home.nix
-{ config, pkgs, lib, inputs, userConfig, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   # ============================================================================
