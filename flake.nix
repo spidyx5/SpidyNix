@@ -24,7 +24,6 @@
 
     # Desktop environment & window manager
     niri.url = "github:sodiboo/niri-flake";
-    stylix.url = "github:danth/stylix";
     quickshell.url = "github:outfoxxed/quickshell";
     dms.url = "github:AvengeMedia/DankMaterialShell";
 
@@ -40,7 +39,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, niri, zen-browser, nix-gaming, nix-index-db,
-    musnix, stylix, spicetify-nix, helium-browser, nix-topology, hosts, nur, sops-nix, ... }@inputs:
+    musnix, spicetify-nix, helium-browser, nix-topology, hosts, nur, sops-nix, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";
