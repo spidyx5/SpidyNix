@@ -118,23 +118,23 @@
   # Enable SSH for remote access
   # ============================================================================
 
-  services.openssh = {
-    enable = true;
+  #services.openssh = {
+  #  enable = true;
 
-    settings = {
+   # settings = {
       # Disable root login for security
-      PermitRootLogin = "no";
+   #   PermitRootLogin = "no";
 
       # Disable password authentication (use SSH keys only)
-      PasswordAuthentication = false;
+   #   PasswordAuthentication = false;
 
       # Enable public key authentication
-      PubkeyAuthentication = true;
+    #  PubkeyAuthentication = true;
 
       # Disable X11 forwarding
-      X11Forwarding = false;
-    };
-  };
+    #  X11Forwarding = false;
+   # };
+  #};
 
   # ============================================================================
   # SYSTEMD NETWORK SERVICES
