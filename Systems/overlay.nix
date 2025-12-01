@@ -1,30 +1,34 @@
-# /etc/nixos/SpidyNix/Systems/overlay.nix
+# /etc/nixos/SpidyNix/Systems/overlay.nix (THE CORRECT FIX)
 final: prev:
 
 let
-  # The compiler flags for NIX_CFLAGS_COMPILE
   aggressiveCFlags = [
     "-O3"
-    "-march=x86-64-v3" # Adjust if your target machine is not v3 compatible
+    "-march=x86-64-v3"
     "-flto=auto"
     "-fomit-frame-pointer"
     "-ffunction-sections"
     "-fdata-sections"
   ];
 
-  # The linker flags for NIX_LDFLAGS
   aggressiveLdFlags = [
     "-fuse-ld=mold"
     "-Wl,--gc-sections"
   ];
 
+  # Concatenate the flags for injection
+  cflagsStr = prev.lib.concatStringsSep " " aggressiveCFlags;
+  ldflagsStr = prev.lib.concatStringsSep " " aggressiveLdFlags;
+
 in {
-  # Override the default stdenv package set
-  stdenv = prev.stdenv.override {
-    initialBuildFlags = {
-      # Concatenate the flag lists into space-separated strings
-      NIX_CFLAGS_COMPILE = prev.lib.concatStringsSep " " aggressiveCFlags;
-      NIX_LDFLAGS = prev.lib.concatStringsSep " " aggressiveLdFlags;
-    };
-  };
+  # We override the function used to create packages (mkDerivation)
+  mkDerivation = args: prev.mkDerivation (args // {
+    # Append the aggressive flags to the standard environment variables
+    # This ensures every package built gets these injected flags.
+    NIX_CFLAGS_COMPILE = 
+      (if args ? NIX_CFLAGS_COMPILE then args.NIX_CFLAGS_COMPILE else "") + " " + cflagsStr;
+    
+    NIX_LDFLAGS = 
+      (if args ? NIX_LDFLAGS then args.NIX_LDFLAGS else "") + " " + ldflagsStr;
+  });
 }
