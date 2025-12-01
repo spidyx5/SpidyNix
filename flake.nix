@@ -48,10 +48,6 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,10 +66,10 @@
       url = "github:fpletz/flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #sops-nix = {
+     # url = "github:Mic92/sops-nix";
+     # inputs.nixpkgs.follows = "nixpkgs";
+    #};
     hosts.url = "github:StevenBlack/hosts";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -90,7 +86,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, zen-browser, nix-gaming, nix-index-db,
-    musnix, spicetify-nix, helium-browser, niri, nur, nix-topology, hosts, sops-nix, ... }@inputs:
+    musnix, spicetify-nix, helium-browser, niri, nur, nix-topology, hosts, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";
@@ -120,8 +116,8 @@
         nix-index-db.nixosModules.nix-index
         inputs.musnix.nixosModules.musnix
         hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
-        #nur.modules.nixos.default
-        sops-nix.nixosModules.sops
+        nur.modules.nixos.default
+        #sops-nix.nixosModules.sops
         nix-topology.nixosModules.default
         { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
       ];

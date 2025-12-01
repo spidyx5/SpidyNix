@@ -47,7 +47,7 @@
     # SYSTEM GUI APPLICATIONS
     # ==========================================================================
     networkmanagerapplet  # Network manager applet
-    #hyprpolkitagent                      # Modern Polkit Agent (Replaces polkit-gnome)
+    hyprpolkitagent                      # Modern Polkit Agent (Replaces polkit-gnome)
     # ==========================================================================
     # SYSTEM PACKAGES
     # ==========================================================================

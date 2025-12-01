@@ -47,7 +47,7 @@
         # Keyboard layout - configurable via user preferences
         xkb = {
           layout = "us";  # User-configurable layout
-          variant = "us";  # User-configurable variant
+          variant = "colemak_dh_ortho";  # User-configurable variant
           # Map Caps Lock to the Super/Mod key for easy access.
           options = "caps:super";  # Map Caps Lock to Super key
         };

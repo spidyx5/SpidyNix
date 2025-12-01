@@ -46,5 +46,4 @@
       #"biome.path" = "${pkgs.biome}/bin/biome";
     };
   };
-
 }

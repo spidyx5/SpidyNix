@@ -33,8 +33,8 @@
   # ============================================================================
   # Configure sops-nix for encrypted secrets
   # ============================================================================
-  sops.defaultSopsFile = ../Secrets/secrets.yaml;
-  sops.age.keyFile = "/home/spidy/.config/sops/age/keys.txt";
+  #sops.defaultSopsFile = ../Secrets/secrets.yaml;
+  #sops.age.keyFile = "/home/spidy/.config/sops/age/keys.txt";
 
   sops.secrets.bitwarden_password = {};
   sops.secrets.bookmarks_data = {};

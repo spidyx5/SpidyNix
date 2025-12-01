@@ -1,18 +1,6 @@
 # /etc/nixos/SpidyNix/Systems/service.nix
 { config, pkgs, lib, ... }:
 {
-  # Display manager configuration
-  services.displayManager = {
-    # Disable automatic login (enable if desired)
-    autoLogin = {
-      enable = false;  # Set to true to enable auto-login
-      user = "spidy";   # User to auto-login
-    };
-
-    # Default session (set by login manager)
-    defaultSession = "niri";  # Default session to start
-  };
-
   # Disable X server (we're using Wayland)
   services.xserver.enable = false;
 

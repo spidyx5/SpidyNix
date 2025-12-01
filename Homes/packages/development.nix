@@ -18,8 +18,8 @@
     # Runtime environments
     python315               # Python runtime
     python313Packages.pip
-    nodejs
-    #nodePackages.npm
+    #nodejs
+    nodePackages.npm
 
     # Build systems
     meson

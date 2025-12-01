@@ -80,7 +80,7 @@
     wayland                              # Wayland protocol libraries
     wayland-utils                        # Wayland utilities (wayland-info, etc.)
     wayland-protocols                    # Wayland protocol extensions
-    xwayland-satellite                   # XWayland integration
+    #xwayland-satellite                   # XWayland integration
     wtype
     wlr-randr
     wev

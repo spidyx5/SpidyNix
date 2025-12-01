@@ -1,10 +1,10 @@
 # /etc/nixos/SpidyNix/Systems/system.nix
 { config, pkgs, lib, ... }:
 
-let
+#let
   # Define a local variable pointing to the overlay function
-  aggressiveStdenvOverlay = import ./overlay.nix; 
-in
+ # aggressiveStdenvOverlay = import ./overlay.nix; 
+#in
 {
   # Imports all core system configuration modules in the Systems folder.
   imports = [
@@ -22,7 +22,7 @@ in
   ];
 
   # CORRECT: Apply the overlay using the dedicated NixOS option
-  nixpkgs.overlays = [
-    aggressiveStdenvOverlay
-  ];
+ # nixpkgs.overlays = [
+  #  aggressiveStdenvOverlay
+  #];
 }

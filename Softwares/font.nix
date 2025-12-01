@@ -115,5 +115,5 @@
 
   # DISABLE DEFAULT PACKAGES
   # Disable default font packages to have full control
-  fonts.enableDefaultPackages = false;
+  #fonts.enableDefaultPackages = false;
 }

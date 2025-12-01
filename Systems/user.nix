@@ -57,8 +57,8 @@
   users.defaultUserShell = pkgs.nushell;
 
   # Keyboard layout - XKB fallback (when not using keyd)
-  #services.xserver.xkb.layout = "us";
-  #services.xserver.xkb.variant = "";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "colemak_dh_ortho";
 
   # Keyd - Colemak-DH keyboard mapping (your custom settings preserved)
   services.keyd.enable = true;

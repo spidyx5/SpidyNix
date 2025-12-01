@@ -79,16 +79,18 @@
     ];
 
     # Compiler optimization flags
- #   stdenv.adhesionCompilerFlags = [
-   #   "-O3"  # Aggressive optimization
-   #   "-march=x86-64-v3"  # Optimize for modern x86-64 CPUs
-   #   "-flto=auto"  # Enable Link Time Optimization
-   #   "-fuse-ld=mold"  # Use mold linker
-   #   "-fomit-frame-pointer"  # Omit frame pointer for performance
-   #   "-ffunction-sections"  # Place each function in its own section
-    #  "-fdata-sections"  # Place each data item in its own section
-    #  "-Wl,--gc-sections"  # Garbage collect unused sections
-    #];
+    stdenv.adhesionCompilerFlags = [
+      "-O3"  # Aggressive optimization
+      "-mtune=native"
+      "-march=x86-64-v3"  # Optimize for modern x86-64 CPUs
+      "-flto=auto"  # Enable Link Time Optimization
+      "-fuse-ld=mold"  # Use mold linker
+      "-pipe"
+      "-fomit-frame-pointer"  # Omit frame pointer for performance
+      "-ffunction-sections"  # Place each function in its own section
+      "-fdata-sections"  # Place each data item in its own section
+      "-Wl,--gc-sections"  # Garbage collect unused sections
+    ];
   };
 
   # ============================================================================

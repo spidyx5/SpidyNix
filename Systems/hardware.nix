@@ -7,7 +7,6 @@
   # Options to enable/disable different hardware configurations
   # ============================================================================
 
-  # Disable CUDA support since no NVIDIA GPU
   nixpkgs.config.cudaSupport = false;
 
   # ============================================================================
@@ -72,19 +71,6 @@
 
   # BRIGHTNESS CONTROL
   hardware.brillo.enable = true;
-
-  # ============================================================================
-  # SECTION 4: OPTIONAL HARDWARE (Disabled by Default)
-  # ============================================================================
-
-  # LOGITECH WIRELESS
-  hardware.logitech.wireless = {
-    enable = false;
-    enableGraphical = false;
-  };
-
-  # QMK KEYBOARDS
-  hardware.keyboard.qmk.enable = false;
 
   # ============================================================================
   # SECTION 5: MISCELLANEOUS
