@@ -9,7 +9,7 @@
       # Immediately starts Niri as 'spidy' when you boot up.
       initial_session = {
         command = "${pkgs.niri}/bin/niri-session";
-        user = "Spidy";
+        user = "spidy";
       };
 
       # 2. FALLBACK (Maintenance Mode)
