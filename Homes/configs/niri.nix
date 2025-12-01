@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 {
   # Enable the Niri window manager session wrapper.
-  programs.niri.enable = true;
+  #programs.niri.enable = true;
 
   # Set session variables for Wayland compatibility.
   # This ensures applications launched from your shell run correctly on Wayland.

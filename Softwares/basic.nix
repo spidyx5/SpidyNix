@@ -6,12 +6,10 @@
     # BASIC SYSTEM PACKAGES
     # ==========================================================================
     # Essential CLI tools
-    git                   # Version control
     wget                  # File downloader
     curl                  # URL transfer tool
     unzip
     p7zip
-    p7zip-rar
     usbutils              # USB utilities (lsusb)
     nvtopPackages.intel   # Hardware info
     imv                   # Image viewer
@@ -165,7 +163,7 @@
     # Rust toolchain
     rustc
 
-    zluda
+    #zluda
     elogind
     material-symbols
   ];

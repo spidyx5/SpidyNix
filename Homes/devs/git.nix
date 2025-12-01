@@ -12,8 +12,8 @@
     settings = {
       # User Identity
       user = {
-        name = "spidy";  # Git user name
-        email = "spidy@example.com";  # Git user email
+        name = "spidyx5";  # Git user name
+        email = "spidyx5@duck.com";  # Git user email
       };
 
       # Aliases (Previously 'aliases')

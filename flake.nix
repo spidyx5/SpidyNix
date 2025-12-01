@@ -4,10 +4,10 @@
   inputs = {
     # Core dependencies
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-   # nur = {
-    #  url = "github:nix-community/NUR";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+     nur = {
+       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Development utilities
     systems.url = "github:nix-systems/default-linux";
@@ -90,7 +90,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, niri, zen-browser, nix-gaming, nix-index-db,
-    musnix, spicetify-nix, helium-browser, nix-topology, hosts, sops-nix, ... }@inputs:
+    musnix, spicetify-nix, helium-browser, nur, nix-topology, hosts, sops-nix, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";

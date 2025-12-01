@@ -11,7 +11,7 @@
     inputs.dms.homeModules.dankMaterialShell.default
 
     # Devs
-    #./devs/git.nix
+    ./devs/git.nix
     ./devs/nushell.nix
     ./devs/helix.nix
     #./devs/neovim.nix
