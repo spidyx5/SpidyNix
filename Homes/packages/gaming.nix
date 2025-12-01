@@ -9,7 +9,7 @@
   # ============================================================================
   home.packages = with pkgs; [
     # Vulkan and graphics optimization
-    proton-cachyos_x86_64_v3
+    #proton-cachyos_nightly_x86_64_v3
     vulkan-volk
     vulkan-memory-allocator
     vulkan-utility-libraries

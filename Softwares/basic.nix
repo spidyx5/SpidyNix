@@ -122,8 +122,8 @@
     seatd
     mods
     pciutils
-    google-fonts
-    fontforge-gtk
+    #google-fonts
+    #fontforge-gtk
     tinygettext           
 
     # ==========================================================================
