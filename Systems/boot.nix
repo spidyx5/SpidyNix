@@ -255,32 +255,3 @@
     # ============================================================================
     boot.supportedFilesystems = [ "btrfs"  "f2fs" ];  # Supported filesystems
 }
-# ============================================================================
-# BOOT CONFIGURATION
-# ============================================================================
-# This file configures the boot process including:
-#   - Bootloader (Limine with EFI support)
-#   - Kernel (CachyOS for performance)
-#   - Kernel parameters (security and performance tuning)
-#   - Kernel modules (hardware support)
-#   - System control (sysctl) tuning
-#   - Boot aesthetics (Plymouth)
-# ============================================================================
-# NOTES:
-# - Limine is a modern, fast bootloader with EFI support
-# - CachyOS kernel is optimized for performance
-# - Kernel parameters are tuned for security and performance
-# - Kernel modules are configured for hardware support
-# - Sysctl parameters are set for system tuning
-# - Plymouth provides a beautiful boot splash
-# - For troubleshooting:
-#   - Check boot logs: journalctl -b
-#   - Verify kernel parameters: cat /proc/cmdline
-#   - Check loaded modules: lsmod
-#   - Verify sysctl settings: sysctl -a
-# - To customize:
-#   - Adjust kernel parameters as needed
-#   - Add/remove kernel modules
-#   - Modify sysctl settings
-#   - Change bootloader settings
-# ============================================================================

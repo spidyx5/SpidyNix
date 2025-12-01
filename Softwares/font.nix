@@ -117,26 +117,3 @@
   # Disable default font packages to have full control
   fonts.enableDefaultPackages = false;
 }
-# ============================================================================
-# FONT CONFIGURATION
-# ============================================================================
-# This file configures system fonts including:
-#   - Font packages (multiple font families)
-#   - Font rendering (antialiasing, hinting, subpixel)
-#   - Default fonts (serif, sans-serif, monospace, emoji)
-#   - Font directory setup
-# ============================================================================
-# NOTES:
-# - This configuration sets up system-wide fonts
-# - Noto fonts provide extensive language support
-# - Nerd Fonts provide icons for terminals and editors
-# - Font rendering is optimized for most displays
-# - For troubleshooting:
-#   - Check font availability: fc-list
-#   - Verify font rendering: fc-match
-#   - Check font cache: fc-cache -fv
-# - To customize:
-#   - Add/remove font packages as needed
-#   - Adjust rendering settings for your display
-#   - Change default font preferences
-# ============================================================================

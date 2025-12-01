@@ -79,85 +79,10 @@
     };
   };
 }
-# ============================================================================
-# TERMINAL CONFIGURATION
-# ============================================================================
-# This file configures terminal emulator and shell prompt
-# Home Manager module for user 'spidy'
-# ============================================================================
-# ============================================================================
-# NOTES
-# ============================================================================
-# STARSHIP:
-# - Cross-shell prompt (works with bash, zsh, fish, nushell)
-# - Fast and minimal
-# - Shows git status, exit codes, command duration
-# - Transience: Old prompts collapse after enter
-# - Config: ~/.config/starship.toml
-#
-# FOOT:
-# - Wayland-native terminal emulator
-# - Fast and lightweight
-# - GPU-accelerated
-# - Sixel graphics support
-# - Integrated with Zellij terminal multiplexer
-#
-# ZELLIJ:
-# - Terminal multiplexer (like tmux)
-# - Launched automatically by foot
-# - Tabs and panes
-# - Session management
-# - Layout system
-#
-# PROMPT FEATURES:
-# - Hostname and OS info
-# - Current directory
-# - Git branch and status
-# - Nix shell indicator
-# - Command duration
-# - Success/error indication
-#
-# FONT:
-# - ZedMono Nerd Font Mono
-# - Ligatures enabled (calt, dlig, liga)
-# - Size 8
-# - Includes icons and glyphs
-#
-# SCROLLBACK:
-# - 10000 lines of history
-# - Scroll multiplier: 3 lines per scroll
-# - Indicator shows position
-#
-# URL HANDLING:
-# - Click URLs to open in browser
-# - Label letters for keyboard selection
-# - OSC 8 hyperlinks supported
-#
-# CLIPBOARD:
-# - Selection goes to clipboard
-# - Paste with Shift+Ctrl+V
-# - Copy with Shift+Ctrl+C
-#
-# THEME:
-# - Loaded from ~/.config/foot/theme.ini
-# - Can be customized per user
-# - Colors with transparency support
-#
 # SIXEL SUPPORT:
 # - Display images in terminal
 # - Use with img2sixel or chafa
 # - Example: img2sixel image.png
-#
-# DESKTOP NOTIFICATIONS:
-# - Terminal can send notifications
-# - Uses libnotify
-# - Shows in notification area
-#
-# ALTERNATIVES:
-# - Kitty: Feature-rich, GPU-accelerated
-# - Alacritty: Fast, minimal
-# - Wezterm: Modern, Rust-based
-# - Foot is chosen for Wayland-native speed
 #
 # SHORTCUTS (Foot):
 # - Ctrl+Shift+C: Copy
@@ -172,21 +97,3 @@
 # - Ctrl+n: Switch panes
 # - Ctrl+q: Quit
 # - More: https://zellij.dev/documentation/
-#
-# CUSTOMIZATION:
-# - Starship: Modify settings above
-# - Foot theme: Create ~/.config/foot/theme.ini
-# - Zellij: ~/.config/zellij/config.kdl
-#
-# PERFORMANCE:
-# - Foot is one of the fastest terminals
-# - Low memory usage
-# - Smooth scrolling
-# - Fast rendering
-#
-# TROUBLESHOOTING:
-# - Font issues: Check Nerd Font installed
-# - Colors wrong: Check theme.ini
-# - Zellij not starting: Check zellij package
-# - URLs not opening: Check xdg-utils
-# ============================================================================

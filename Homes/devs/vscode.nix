@@ -76,23 +76,3 @@
     };
   };
 }
-# ============================================================================
-# VSCODE CONFIGURATION
-# ============================================================================
-# Configures Visual Studio Code, Extensions, and User Settings.
-# ============================================================================
-# NOTES:
-# - This configuration sets up VSCodium with essential extensions
-# - Uses JetBrains Mono font with ligatures
-# - Nushell is configured as the default terminal
-# - Nix language support is enabled with nixd
-# - For troubleshooting:
-#   - Check VSCodium installation: which codium
-#   - Verify extensions: codium --list-extensions
-#   - Check settings: codium --status
-# - To customize:
-#   - Add/remove extensions as needed
-#   - Change font settings to match your preferences
-#   - Adjust terminal settings for different shells
-#   - Modify Nix language server settings
-# ============================================================================

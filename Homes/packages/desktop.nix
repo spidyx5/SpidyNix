@@ -57,12 +57,7 @@
     winboat
   ];
 }
-# ============================================================================
-# DESKTOP APPLICATIONS CONFIGURATION
-# ============================================================================
-# This file contains user-level desktop applications
-# Home Manager module for user 'spidy'
-# ============================================================================
+
 # NOTES:
 # - This configuration provides desktop applications
 # - Applications are organized by functionality

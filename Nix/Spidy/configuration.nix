@@ -9,16 +9,5 @@
   ];
 
   # System configuration
-  system.stateVersion = "26.05";  # Version of NixOS this configuration is designed for
-
-  # Hardware configuration is imported above
-
-  # Profile-specific settings are in spidy-profile.nix
-
-  # You can add additional system-wide configuration here
-  # Examples:
-  # - Networking
-  # - Services
-  # - Packages
-  # - System settings
+  system.stateVersion = "26.05"; 
 }

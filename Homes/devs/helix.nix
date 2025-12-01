@@ -132,7 +132,6 @@
 # ============================================================================
 # HELIX EDITOR CONFIGURATION
 # ============================================================================
-# This file configures Helix editor for user 'spidy'.
 # Helix is a modern, modal text editor with built-in LSP support.
 #
 # Home Manager module for Helix configuration.

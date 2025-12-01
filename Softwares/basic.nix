@@ -207,21 +207,3 @@
     ];
   };
 }
-
-# ============================================================================
-# BASIC PACKAGES CONFIGURATION
-# ============================================================================
-# This file defines basic system and productivity packages installed via environment.systemPackages
-# Includes essential tools and nix-ld libraries for dynamic linking
-# ============================================================================
-# NOTES:
-# - This configuration provides essential system utilities and CLI tools
-# - Includes development tools, file managers, audio system packages, and system monitoring
-# - nix-ld enables running dynamically linked binaries on NixOS
-# - For troubleshooting:
-#   - Check package installation: which PACKAGE_NAME
-#   - Verify nix-ld: nix-ld --help
-# - To customize:
-#   - Add/remove packages as needed
-#   - Modify nix-ld libraries if required for specific applications
-# ============================================================================

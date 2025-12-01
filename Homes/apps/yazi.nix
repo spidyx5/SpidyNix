@@ -59,17 +59,3 @@
 # YAZI CONFIGURATION
 # ============================================================================
 # Configures Yazi file manager with TokyoNight theme and Nushell integration
-# ============================================================================
-# NOTES:
-# - Yazi is a terminal-based file manager
-# - TokyoNight theme provides consistent dark mode appearance
-# - Nushell integration allows using Nu commands in Yazi
-# - For troubleshooting:
-#   - Check Yazi installation: which yazi
-#   - Verify Nushell integration: yazi --version
-#   - Check theme colors: yazi --theme
-# - To customize:
-#   - Change theme colors to match your preferred palette
-#   - Adjust preview settings for better performance
-#   - Modify sort settings for different file organization
-# ============================================================================

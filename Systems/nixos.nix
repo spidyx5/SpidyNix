@@ -138,79 +138,13 @@
 # - nh clean all                      - Clean old generations
 # - nh clean profile --keep 3         - Keep last 3 generations
 # - nh search <package>               - Search for packages
-#
-# BINARY CACHES:
-# - cache.nixos.org: Official NixOS binary cache
-# - chaotic-nyx: CachyOS kernel, optimized packages
-# - nix-gaming: Gaming-related packages (GameMode, MangoHud, etc.)
-# - niri.cachix.org: Niri window manager
-# - nix-community: Community-maintained packages
-#
-# GARBAGE COLLECTION:
-# - Runs weekly automatically
-# - Keeps last 7 days of generations
-# - NH clean keeps last 3 generations
-# - Manual cleanup: nix-collect-garbage -d
-#
-# STORE OPTIMIZATION:
-# - Auto-optimise-store: Deduplicates identical files
-# - Saves disk space (can save 10-30GB)
-# - Runs automatically during builds
-# - Manual run: nix-store --optimise
-#
-# TRUSTED USERS:
-# - root: Full Nix access
-# - @wheel: Users in wheel group can build without restrictions
-# - Other users: Limited access, can't override settings
-#
-# FLAKES:
-# - Reproducible configuration management
-# - Locked dependencies in flake.lock
-# - Share configurations easily
-# - Update specific inputs: nix flake lock --update-input nixpkgs
-#
-# NIX STORE:
-# - Location: /nix/store
-# - Read-only: Cannot be modified directly
-# - Content-addressed: Files identified by hash
-# - Shared: Multiple packages can share files
-#
+
 # TROUBLESHOOTING:
 # - Build failures: Check nix-build with --keep-failed
 # - Cache issues: Clear cache with nix-store --verify --check-contents
 # - Flake issues: Delete flake.lock and re-run
 # - Store corruption: nix-store --verify --check-contents --repair
-#
-# PERFORMANCE TIPS:
-# - Use binary caches to avoid compilation
-# - Enable auto-optimise-store to save space
-# - Run garbage collection regularly
-# - Use max-jobs = "auto" for parallel builds
-#
-# SECURITY:
-# - Only add trusted binary caches
-# - Verify public keys for caches
-# - Don't accept-flake-config from untrusted sources
-# - Keep system updated: nix flake update && nh os switch
-#
-# MUSL LIBC:
-# - Lightweight alternative to glibc
-# - Smaller binaries and memory footprint
-# - Better static linking support
-# - May break some packages (especially proprietary software)
-# - NOT recommended for desktop systems
-# - Best for servers or embedded systems
-# - To enable: Uncomment the musl overlay section above
-#
-# LTO (LINK TIME OPTIMIZATION):
-# - Optimizes across translation units at link time
-# - Results in smaller and faster binaries
-# - Can improve performance by 5-15%
-# - Significantly increases build time (2-3x longer)
-# - May break some packages with non-standard build systems
-# - Recommended for performance-critical applications
-# - To enable: Uncomment the LTO overlay section above
-#
+
 # COMPILER OPTIMIZATIONS:
 # - -march=native: Optimize for your specific CPU
 # - -mtune=native: Tune code for your CPU microarchitecture
@@ -218,31 +152,7 @@
 # - -flto: Enable Link Time Optimization
 # - -pipe: Use pipes instead of temp files (faster compilation)
 # - -fomit-frame-pointer: Remove frame pointer (slight performance gain)
-# - WARNING: These flags may break some packages
-# - Test thoroughly before deploying to production
-#
-# BTRFS NO-COW FOR /NIX:
-# - CoW (Copy-on-Write) can slow down Nix operations on Btrfs
-# - The nixNoCow activation script disables CoW for /nix
-# - This improves performance for Nix store operations
-# - Applied automatically during system activation
-# - Only affects Btrfs filesystems
-# - Verify with: lsattr -d /nix (should show 'C' flag)
-#
-# PERFORMANCE TESTING:
-# - Build time: hyperfine 'nixos-rebuild dry-build'
-# - Binary size: du -sh /nix/store/*
-# - Runtime performance: hyperfine 'command'
-# - System benchmarks: phoronix-test-suite
-#
-# RECOMMENDED OPTIMIZATION STRATEGY:
-# 1. Start with default configuration (no overlays)
-# 2. Enable CoW disabling for /nix (already enabled)
-# 3. Use binary caches to avoid compilation
-# 4. If you need custom builds, enable LTO selectively
-# 5. Test musl only for specific use cases (containers, etc.)
-# 6. Use -march=native only for personal systems, not for distribution
-# ============================================================================
+
 #     NIXOS OPTIMIZATIONS
 # ============================================================================
 # Reference

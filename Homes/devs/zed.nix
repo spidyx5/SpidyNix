@@ -48,22 +48,3 @@
   };
 
 }
-# ============================================================================
-# ZED EDITOR CONFIGURATION
-# ============================================================================
-# Configures Zed editor and related language servers
-# Home Manager module for user 'spidy'
-# ============================================================================
-# NOTES:
-# - Zed is a modern, fast code editor written in Rust
-# - Includes language servers for TypeScript, HTML/CSS/JSON, Vue.js, Astro, and Nix
-# - Biome provides JavaScript/TypeScript formatting and linting
-# - For troubleshooting:
-#   - Check Zed installation: which zed
-#   - Verify language servers: zed --list-lsp
-#   - Check Biome: which biome
-# - To customize:
-#   - Add/remove language servers as needed
-#   - Change theme and font settings
-#   - Adjust editor settings for your workflow
-# ============================================================================

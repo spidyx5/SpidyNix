@@ -114,21 +114,3 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
-# ============================================================================
-# HARDWARE CONFIGURATION
-# ============================================================================
-# This file defines the hardware configuration for the 'Spidy' host.
-# It includes boot settings, filesystem configuration, swap devices, and CPU settings.
-# ============================================================================
-# NOTES:
-# - This configuration sets up the hardware-specific settings for the system
-# - Includes boot modules, filesystem mounts, and swap configuration
-# - For troubleshooting:
-#   - Check boot modules: lsmod | grep <module>
-#   - Verify filesystem mounts: mount | grep btrfs
-#   - Check swap status: swapon --show
-# - To customize:
-#   - Add/remove boot modules as needed
-#   - Adjust filesystem compression settings
-#   - Change swap device priority
-# ======

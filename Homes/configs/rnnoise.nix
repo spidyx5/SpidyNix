@@ -40,5 +40,4 @@ in {
     source = json.generate "99-input-denoising.conf" pw_rnnoise_config;  # Generate JSON configuration
   };
 }
-# Notes
-#
+

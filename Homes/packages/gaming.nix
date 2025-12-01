@@ -27,20 +27,3 @@
     antimicrox            # Controller to keyboard/mouse mapper
   ];
 }
-# ============================================================================
-# GAMING CONFIGURATION
-# ============================================================================
-# This file configures user-level gaming tools and utilities
-# Home Manager module for user 'spidy'
-# ============================================================================
-# NOTES:
-# - This configuration provides gaming tools when myConfig.gaming is enabled
-# - Includes Vulkan optimizations and gaming overlays
-# - Tools are installed per-user, not system-wide
-# - For troubleshooting:
-#   - Check tool installation: which mangohud
-#   - Verify Vulkan: vulkaninfo
-# - To customize:
-#   - Add/remove gaming tools as needed
-#   - Configure overlays in tool-specific config files
-# ============================================================================

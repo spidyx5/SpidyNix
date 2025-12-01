@@ -32,17 +32,3 @@
     #davinci-resolve-studio # DaVinci Resolve Studio
   ];
 }
-# ============================================================================
-# PRODUCTIVITY APPLICATIONS CONFIGURATION
-# ============================================================================
-# This file contains creative and productivity software
-# Home Manager module for user 'spidy'
-# ============================================================================
-# NOTES:
-# - Choose either davinci-resolve OR davinci-resolve-studio
-# - DaVinci Resolve Studio has additional features but requires license
-# - For troubleshooting:
-#   - Check installation: which APP_NAME
-# - To customize:
-#   - Enable/disable DaVinci variants in user-config.nix
-# ============================================================================

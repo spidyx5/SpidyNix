@@ -118,12 +118,6 @@
 # - com: Commit all
 # - gs: Stash
 # - gp: Pull
-#
-# CONFIGURATION:
-# - Change userEmail above to your actual email
-# - Modify aliases as needed
-# - Add more ignores to global gitignore
-#
 # CREDENTIAL CACHING:
 # - Credentials cached for 2 hours
 # - Use SSH keys for better security

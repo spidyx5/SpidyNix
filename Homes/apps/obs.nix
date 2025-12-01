@@ -33,5 +33,3 @@
     obs-studio-plugins.obs-vkcapture  # OBS VKCapture plugin as home package
   ];
 }
-# Notes
-#

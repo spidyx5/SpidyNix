@@ -55,19 +55,3 @@
     spice-autorandr
   ];
 }
-# ============================================================================
-# DEVELOPMENT PACKAGES CONFIGURATION
-# ============================================================================
-# This file contains user-level development tools and programming languages
-# Home Manager module for user 'spidy'
-# ============================================================================
-# NOTES:
-# - This configuration provides development tools and programming languages
-# - Includes language servers, formatters, build systems, and runtime environments
-# - Tools are installed per-user, not system-wide
-# - For troubleshooting:
-#   - Check tool installation: which TOOL_NAME
-#   - Verify language installations: python3 --version, node --version
-# - To customize:
-#   - Add/remove development tools as needed
-# ============================================================================

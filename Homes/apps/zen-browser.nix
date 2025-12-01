@@ -29,22 +29,3 @@ in
   # ============================================================================
   home.packages = [ zenFixed ];  # Install Zen Browser with Wayland support
 }
-# ============================================================================
-# ZEN BROWSER CONFIGURATION
-# ============================================================================
-# Configures Zen Browser with Wayland support
-# Home Manager module for user 'spidy'
-# ============================================================================
-# NOTES:
-# - Zen Browser is a privacy-focused Firefox fork
-# - Wayland support is enabled via MOZ_ENABLE_WAYLAND=1
-# - Includes vertical tabs and split view by default
-# - For troubleshooting:
-#   - Check Wayland support: echo $MOZ_ENABLE_WAYLAND
-#   - Verify installation: which zen
-#   - Check browser version: zen --version
-# - To customize:
-#   - Add Firefox extensions for additional functionality
-#   - Change privacy settings in about:config
-#   - Adjust theme and appearance settings
-# ============================================================================
