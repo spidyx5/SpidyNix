@@ -14,10 +14,8 @@
   # Zram creates a compressed block device in RAM for swap
   # Provides faster swap and reduces disk writes
   # ============================================================================
-  services.tuned = {
-  enable = true;
-  profile = "latency-performance"; 
-}
+  services.tuned.enable = true;
+  services.tuned.settings.dynamic_tuning = true;
   zramSwap = {
     enable = true;
 
