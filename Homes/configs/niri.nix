@@ -3,7 +3,7 @@
 {
   # Enable the Niri window manager session wrapper.
   #programs.niri.enable = true;
-
+  programs.niri.package = pkgs.niri-unstable;
   # Set session variables for Wayland compatibility.
   # This ensures applications launched from your shell run correctly on Wayland.
   home.sessionVariables = {
