@@ -12,7 +12,7 @@
   # Niri Configuration
  programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable;
+    package = pkgs.niri;
     settings = { 
     # Path where screenshots will be saved.
     screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
@@ -249,6 +249,7 @@
       "Super+Shift+S".action.screenshot = { show-pointer = false; };  # Take screenshot
     };
   };
+};
 }
 # ============================================================================
 # NIRI WINDOW MANAGER CONFIGURATION
@@ -280,7 +281,7 @@
 # - Super+S: Switch preset column width
 # - Super+W: Toggle column tabbed display
 # - Super+Comma/Period: Consume/expel window from column
-# - Super+C: Center visible columns
+# - Super+C: Center visible colu       error: syntax error, unexpected end of file, expecting ';'mns
 # - Super+Tab: Switch focus between floating and tiling
 # - Super+1-9: Focus workspace 1-9
 # - Super+Shift+1-9: Move column to workspace 1-9
