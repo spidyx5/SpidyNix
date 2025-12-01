@@ -68,7 +68,7 @@
       "quiet"                                  # Reduce boot messages
       "systemd.show_status=auto"               # Show systemd status conditionally
       "rd.udev.log_level=3"                    # Reduce udev log verbosity
-      "plymouth.use-simpledrm"                 # Use simple DRM for Plymouth
+      # "plymouth.use-simpledrm"               # Disabled for debugging
        #"acpi_sleep_default=deep"
        #"acpi_sleep=nonvs"
        #"mem_sleep_default=deep"
@@ -234,8 +234,9 @@
     # PLYMOUTH - BOOT SPLASH
     # ============================================================================
     # Beautiful boot splash screen
+    # Temporarily disabled for debugging regreet/GTK4 issues
     # ============================================================================
-    boot.plymouth.enable = true;               # Enable Plymouth boot splash
+    boot.plymouth.enable = false;               # Disable Plymouth boot splash for debugging
 
     # ============================================================================
     # TEMPORARY FILES
