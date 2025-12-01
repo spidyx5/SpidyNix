@@ -34,7 +34,6 @@
     # All necessary driver and acceleration packages.
     extraPackages = with pkgs; [
       # Mesa Drivers (Core OpenGL/Vulkan implementation)
-      mesa
       libva-utils
       libva
       mesa-gl-headers
