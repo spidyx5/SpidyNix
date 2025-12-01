@@ -7,7 +7,7 @@
   # ============================================================================
   imports = [
     inputs.dms.homeModules.dankMaterialShell.default
-    inputs.niri.homeModules.niri
+    #inputs.niri.homeModules.niri
     # Devs
     ./devs/git.nix
     ./devs/nushell.nix
