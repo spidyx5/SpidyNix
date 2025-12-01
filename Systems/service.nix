@@ -17,7 +17,7 @@
   services.xserver.enable = false;
 
   # Enable OpenSSH for remote access
-  services.openssh.enable = true;
+  #services.openssh.enable = true;
 
   # Enable Blueman for Bluetooth management
   services.blueman.enable = true;
