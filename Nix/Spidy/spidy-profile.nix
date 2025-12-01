@@ -36,9 +36,9 @@
   #sops.defaultSopsFile = ../Secrets/secrets.yaml;
   #sops.age.keyFile = "/home/spidy/.config/sops/age/keys.txt";
 
-  sops.secrets.bitwarden_password = {};
-  sops.secrets.bookmarks_data = {};
-  sops.secrets.api_key = {};
+  #sops.secrets.bitwarden_password = {};
+  #sops.secrets.bookmarks_data = {};
+  #sops.secrets.api_key = {};
 
   # ============================================================================
   # PROFILE-SPECIFIC SETTINGS

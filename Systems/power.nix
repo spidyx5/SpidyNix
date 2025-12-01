@@ -1,7 +1,6 @@
 # /etc/nixos/SpidyNix/Systems/power.nix
 { config, pkgs, lib, ... }:
 {
-
   # Enable power management
   powerManagement = {
     enable = true;
@@ -9,14 +8,16 @@
     # Enable powertop for power consumption monitoring
     powertop.enable = true;
   };
-
   # ============================================================================
   # ZRAM - COMPRESSED SWAP
   # ============================================================================
   # Zram creates a compressed block device in RAM for swap
   # Provides faster swap and reduces disk writes
   # ============================================================================
-
+  services.tuned = {
+  enable = true;
+  profile = "latency-performance"; 
+}
   zramSwap = {
     enable = true;
 

@@ -8,7 +8,10 @@
        url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    sysc-greet = {
+      url = "github:Nomadcxx/sysc-greet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Development utilities
     systems.url = "github:nix-systems/default-linux";
     flake-utils = {
@@ -86,7 +89,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, zen-browser, nix-gaming, nix-index-db,
-    musnix, spicetify-nix, helium-browser, niri, nur, nix-topology, hosts, ... }@inputs:
+    musnix, spicetify-nix,helium-browser,sysc-greet , niri, nur, nix-topology, hosts, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";
@@ -107,6 +110,7 @@
          { nixpkgs.config.allowUnfree = true; }
         ./Nix/Spidy/configuration.nix
         inputs.spicetify-nix.nixosModules.default
+        sysc-greet.nixosModules.default
         # User environment management
         home-manager.nixosModules.home-manager
         # Modules

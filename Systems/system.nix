@@ -11,7 +11,6 @@
     ./blacklist.nix
     ./boot.nix
     ./hardware.nix
-    ./login.nix
     ./network.nix
     ./nixos.nix
     ./power.nix
