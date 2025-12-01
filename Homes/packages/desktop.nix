@@ -41,7 +41,7 @@
     dopamine
     smplayer
     vlc
-    niri
+    niri-unstable
 
     # ==========================================================================
     # BROWSERS

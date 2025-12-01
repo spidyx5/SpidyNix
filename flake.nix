@@ -44,10 +44,10 @@
     };
 
     # Desktop environment & window manager
-   # niri = {
-    #  url = "github:sodiboo/niri-flake";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-   # };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -90,7 +90,7 @@
 
   # Outputs for the flake
   outputs = { self, nixpkgs, home-manager, chaotic, dms, zen-browser, nix-gaming, nix-index-db,
-    musnix, spicetify-nix, helium-browser, nur, nix-topology, hosts, sops-nix, ... }@inputs:
+    musnix, spicetify-nix, helium-browser, niri, nur, nix-topology, hosts, sops-nix, ... }@inputs:
   let
     # System architecture
     system = "x86_64-linux";
