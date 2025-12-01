@@ -1,8 +1,6 @@
 # /etc/nixos/SpidyNix/Homes/configs/niri.nix
 { config, pkgs, inputs, ... }:
 {
-  # Enable the Niri window manager session wrapper.
-  programs.niri.enable = true;
   # Set session variables for Wayland compatibility.
   # This ensures applications launched from your shell run correctly on Wayland.
   home.sessionVariables = {
@@ -12,7 +10,10 @@
   };
 
   # Niri Configuration
-  programs.niri.settings = {
+ programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+    settings = { = {
     # Path where screenshots will be saved.
     screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
 

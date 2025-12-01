@@ -113,8 +113,6 @@
         inputs.spicetify-nix.nixosModules.default
         # User environment management
         home-manager.nixosModules.home-manager
-        inputs.niri.nixosModules.niri
-
         # Modules
         chaotic.nixosModules.default
         inputs.nix-gaming.nixosModules.pipewireLowLatency  # Low-latency PipeWire
