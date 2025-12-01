@@ -166,6 +166,7 @@
     #zluda
     elogind
     material-symbols
+    gtk4
   ];
 
   # ============================================================================
@@ -194,7 +195,6 @@
       libGL
       SDL2
       libusb1
-      gtk4
       libkrb5
       keyutils
       glibc

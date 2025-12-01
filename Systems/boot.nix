@@ -236,7 +236,7 @@
     # Beautiful boot splash screen
     # Temporarily disabled for debugging regreet/GTK4 issues
     # ============================================================================
-    boot.plymouth.enable = false;               # Disable Plymouth boot splash for debugging
+    #boot.plymouth.enable = false;               # Disable Plymouth boot splash for debugging
 
     # ============================================================================
     # TEMPORARY FILES
