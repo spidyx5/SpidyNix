@@ -13,7 +13,7 @@
  programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
-    settings = { = {
+    settings = { 
     # Path where screenshots will be saved.
     screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
 
