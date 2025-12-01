@@ -1,9 +1,12 @@
 # /etc/nixos/SpidyNix/Homes/configs/niri.nix
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
-  # Enable the Niri window manager session wrapper.
-  #programs.niri.enable = true;
+  # Use niri-unstable from the flake
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   programs.niri.package = pkgs.niri-unstable;
+
+  # Enable the Niri window manager session wrapper.
+  programs.niri.enable = true;
   # Set session variables for Wayland compatibility.
   # This ensures applications launched from your shell run correctly on Wayland.
   home.sessionVariables = {

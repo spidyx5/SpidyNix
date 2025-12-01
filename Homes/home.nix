@@ -6,8 +6,6 @@
   # IMPORTS
   # ============================================================================
   imports = [
-    # Window Managers
-    inputs.niri.homeModules.niri
     inputs.dms.homeModules.dankMaterialShell.default
 
     # Devs
