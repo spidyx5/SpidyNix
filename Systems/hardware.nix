@@ -45,7 +45,6 @@
 
     # 32-bit versions of the same drivers for compatibility.
     extraPackages32 = with pkgs; [
-      mesa
       intel-media-driver
       libva
     ];
