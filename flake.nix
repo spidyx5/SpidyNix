@@ -113,7 +113,7 @@
         inputs.spicetify-nix.nixosModules.default
         # User environment management
         home-manager.nixosModules.home-manager
-        inputs.niri.homeModules.niri
+        inputs.niri.nixosModules.niri
 
         # Modules
         chaotic.nixosModules.default
