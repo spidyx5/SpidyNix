@@ -13,7 +13,7 @@
   programs.adb.enable = true;
 
   # Enable chaotic-aur packages
-  #chaotic.mesa-git.enable = true;
+  chaotic.mesa-git.enable = true;
   chaotic.nyx.cache.enable = true;
   chaotic.nyx.nixPath.enable = true;
   chaotic.nyx.overlay.enable = true;
