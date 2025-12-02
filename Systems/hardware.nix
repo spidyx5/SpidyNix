@@ -35,7 +35,7 @@
       # Mesa Drivers (Core OpenGL/Vulkan implementation)
       libva-utils
       libva
-      #mesa-gl-headers
+      mesa-gl-headers
       intel-media-driver      # Modern VAAPI driver for Intel GPUs (Broadwell+)
       intel-compute-runtime   # OpenCL support for Intel GPUs
       vpl-gpu-rt             # Intel Video Processing Library

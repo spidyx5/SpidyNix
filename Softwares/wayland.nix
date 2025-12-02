@@ -27,7 +27,7 @@
     _JAVA_AWT_WM_NONREPARENTING = "1";   # Fix Java apps on tiling WMs
 
     # OpenGL and Mesa settings for performance
-    __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa_git}/share/glvnd/egl_vendor.d/50_mesa.json";
+    __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa_git}/share/glvnd/egl_vendor.d/50_mesa_git.json";
     LIBGL_ALWAYS_INDIRECT = "0";
 
     # Electron application settings for Wayland
