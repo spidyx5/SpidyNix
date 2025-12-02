@@ -47,7 +47,7 @@
     extraPackages32 = with pkgs; [
       intel-media-driver
       libva
-      mesa32_git
+      #mesa32_git
     ];
   };
 
