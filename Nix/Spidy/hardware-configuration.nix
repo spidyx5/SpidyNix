@@ -23,32 +23,32 @@
   fileSystems."/" = {
     device = "/dev/mapper/mock-noxian";
     fsType = "btrfs";
-    options = [ "subvol=root" "compress-force=zstd:3" "noatime" ];
+    options = [ "subvol=root" "compress=zstd:4" "noatime" ];
   };
 
   fileSystems."/home" = {
     device = "/dev/mapper/mock-noxian";
     fsType = "btrfs";
-    options = [ "subvol=home" "compress-force=zstd:5" "noatime" ];
+    options = [ "subvol=home" "compress=zstd:5" "noatime" ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/mapper/mock-noxian";
     fsType = "btrfs";
-    options = [ "subvol=nix" "compress-force=zstd:4" "noatime" ];
+    options = [ "subvol=nix" "compress=zstd:4" "noatime" ];
   };
 
   fileSystems."/persist" = {
     device = "/dev/mapper/mock-noxian";
     fsType = "btrfs";
-    options = [ "subvol=persist" "compress-force=zstd:6" "noatime" ];
+    options = [ "subvol=persist" "compress-force=zstd:7" "noatime" ];
   };
 
   # Top-level subvol for emergency management
   fileSystems."/flat" = {
     device = "/dev/mapper/mock-noxian";
     fsType = "btrfs";
-    options = [ "subvolid=5" "noatime" ];
+    options = [ "subvolid=5" ];
   };
 
   fileSystems."/boot" = {
@@ -65,28 +65,28 @@
   fileSystems."/media/motivation/Computer" = {
     device = "/dev/mapper/mock-motivation";
     fsType = "btrfs";
-    options = [ "subvol=Computer" "compress-force=zstd:5" "noatime" ];
+    options = [ "subvol=Computer" "compress-force=zstd:7" "noatime" ];
   };
 
   # 2. Games: No Copy-on-Write for performance (reduces fragmentation on large game files)
   fileSystems."/media/motivation/Games" = {
     device = "/dev/mapper/mock-motivation";
     fsType = "btrfs";
-    options = [ "subvol=Games" "nodatacow" "noatime" ];
+    options = [ "subvol=Games" "nodatacow" "noatime" "compress-force=zstd:5" ];
   };
 
   # 3. Media: Standard compression (Videos/Images usually don't compress well)
   fileSystems."/media/motivation/Media" = {
     device = "/dev/mapper/mock-motivation";
     fsType = "btrfs";
-    options = [ "subvol=Media" "compress-force=zstd:3" "noatime" ];
+    options = [ "subvol=Media" "compress-force=zstd:6" "noatime" ];
   };
 
   # 4. Temp: Low compression for speed
   fileSystems."/media/motivation/Temp" = {
     device = "/dev/mapper/mock-motivation";
     fsType = "btrfs";
-    options = [ "subvol=Temp" "compress-force=zstd:1" "noatime" ];
+    options = [ "subvol=Temp" "compress=zstd:1" "noatime" ];
   };
 
   # 5. Learning: High compression (Text, PDFs, Books compress well)
@@ -100,7 +100,7 @@
   fileSystems."/media/motivation/Edit" = {
     device = "/dev/mapper/mock-motivation";
     fsType = "btrfs";
-    options = [ "subvol=Edit" "compress-force=zstd:3" "noatime" ];
+    options = [ "subvol=Edit" "compress-force=zstd:7" "noatime" ];
   };
 
   # ============================================================================
@@ -109,7 +109,5 @@
   swapDevices = [
     { device = "/dev/mapper/mock-fang"; }
   ];
-
-  nixpkgs.hostPlatform = "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
