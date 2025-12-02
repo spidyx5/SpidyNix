@@ -38,7 +38,10 @@
 
   # Disable systemd OOM daemon
   systemd.oomd.enable = false;
-
+  
+  services.cachix-watch-store.compressionLevel = 5;
+  hardware.firmwareCompression = "zstd";
+  services.nginx.experimentalZstdSettings = true;
   # Enable EarlyOOM for out-of-memory handling
   services.earlyoom = {
     enable = true;
