@@ -821,6 +821,29 @@
         "type": "github"
       }
     },
+    "nix-gaming": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764641206,
+        "narHash": "sha256-M9GlOr9JKPUJkDb8nsCPr/BF8RAu4pvdXpXdO8wB3uk=",
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "rev": "de4835b61bcd48b1ddb93df0c25b2dd4c8b4aefd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fufexan",
+        "repo": "nix-gaming",
+        "type": "github"
+      }
+    },
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
@@ -1255,6 +1278,7 @@
         "hosts": "hosts",
         "musnix": "musnix",
         "niri": "niri",
+        "nix-gaming": "nix-gaming",
         "nix-index-db": "nix-index-db",
         "nix-topology": "nix-topology",
         "nixpkgs": "nixpkgs_2",
