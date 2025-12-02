@@ -28,9 +28,10 @@
   # MODERN GRAPHICS DRIVERS (Mesa, OpenGL, Vulkan)
   hardware.graphics = {
     enable = true;
-    enable32Bit = true; # Crucial for 32-bit games (Steam, Wine/Proton)
+    enable32Bit = true; 
+    package = pkgs.mesa_git; 
+    package32 = pkgs.mesa32_git;
 
-    # All necessary driver and acceleration packages.
     extraPackages = with pkgs; [
       # Mesa Drivers (Core OpenGL/Vulkan implementation)
       libva-utils
@@ -49,9 +50,7 @@
       libva
     ];
   };
-  
-   package = pkgs.mesa_git; 
-   package32 = pkgs.mesa32_git;
+
   
   # ENVIRONMENT VARIABLES FOR VIDEO ACCELERATION
   environment.sessionVariables = { 
