@@ -139,7 +139,7 @@
     # ========================================================================
     # NIXOS CONFIGURATION
     # ========================================================================
-    nixosConfigurations.Spidy = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.Spidy = inputs.nixpkgs.lib.nixosSystem {
       
       # Pass inputs to modules
       specialArgs = { inherit inputs; };
@@ -175,10 +175,7 @@
     };
     
     # ========================================================================
-    # PACKAGE OUTPUTS (Fixes 'nix flake check' error)
-    # ========================================================================
     packages.${system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
-
     # ========================================================================
     # UTILITIES
     # ========================================================================
