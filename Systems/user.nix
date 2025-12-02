@@ -22,7 +22,7 @@
   # ============================================================================
   users.users.spidy = {
     isNormalUser = true;
-    description = "Spidy";
+    description = "Good Spidy";
 
     # Home directory
     home = "/home/spidy";

@@ -33,7 +33,6 @@
     # ==========================================================================
     # MULTIMEDIA & CONTENT
     # ==========================================================================
-    #spotify               # Music streaming client
     calibre               # E-book management
     foliate               # E-book reader
     libgen-cli            # Library Genesis CLI

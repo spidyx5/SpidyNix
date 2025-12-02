@@ -90,10 +90,10 @@
   services.fwupd.enable = true;
 
   # Enable automatic nice daemon for better process priority management
-  services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;  # Use the C++ version
-  };
+ # services.ananicy = {
+ #   enable = true;
+  #  package = pkgs.ananicy-cpp;  # Use the C++ version
+ # };
 
   # ============================================================================
   # UDEV RULES
