@@ -31,10 +31,10 @@
     # Binary caches for faster package installation
     settings.substituters = [
       "https://cache.nixos.org?priority=10"    # Official NixOS (highest priority)
-      "https://chaotic-nyx.cachix.org"         # Performance-optimized packages
+      "https://chaotic-nyx.cachix.org?priority=12"         # Performance-optimized packages
       "https://nix-gaming.cachix.org"          # Gaming packages
       "https://niri.cachix.org"               # Window manager
-      "https://nix-community.cachix.org"      # Community-maintained packages
+      "https://nix-community.cachix.orgpriority=8"      # Community-maintained packages
     ];
 
     settings.trusted-public-keys = [
