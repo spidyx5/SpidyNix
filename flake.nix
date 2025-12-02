@@ -1,9 +1,11 @@
-#/etc/nixos/SpidyNix/flake.nix
+# /etc/nixos/SpidyNix/flake.nix
 {
   description = "SpidyNix - Modular NixOS Configuration";
 
   inputs = {
-    # Core dependencies
+    # ========================================================================
+    # CORE DEPENDENCIES
+    # ========================================================================
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nur = {
@@ -16,7 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Development utilities
+    # ========================================================================
+    # DEVELOPMENT UTILITIES
+    # ========================================================================
     systems.url = "github:nix-systems/default-linux";
 
     flake-utils = {
@@ -31,19 +35,25 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    # Audio/music production
+    # ========================================================================
+    # AUDIO & MUSIC PRODUCTION
+    # ========================================================================
     musnix = {
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # User environment management
+    # ========================================================================
+    # USER ENVIRONMENT
+    # ========================================================================
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Performance optimizations & custom kernels
+    # ========================================================================
+    # PERFORMANCE & KERNELS
+    # ========================================================================
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,7 +64,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Desktop environment & window manager
+    # ========================================================================
+    # DESKTOP & WINDOW MANAGERS
+    # ========================================================================
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,7 +77,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Applications & tools
+    # ========================================================================
+    # APPLICATIONS & TOOLS
+    # ========================================================================
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,7 +95,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #sops-nix = {url = "github:Mic92/sops-nix";inputs.nixpkgs.follows = "nixpkgs";};
+    # sops-nix = {url = "github:Mic92/sops-nix";inputs.nixpkgs.follows = "nixpkgs";};
 
     hosts.url = "github:StevenBlack/hosts";
 
@@ -117,51 +131,66 @@
     nur,
     nix-topology,
     hosts,
-    #sops-nix,
+    # sops-nix,
     ...
   } @ inputs: let
     # System architecture
     system = "x86_64-linux";
-    # Nixpkgs packages
+    # Nixpkgs packages (Used for devShell and formatter only)
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    # NixOS configuration
+    # ========================================================================
+    # NIXOS CONFIGURATION
+    # ========================================================================
     nixosConfigurations.Spidy = nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      # Only pass inputs. Do NOT pass 'pkgs' here to avoid conflicts.
-      specialArgs = {inherit inputs;};
+      # We do not pass 'system' here anymore; it is defined in modules below.
+      
+      # Pass inputs to modules
+      specialArgs = { inherit inputs; };
 
       # Modules to include in the configuration
       modules = [
-        # Global Unfree Config (Fixes firmware/software errors)
-        {nixpkgs.config.allowUnfree = true;}
+        # 1. Define System Architecture (Modern Method)
+        { nixpkgs.hostPlatform = system; }
+        
+        # 2. Global Config
+        { nixpkgs.config.allowUnfree = true; }
+        { nix.settings.experimental-features = [ "nix-command" "flakes" ]; }
+
+        # 3. Core Configuration
         ./Nix/Spidy/configuration.nix
+
+        # 4. Flake Modules
         inputs.spicetify-nix.nixosModules.default
         sysc-greet.nixosModules.default
-        # User environment management
         home-manager.nixosModules.home-manager
-        # Modules
         chaotic.nixosModules.default
-        inputs.nix-gaming.nixosModules.pipewireLowLatency # Low-latency PipeWire
+        inputs.nix-gaming.nixosModules.pipewireLowLatency
         nix-gaming.nixosModules.platformOptimizations
         nix-index-db.nixosModules.nix-index
         inputs.musnix.nixosModules.musnix
-        hosts.nixosModule {networking.stevenBlackHosts.enable = true;}
+        hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
         nur.modules.nixos.default
-        #sops-nix.nixosModules.sops
         nix-topology.nixosModules.default
-        {nix.settings.experimental-features = ["nix-command" "flakes"];}
+        # sops-nix.nixosModules.sops
       ];
     };
     
+    # ========================================================================
+    # PACKAGE OUTPUTS (Fixes 'nix flake check' error)
+    # ========================================================================
+    packages.${system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
+
+    # ========================================================================
+    # UTILITIES
+    # ========================================================================
     # Formatter for Nix files
     formatter.${system} = pkgs.alejandra;
 
     # Development shell
     devShells.${system}.default = pkgs.mkShell {
       name = "SpidyNix-Dev";
-      packages = [pkgs.git pkgs.alejandra pkgs.nixpkgs-fmt pkgs.nil];
+      packages = [ pkgs.git pkgs.alejandra pkgs.nixpkgs-fmt pkgs.nil ];
 
       shellHook = ''
         echo "SpidyNix Development Shell"
@@ -175,7 +204,6 @@
     };
   };
 }
-
 # FLAKE COMMANDS:
 # - nix flake check - Check flake for errors
 # - nix flake show - Show flake outputs
