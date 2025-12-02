@@ -54,10 +54,7 @@
     # ========================================================================
     # PERFORMANCE & KERNELS
     # ========================================================================
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nix-topology = {
       url = "github:oddlama/nix-topology";
@@ -143,7 +140,6 @@
     # NIXOS CONFIGURATION
     # ========================================================================
     nixosConfigurations.Spidy = nixpkgs.lib.nixosSystem {
-      # We do not pass 'system' here anymore; it is defined in modules below.
       
       # Pass inputs to modules
       specialArgs = { inherit inputs; };
@@ -164,7 +160,9 @@
         inputs.spicetify-nix.nixosModules.default
         sysc-greet.nixosModules.default
         home-manager.nixosModules.home-manager
-        chaotic.nixosModules.default
+        chaotic.nixosModules.nyx-cache
+        chaotic.nixosModules.nyx-overlay
+        chaotic.nixosModules.nyx-registry
         inputs.nix-gaming.nixosModules.pipewireLowLatency
         nix-gaming.nixosModules.platformOptimizations
         nix-index-db.nixosModules.nix-index

@@ -15,7 +15,7 @@
     imv                   # Image viewer
     jaq                   # JSON processor (jq alternative)
     matugen               # Material Design color generation
-    gnupg                 # GPG encryption
+    #gnupg                 # GPG encryption
 
     # File management CLI
     eza                   # Modern ls replacement
