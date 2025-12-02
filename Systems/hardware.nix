@@ -50,9 +50,9 @@
   };
 
   # ENVIRONMENT VARIABLES FOR VIDEO ACCELERATION
-  environment.sessionVariables = lib.mkMerge [
-    { LIBVA_DRIVER_NAME = "iHD"; }
-  ];
+  environment.sessionVariables = { 
+    LIBVA_DRIVER_NAME = "iHD"; 
+  };
 
   # DEPRECATED OPENGL OPTION (For Reference)
   # The `hardware.opengl` options are now handled by `hardware.graphics`.

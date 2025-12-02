@@ -178,7 +178,7 @@
       "vm.dirty_background_ratio" = 5;         # Background writeback threshold
       "vm.watermark_scale_factor" = 200;       # Memory reclaim aggressiveness
       "vm.overcommit_memory" = 1;              # Always overcommit memory
-      "vm.max_map_count" = lib.mkDefault 2147483642;         # Max memory map areas (for games)
+      "vm.max_map_count" = lib.mkForce 2147483642;         # Max memory map areas (for games)
       "vm.mmap_rnd_bits" = 32;                 # ASLR entropy for mmap
       "vm.mmap_rnd_compat_bits" = 16;          # ASLR entropy for compat mmap
       "vm.unprivileged_userfaultfd" = 0;       # Disable unprivileged userfaultfd
