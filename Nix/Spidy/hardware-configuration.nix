@@ -11,8 +11,7 @@
   boot = {
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      # Verify you need VFIO here. If you need the GPU for the host during boot, remove the vfio modules.
-      kernelModules = [ "dm-snapshot" "i915" "dm-crypt" "dm-mod" "vfio_pci" "vfio" "vfio_iommu_type1" "kvm" ];
+      kernelModules = [ "dm-snapshot" "i915" "dm-crypt" "dm-mod" "kvm" ];
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
@@ -53,7 +52,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FCFF-1A80";
+    device = "/dev/disk/by-uuid/92C1-A920";
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
   };

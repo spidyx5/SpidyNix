@@ -129,9 +129,9 @@
         "dm-mod"       # Device mapper core
         "dm-thin-pool" # Thin pool logical volume
         "dm-mirror"    # General LVM support
-        "vfio_pci"
-        "vfio"
-        "vfio_iommu_type1"
+        #"vfio_pci"
+        #"vfio"
+        #"vfio_iommu_type1"
         "kvm"
         "i915"         # Intel graphics (early load)
       ];
