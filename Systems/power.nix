@@ -20,7 +20,7 @@
     enable = true;
 
     # Use 50% of RAM for zram
-    memoryPercent = 50;
+    memoryPercent = 40;
 
     # Use zstd compression algorithm
     algorithm = "zstd";
@@ -40,9 +40,7 @@
     AllowSuspend=yes
     # Disable hibernation
     AllowHibernation=yes
-    # Disable suspend-then-hibernate
     AllowSuspendThenHibernate=no
-    # Disable hybrid sleep
     AllowHybridSleep=yes
   '';
 
@@ -65,7 +63,7 @@
   services.logind.settings = {
     Login = {
       HandlePowerKey = "suspend";  # Suspend on power button press
-     #powerKey = "suspend";       # Suspend on power button press
+      #powerKey = "suspend";       # Suspend on power button press
       HandleSuspendKey = "suspend";  # Suspend on suspend key press
       HandleHibernateKey = "yes";  #  hibernate key
       HandleLidSwitch = "suspend";   # Suspend on lid close

@@ -60,21 +60,3 @@
     platformOptimizations.enable = true;  # Enable platform optimizations
   };
 }
-# ============================================================================
-# SYSTEM PROGRAMS CONFIGURATION
-# ============================================================================
-# This file configures system-level programs using programs.* options
-# ============================================================================
-# NOTES:
-# - This file configures system-wide programs
-# - Programs that need system-level configuration are here
-# - User-specific programs should be in Homes/*.nix
-# - For troubleshooting:
-#   - Check program status: systemctl status PROGRAM
-#   - Verify configuration: cat /etc/nixos/configuration.nix
-#   - Check logs: journalctl -u PROGRAM
-# - To customize:
-#   - Add/remove programs as needed
-#   - Adjust program configuration
-#   - Add additional program options
-# ============================================================================

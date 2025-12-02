@@ -40,12 +40,14 @@
       intel-compute-runtime   # OpenCL support for Intel GPUs
       vpl-gpu-rt             # Intel Video Processing Library
       intel-graphics-compiler
+      mesa_git
     ];
 
     # 32-bit versions of the same drivers for compatibility.
     extraPackages32 = with pkgs; [
       intel-media-driver
       libva
+      mesa32_git
     ];
   };
 
