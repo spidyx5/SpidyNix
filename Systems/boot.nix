@@ -241,10 +241,10 @@
     # ============================================================================
     # Enable systemd debugging options
     # ============================================================================
-    systemd.extraConfig = ''
-      LogLevel=debug
-      LogTarget=console
-    '';
+    systemd.settings.Manager = {
+      LogLevel = "debug";
+      LogTarget = "console";
+    };
 
     # ============================================================================
     # PLYMOUTH - BOOT SPLASH
