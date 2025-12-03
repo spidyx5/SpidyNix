@@ -6,7 +6,9 @@
 
   # Enable OpenSSH for remote access
   #services.openssh.enable = true;
-
+  services.lvm.boot.thin.enable = true;
+  services.lvm.enable = true;
+  boot.initrd.services.lvm.enable = true;
   # Enable Blueman for Bluetooth management
   services.blueman.enable = true;
    services.sysc-greet = {

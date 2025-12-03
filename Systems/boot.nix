@@ -21,6 +21,7 @@
 
     # ============================================================================
     # KERNEL CONFIGURATION
+
     boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
     #specialisation = {
       #lqx-kernel.configuration = {
