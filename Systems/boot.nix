@@ -127,15 +127,15 @@
 
       kernelModules = [
         "btrfs"        # Btrfs filesystem
-        "dm-snapshot"  # Device mapper snapshots
-        "dm-crypt"     # Device mapper encryption
+        #"dm-snapshot"  # Device mapper snapshots
+        #"dm-crypt"     # Device mapper encryption
         "dm-mod"       # Device mapper core
         "dm-thin-pool" # Thin pool logical volume
         "dm-mirror"    # General LVM support
         #"vfio_pci"
         #"vfio"
         #"vfio_iommu_type1"
-        "kvm"
+        #"kvm"
         "i915"         # Intel graphics (early load)
       ];
 

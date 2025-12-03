@@ -11,14 +11,14 @@
   boot = {
     initrd = {
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ "dm-snapshot" "i915" "dm-crypt" "dm-mod" "kvm" ];
+      kernelModules = [ "dm-snapshot" ];
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
   };
 
   # ============================================================================
-  # FILESYSTEMS: ROOT DRIVE (mock-noxian)
+  # FILESYSTEMS: ROOT DRIVE (mock-noxian) - NO ENCRYPTION
   # ============================================================================
   fileSystems."/" = {
     device = "/dev/mapper/mock-noxian";
@@ -58,9 +58,9 @@
   };
 
   # ============================================================================
-  # FILESYSTEMS: MOTIVATION DRIVE (mock-motivation)
+  # FILESYSTEMS: MOTIVATION DRIVE (mock-motivation) - NO ENCRYPTION
   # ============================================================================
-  
+
   # 1. Computer: General storage
   fileSystems."/media/motivation/Computer" = {
     device = "/dev/mapper/mock-motivation";
