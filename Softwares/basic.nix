@@ -16,7 +16,7 @@
     jaq                   # JSON processor (jq alternative)
     matugen               # Material Design color generation
     #gnupg                 # GPG encryption
-
+    lvm2
     # File management CLI
     eza                   # Modern ls replacement
     bat                   # Better cat with syntax highlighting
