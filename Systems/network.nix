@@ -143,11 +143,11 @@
   # ============================================================================
 
   # Speed up NetworkManager-wait-online service
-  systemd.services.NetworkManager-wait-online = {
-    serviceConfig = {
-      ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
-    };
-  };
+  #systemd.services.NetworkManager-wait-online = {
+  #  serviceConfig = {
+  #    ExecStart = [ "" "${pkgs.networkmanager}/bin/nm-online -q" ];
+   # };
+  #};
 
   # ============================================================================
   # NFTABLES

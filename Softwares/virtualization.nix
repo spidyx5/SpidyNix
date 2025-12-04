@@ -98,7 +98,7 @@
     ];
 
     # WAYDROID CONFIGURATION
-    virtualisation.waydroid.enable = false;
+    virtualisation.waydroid.enable = true;
 
     # SHELL ALIASES
     environment.shellAliases = {

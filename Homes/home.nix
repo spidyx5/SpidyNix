@@ -36,10 +36,10 @@
     ./configs/xdg.nix
 
     # Packages
-    ./packages/gaming.nix
-    ./packages/desktop.nix
-    ./packages/productive.nix
-    ./packages/development.nix
+    #./packages/gaming.nix
+    #./packages/desktop.nix
+    #./packages/productive.nix
+    #./packages/development.nix
   ];
 
   config.home = {

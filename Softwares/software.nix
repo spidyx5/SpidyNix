@@ -11,7 +11,7 @@
     ./basic.nix
     ./font.nix
     ./program.nix
-    ./virtualization.nix
+    #./virtualization.nix
     ./wayland.nix
   ];
 }

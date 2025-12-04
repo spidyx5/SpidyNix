@@ -45,13 +45,13 @@
   # TPM2 - HARDWARE SECURITY
   # ============================================================================
   # Enable TPM2 for hardware security
-  security.tpm2 = {
-    enable = true;
+  #security.tpm2 = {
+  #  enable = true;
     # Expose TPM chip as a smartcard
-    pkcs11.enable = true;
+  #  pkcs11.enable = true;
     # Enable TPM2 TCTI environment
-    tctiEnvironment.enable = true;
-  };
+  #  tctiEnvironment.enable = true;
+  #};
 
   # ============================================================================
   # KERNEL HARDENING
@@ -83,11 +83,11 @@
   # DBUS - HIGH PERFORMANCE BROKER
   # ============================================================================
   # Enable D-Bus with broker implementation
-  services.dbus = {
-    enable = true;
+ # services.dbus = {
+ #   enable = true;
     # Use 'broker' which is a faster/modern replacement for 'daemon'
-    implementation = "broker";
+ #   implementation = "broker";
     # Include dconf package
-    packages = [ pkgs.dconf ];
-  };
+ #   packages = [ pkgs.dconf ];
+ # };
 }

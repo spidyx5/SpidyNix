@@ -6,23 +6,23 @@
   # ============================================================================
     # Limine is a modern, fast bootloader with EFI support
     # ============================================================================
-    boot.loader = {
-      limine = {
-        enable = true;                  # Enable Limine bootloader
-        efiSupport = true;             # Enable EFI support
-      };
 
-      # EFI variables support
-      efi = {
-        canTouchEfiVariables = true;   # Allow modifying EFI variables
-        efiSysMountPoint = "/boot";    # Mount EFI system partition at /boot
-      };
+  boot.loader = {
+    limine = {
+      enable = true;
+      efiSupport = true;
+      style.wallpapers = [pkgs.nixos-artwork.wallpapers.simple-dark-gray-bootloader.gnomeFilePath];
+      maxGenerations = 10;
+      secureBoot.enable = true;
     };
+    systemd-boot.enable = lib.mkForce false;
+  };
 
     # ============================================================================
     # KERNEL CONFIGURATION
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest
 
-    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
+    #boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
     #specialisation = {
       #lqx-kernel.configuration = {
       #  boot.kernelPackages = pkgs.linuxPackages_lqx;
@@ -93,7 +93,7 @@
     # Modules to load at boot and in initrd
     # ============================================================================
     boot.kernelModules = [
-      "kvm"
+      #"kvm"
       "v4l2loopback"   # Virtual video device (for OBS)
       "i2c-dev"        # I2C device support
       "efivarfs"       # EFI variable filesystem
@@ -107,7 +107,16 @@
       "vfio_virqfd"
       "kvm-intel"      # Intel KVM virtualization
       "i915"           # Intel graphics
-      "kvmgt"          # Intel GVT-g mediated devices
+      #"kvmgt"          # Intel GVT-g mediated devices
+      "btrfs"        # Btrfs filesystem
+      #"dm-snapshot"  # Device mapper snapshots
+      #"dm-crypt"     # Device mapper encryption
+      "dm-mod"       # Device mapper core
+      "dm-thin-pool" # Thin pool logical volume
+      "dm-mirror"    # General LVM support
+      #"vfio_pci"
+      #"vfio"
+      #"vfio_iommu_type1"
     ];
 
     # ============================================================================
@@ -124,21 +133,6 @@
         "usb_storage"  # USB storage
         "sd_mod"       # SCSI disk support
       ];
-
-      kernelModules = [
-        "btrfs"        # Btrfs filesystem
-        #"dm-snapshot"  # Device mapper snapshots
-        #"dm-crypt"     # Device mapper encryption
-        "dm-mod"       # Device mapper core
-        "dm-thin-pool" # Thin pool logical volume
-        "dm-mirror"    # General LVM support
-        #"vfio_pci"
-        #"vfio"
-        #"vfio_iommu_type1"
-        #"kvm"
-        "i915"         # Intel graphics (early load)
-      ];
-
       # Enable debugging in initrd
       systemd.enable = true;  # Enable systemd in initrd for better debugging
     };
@@ -227,24 +221,24 @@
     # ============================================================================
     # Disable core dumps for security
     # ============================================================================
-    systemd.coredump.extraConfig = ''
-      Storage=none
-      ProcessSizeMax=0
-    '';
+   # systemd.coredump.extraConfig = ''
+   #   Storage=none
+   #   ProcessSizeMax=0
+   # '';
 
-    systemd.tmpfiles.rules = [
-      "f /dev/shm/looking-glass 0660 spidy kvm -"
-    ];
+   # systemd.tmpfiles.rules = [
+   #   "f /dev/shm/looking-glass 0660 spidy kvm -"
+   # ];
 
     # ============================================================================
     # SYSTEMD DEBUGGING
     # ============================================================================
     # Enable systemd debugging options
     # ============================================================================
-    systemd.settings.Manager = {
-      LogLevel = "debug";
-      LogTarget = "console";
-    };
+   # systemd.settings.Manager = {
+   #   LogLevel = "debug";
+   #   LogTarget = "console";
+   # };
 
     # ============================================================================
     # PLYMOUTH - BOOT SPLASH
