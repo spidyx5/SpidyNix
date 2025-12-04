@@ -83,7 +83,6 @@
       mesa_git.opencl 
       intel-media-driver 
       intel-ocl
-      mesa_git
       mesa32_git 
       intel-vaapi-driver
     ];
