@@ -46,13 +46,13 @@
     # ============================================================================
     boot.kernelParams = [
       # --- Performance Optimizations ---
-      "nvme_core.default_ps_max_latency_us=0"  # NVMe max performance
-      "zswap.enabled=1"                        # Enable zswap compression
-      "mitigations=off"                        # Disable CPU mitigations (performance over security)
-      "rootflags=noatime"                      # Disable access time updates
-      "nowatchdog"                             # Disable watchdog entirely
-      "threadirqs"                             # Use threaded interrupts for lower latency
-      "kernel.split_lock_mitigate=0"            # Crucial for gaming (prevents fps drops)
+      # "nvme_core.default_ps_max_latency_us=0"  # NVMe max performance
+      # "zswap.enabled=1"                        # Enable zswap compression
+      # "mitigations=off"                        # Disable CPU mitigations (performance over security)
+      # "rootflags=noatime"                      # Disable access time updates
+      # "nowatchdog"                             # Disable watchdog entirely
+      # "threadirqs"                             # Use threaded interrupts for lower latency
+      # "kernel.split_lock_mitigate=0"            # Crucial for gaming (prevents fps drops)
 
       # --- Security Hardening ---
       "init_on_alloc=1"                        # Initialize allocated memory
@@ -76,12 +76,12 @@
        #"acpi_sleep=nonvs"
        #"mem_sleep_default=deep"
        # resume=/dev/mapper/mock-fan
-      "intel_idle.max_cstate=4"                # Intel CPU C-state limit
-      "intel_pstate=passive"                   # Intel P-state passive mode
-      "intel_iommu=on"                         # Enable Intel IOMMU
-      "i915.enable_gvt=1"                      # Enable Intel GVT-g
-      "kvm-intel.nested=0"                     # Disable nested virtualization
-      "iommu=pt"                               # Enable IOMMU passthrough
+      # "intel_idle.max_cstate=4"                # Intel CPU C-state limit
+      # "intel_pstate=passive"                   # Intel P-state passive mode
+      # "intel_iommu=on"                         # Enable Intel IOMMU
+      # "i915.enable_gvt=1"                      # Enable Intel GVT-g
+      # "kvm-intel.nested=0"                     # Disable nested virtualization
+      # "iommu=pt"                               # Enable IOMMU passthrough
     ];
 
     boot.consoleLogLevel = 3;                   # Standard console log level
@@ -94,13 +94,13 @@
     # ============================================================================
     boot.kernelModules = [
       #"kvm"
-      "v4l2loopback"   # Virtual video device (for OBS)
-      "i2c-dev"        # I2C device support
-      "efivarfs"       # EFI variable filesystem
-      "uinput"         # User input device
-      "tcp_bbr"        # BBR congestion control
-      "hid_nintendo"     # Nintendo Switch controllers
-      "xpad"             # Xbox controllers
+      # "v4l2loopback"   # Virtual video device (for OBS)
+      # "i2c-dev"        # I2C device support
+      # "efivarfs"       # EFI variable filesystem
+      # "uinput"         # User input device
+      # "tcp_bbr"        # BBR congestion control
+      # "hid_nintendo"     # Nintendo Switch controllers
+      # "xpad"             # Xbox controllers
       # Networking
       "tun"           # TUN/TAP devices for VM networking
       "vhost_net"     # Vhost-net for better network performance

@@ -29,8 +29,8 @@
  # };
 
   # Enable Musnix for music production
-  musnix.enable = true;
-  musnix.kernel.realtime = false;  # Disable realtime kernel
+  # musnix.enable = true;
+  # musnix.kernel.realtime = false;  # Disable realtime kernel
 
   # Enable fstrim for SSD optimization
   services.fstrim = {
