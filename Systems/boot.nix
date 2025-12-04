@@ -20,7 +20,7 @@
 
     # ============================================================================
     # KERNEL CONFIGURATION
-    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     #boot.kernelPackages = lib.mkForce pkgs.linuxPackages_cachyos-lto;  # Use CachyOS kernel
     #specialisation = {
@@ -66,11 +66,11 @@
       "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"  # Loadable Security Modules
 
       # --- Boot Debugging ---
-      # "quiet"                               # Commented out for debugging
-      "systemd.show_status=auto"               # Show systemd status conditionally
-      "rd.udev.log_level=7"                    # Maximum udev log verbosity for debugging
-      "systemd.log_level=debug"                # Enable systemd debug logging
-      "systemd.log_target=console"             # Log to console for debugging
+      "quiet"                                  # Quiet boot (remove for debugging)
+      # "systemd.show_status=auto"             # Show systemd status conditionally
+      # "rd.udev.log_level=7"                  # Maximum udev log verbosity for debugging
+      # "systemd.log_level=debug"              # Enable systemd debug logging
+      # "systemd.log_target=console"           # Log to console for debugging
       # "plymouth.use-simpledrm"               # Disabled for debugging
        #"acpi_sleep_default=deep"
        #"acpi_sleep=nonvs"
@@ -84,8 +84,8 @@
       "iommu=pt"                               # Enable IOMMU passthrough
     ];
 
-    boot.consoleLogLevel = 7;                  # Maximum console log level for debugging
-    boot.initrd.verbose = true;                 # Enable verbose initrd for debugging
+    boot.consoleLogLevel = 3;                   # Standard console log level
+    boot.initrd.verbose = false;                # Disable verbose initrd
 
     # ============================================================================
     # KERNEL MODULES

@@ -11,10 +11,10 @@
   boot.initrd.services.lvm.enable = true;
   # Enable Blueman for Bluetooth management
   services.blueman.enable = true;
-   services.sysc-greet = {
-    enable = true;
-    compositor = "niri"; 
-  };
+  services.sysc-greet = {
+     enable = true;
+     compositor = "niri";
+   };
   # Enable Flatpak for containerized applications
   services.flatpak.enable = true;
   # Add Flathub repository
