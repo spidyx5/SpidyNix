@@ -141,8 +141,8 @@
     # ========================================================================
     nixosConfigurations.Spidy = inputs.nixpkgs.lib.nixosSystem {
       
-      # Pass inputs to modules
-      specialArgs = { inherit inputs; };
+      # Pass inputs and chaotic to modules
+      specialArgs = { inherit inputs chaotic; };
 
       # Modules to include in the configuration
       modules = [
@@ -160,9 +160,7 @@
         inputs.spicetify-nix.nixosModules.default
         sysc-greet.nixosModules.default
         home-manager.nixosModules.home-manager
-        chaotic.nixosModules.nyx-cache
-        chaotic.nixosModules.nyx-overlay
-        chaotic.nixosModules.nyx-registry
+        chaotic.nixosModules.default
         inputs.nix-gaming.nixosModules.pipewireLowLatency
         nix-gaming.nixosModules.platformOptimizations
         nix-index-db.nixosModules.nix-index

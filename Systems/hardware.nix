@@ -49,7 +49,6 @@
     ];
   };
 
-  
   # ENVIRONMENT VARIABLES FOR VIDEO ACCELERATION
   environment.sessionVariables = { 
     LIBVA_DRIVER_NAME = "iHD"; 
@@ -79,4 +78,13 @@
 
   # HARDWARE CLOCK
   time.hardwareClockInLocalTime = lib.mkDefault false;
+  chaotic.mesa-git.enable = true;
+  chaotic.mesa-git.extraPackages = with pkgs; [
+      mesa_git.opencl 
+      intel-media-driver 
+      intel-ocl
+      mesa_git
+      mesa32_git 
+      intel-vaapi-driver
+    ];
 }
