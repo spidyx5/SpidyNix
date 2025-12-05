@@ -20,7 +20,7 @@ Generate a hardware configuration for your system:
 
 ```bash
 # Generate hardware configuration
-sudo nixos-generate-config --show-hardware-config > /etc/nixos/SpidyNix/Nix/Spidy/hardware-configuration.nix
+nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/SpidyNix/Nix/Spidy/hardware-configuration.nix
 ```
 
 ### Apply Configuration
