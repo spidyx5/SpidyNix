@@ -1,111 +1,228 @@
-# /etc/nixos/SpidyNix/Systems/service.nix
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
+
 {
-  # Disable X server (we're using Wayland)
-  services.xserver.enable = false;
-
-  # Enable OpenSSH for remote access
-  #services.openssh.enable = true;
-  services.lvm.boot.thin.enable = true;
-  services.lvm.enable = true;
-  boot.initrd.services.lvm.enable = true;
-  # Enable Blueman for Bluetooth management
-  services.blueman.enable = true;
-  services.sysc-greet = {
-     enable = true;
-     compositor = "niri";
-   };
-  # Enable Flatpak for containerized applications
-  services.flatpak.enable = true;
-  # Add Flathub repository
- # systemd.services.flatpak-repo = {
- #   wantedBy = [ "multi-user.target" ];
- #   path = [ pkgs.flatpak ];
- #   after = [ "network-online.target" ];
- #   wants = [ "network-online.target" ];
- #   script = ''
- #     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
- #   '';
- # };
-
-  # Enable Musnix for music production
-  # musnix.enable = true;
-  # musnix.kernel.realtime = false;  # Disable realtime kernel
-
-  # Enable fstrim for SSD optimization
-  services.fstrim = {
+  # Enable NetworkManager for easy network configuration
+  networking.networkmanager = {
     enable = true;
-    interval = "weekly";  # Run weekly
+    dns = "default";
+    wifi.powersave = false;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
   };
 
-  # Disable systemd OOM daemon
+  networking.nameservers = [
+    "9.9.9.11"
+    "149.112.112.11"
+    "1.1.1.1"
+  ];
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      22 80 443 8080 59010 59011
+    ];
+    allowedUDPPorts = [
+      59010 59011
+    ];
+    checkReversePath = false;
+    trustedInterfaces = [
+      "virbr0" "docker0" "podman0"
+    ];
+  };
+
+  systemd.services.NetworkManager-wait-online = {
+    serviceConfig = {
+      ExecStart = "${pkgs.networkmanager}/bin/nm-online -q";
+    };
+  };
+
+  networking.nftables.enable = true;
+
+  networking.stevenBlackHosts = {
+    enableIPv6 = true;
+    blockFakenews = true;
+    blockGambling = true;
+    blockPorn = true;
+    blockSocial = true;
+  };
+
+  networking.hosts = {
+    # "192.168.1.100" = [ "myserver.local" ];
+  };
+
+  networking.useDHCP = lib.mkDefault true;
+  #networking.dhcpcd.enable = false;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
+      PubkeyAuthentication = true;
+      X11Forwarding = false;
+    };
+  };
+
+  # Polkit manages privilege escalation for GUI applications
+  # Custom rules allow wheel group convenience without passwords
+  security.polkit = {
+    enable = true;
+
+    extraConfig = ''
+      /* Allow wheel group to manage systemd units without password */
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.systemd1.manage-units" &&
+            subject.isInGroup("wheel")) {
+          return polkit.Result.YES;
+        }
+      });
+
+      /* Allow wheel group to mount drives without password */
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.udisks2.filesystem-mount-system" &&
+            subject.isInGroup("wheel")) {
+          return polkit.Result.YES;
+        }
+      });
+    '';
+  };
+
+  # ============================================================================
+  # APPARMOR - MANDATORY ACCESS CONTROL
+  # ============================================================================
+  security.apparmor = {
+    enable = true;
+    killUnconfinedConfinables = true;
+    packages = [ pkgs.apparmor-profiles ];
+  };
+
+  # ============================================================================
+  # KERNEL HARDENING
+  # ============================================================================
+  security = {
+    protectKernelImage = false;
+    allowUserNamespaces = true;
+    allowSimultaneousMultithreading = true;
+  };
+
+  # ============================================================================
+  # PAM - LOGIN LIMITS (Critical for gaming/Wine)
+  # ============================================================================
+  security.pam = {
+    loginLimits = [
+      { domain = "*"; type = "soft"; item = "nofile"; value = "524288"; }
+      { domain = "*"; type = "hard"; item = "nofile"; value = "1048576"; }
+    ];
+  };
+
+  # ============================================================================
+  # DBUS - HIGH PERFORMANCE MESSAGE BROKER
+  # ============================================================================
+  services.dbus = {
+    enable = true;
+    implementation = "broker";
+    packages = [ pkgs.dconf ];
+  };
+
+  # ============================================================================
+  # X SERVER - DISABLED (Using Wayland)
+  # ============================================================================
+  services.xserver.enable = false;
+
+  # ============================================================================
+  # LVM - LOGICAL VOLUME MANAGEMENT
+  # ============================================================================
+  services.lvm = {
+    enable = true;
+    boot.thin.enable = true;
+  };
+
+  boot.initrd.services.lvm.enable = true;
+
+  # ============================================================================
+  # FLATPAK - SANDBOXED APPLICATIONS
+  # ============================================================================
+  services.flatpak.enable = true;
+
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  # ============================================================================
+  # MUSNIX - MUSIC/AUDIO PRODUCTION
+  # ============================================================================
+  musnix.enable = true;
+  musnix.kernel.realtime = false;
+
+  # ============================================================================
+  # FSTRIM - SSD OPTIMIZATION
+  # ============================================================================
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
+  # ============================================================================
+  # SYSTEMD OOM DAEMON
+  # ============================================================================
   systemd.oomd.enable = false;
-  
+
+  # ============================================================================
+  # CACHIX & COMPRESSION
+  # ============================================================================
   services.cachix-watch-store.compressionLevel = 5;
   hardware.firmwareCompression = "zstd";
   services.nginx.experimentalZstdSettings = true;
-  # Enable EarlyOOM for out-of-memory handling
+
+  # ============================================================================
+  # EARLYOOM - OUT-OF-MEMORY HANDLER
+  # ============================================================================
   services.earlyoom = {
     enable = true;
-    enableNotifications = true;  # Show notifications when processes are killed
-
-    # Kill something if RAM goes below 5% or Swap below 5%
+    enableNotifications = true;
     freeMemThreshold = 5;
     freeSwapThreshold = 5;
 
-    # Prefer killing browsers and Electron apps
     extraArgs = [
       "--prefer" "(^|/)(java|chromium|firefox|zen|chrome|electron|code)$"
-
-      # Avoid killing Steam, Gamescope, Wayland, X11
       "--avoid" "(^|/)(steam|gamescope|Xwayland|kwin_wayland|Hyprland|niri)$"
     ];
   };
 
   # ============================================================================
-  # LIBINPUT
+  # LIBINPUT - INPUT DEVICE HANDLING
   # ============================================================================
-  # Input device management (touchpad, mouse, keyboard)
-  # ============================================================================
-
   services.libinput = {
     enable = true;
 
-    # Touchpad configuration
     touchpad = {
-      tapping = true;  # Enable tap-to-click
-      naturalScrolling = true;  # Enable natural scrolling
-      middleEmulation = true;  # Enable middle-click emulation
-      disableWhileTyping = true;  # Disable touchpad while typing
+      tapping = true;
+      naturalScrolling = true;
+      middleEmulation = true;
+      disableWhileTyping = true;
     };
   };
 
-  # Enable GNOME Virtual File System (for mounting USB drives, etc.)
-  #services.gvfs.enable = true;
-
   # ============================================================================
-  # TUMBLER
+  # TUMBLER - THUMBNAIL GENERATION
   # ============================================================================
-  # Thumbnail generator for images and videos
-  # ============================================================================
-
   services.tumbler.enable = true;
 
-  # Enable firmware update daemon
+  # ============================================================================
+  # FWUPD - FIRMWARE UPDATE DAEMON
+  # ============================================================================
   services.fwupd.enable = true;
 
-  # Enable automatic nice daemon for better process priority management
- # services.ananicy = {
- #   enable = true;
-  #  package = pkgs.ananicy-cpp;  # Use the C++ version
- # };
-
+  services.gvfs.enable = true;
   # ============================================================================
-  # UDEV RULES
+  # UDEV RULES - GAME CONTROLLERS & DEVICES
   # ============================================================================
-  # Device rules for game controllers and hardware
-  # ============================================================================
-
   services.udev.extraRules = ''
     # =========================================================================
     # NINTENDO CONTROLLERS
@@ -196,44 +313,37 @@
   '';
 
   # ============================================================================
-  # DCONF
+  # DCONF - GSETTINGS CONFIGURATION STORAGE
   # ============================================================================
-  # Configuration system used by many applications
-  # ============================================================================
-
   programs.dconf.enable = true;
 
   # ============================================================================
-  # VIRTUAL MACHINE SERVICES
+  # GEOLOCATION SERVICES
   # ============================================================================
-  # QEMU guest agent services (useful if running as a VM)
-  # ============================================================================
-
-  # Uncomment if running NixOS as a virtual machine guest
-  #services.qemuGuest.enable = true;
-  #services.spice-vdagentd.enable = true;
-  #services.spice-webdavd.enable = true;
-
-  # ============================================================================
-  # LOCATION SERVICES
-  # ============================================================================
-  # Geolocation for applications that need it (e.g., Gammastep, Redshift)
+  # Provides location data for applications (Gammastep, Redshift, etc.)
   # ============================================================================
 
-  location.provider = "geoclue2";  # Use geoclue2 for location services
+  location.provider = "geoclue2";
 
   services.geoclue2 = {
     enable = true;
-    geoProviderUrl = "https://beacondb.net/v1/geolocate";  # URL for geolocation
-    submissionUrl = "https://beacondb.net/v2/geosubmit";   # URL for location submission
-    submissionNick = "geoclue";                           # Nickname for submissions
+    geoProviderUrl = "https://beacondb.net/v1/geolocate";
+    submissionUrl = "https://beacondb.net/v2/geosubmit";
+    submissionNick = "geoclue";
 
-    # Allow specific apps to access location
     appConfig = {
       gammastep = {
-        isAllowed = true;  # Allow Gammastep to access location
-        isSystem = false;  # Not a system service
+        isAllowed = true;
+        isSystem = false;
       };
     };
   };
+
+  # ============================================================================
+  # OPTIONAL: QEMU GUEST (uncomment if running in VM)
+  # ============================================================================
+  # services.qemuGuest.enable = true;
+  # services.spice-vdagentd.enable = true;
+  # services.spice-webdavd.enable = true;
+  systemd.user.services.niri-flake-polkit.enable = false;
 }

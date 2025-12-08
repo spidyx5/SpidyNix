@@ -1,166 +1,132 @@
 # SpidyNix
 
-A modular NixOS configuration featuring the Niri window manager.
+A modular NixOS configuration featuring.
 
-## Installation
+## Quick Start
 
-### Clone the Repository
+### Clone Repository
 
 ```bash
-# For existing NixOS systems
+# For existing system
 sudo git clone https://github.com/spidyx5/SpidyNix.git /etc/nixos/SpidyNix
 
-# For live ISO installations
+# For live ISO installation
 sudo git clone https://github.com/spidyx5/SpidyNix.git /mnt/etc/nixos/SpidyNix
 ```
 
-### Generate Hardware Configuration
 
-Generate a hardware configuration for your system:
-
-```bash
-# Generate hardware configuration
-nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/SpidyNix/Nix/Spidy/hardware-configuration.nix
-```
-
-### Apply Configuration
-
-#### For Existing NixOS Systems
-
-```bash
-sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
-```
-
-#### For Fresh Installations (Live ISO)
-
-After partitioning and mounting to `/mnt`:
-
-```bash
-sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy --cores 0 --max-jobs 0
-```
-
-### Post-Installation
-
-Update the flake to get the latest package versions:
-
-```bash
-cd /etc/nixos/SpidyNix
-nix flake update
-```
-
-Rebuild and switch to apply changes:
+### Build & Switch
 
 ```bash
 # Using nh (recommended)
-nh os switch /etc/nixos/SpidyNix --hostname Spidy
+cd /etc/nixos/SpidyNix
+nh os switch --hostname Spidy
 
 # Or using nixos-rebuild
 sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
 ```
 
-**Default Credentials:**
-- Username: `spidy`
-- Password: `spidy`
+### Live ISO Installation
 
-### ⚠️ CPU Compatibility Note
-
-This configuration may require x86_64-v3 CPU support. If your CPU lacks this, comment out lines 82-91 in `Systems/nixos.nix`.
-
-## Secrets Management (SOPS)
-
-This configuration uses SOPS for managing encrypted secrets.
-
-### Key Files
-- `Nix/Secrets/.sops.yaml` - SOPS configuration
-- `Nix/Secrets/secrets.yaml` - Encrypted secrets
-- `Nix/Secrets/password` - Age private key
-
-### Managing Secrets
-
-Edit secrets:
 ```bash
-sops Nix/Secrets/secrets.yaml
+sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#Spidy
 ```
 
-Encrypt new data:
+## Spider Profile
+
+
+### Step 1: Clone Repository
+
 ```bash
-sops --encrypt --in-place Nix/Secrets/secrets.yaml
+sudo git clone https://github.com/spidyx5/SpidyNix.git /etc/nixos/SpidyNix
+cd /etc/nixos/SpidyNix
 ```
 
-Secrets are automatically decrypted during builds.
+### Step 2: Generate Your Hardware Configuration
+
+**CRITICAL:** This creates hardware detection for YOUR specific system:
+
+```bash
+# Generate hardware config (runs nixos-generate-config automatically)
+sudo nixos-generate-config
+```
+
+### Step 3: Rebuild System
+
+```bash
+# Using nh (recommended)
+sudo nh os switch /etc/nixos/SpidyNix --hostname spider
+
+# Or using nixos-rebuild
+sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#spider
+```
+
+### Step 4: (Optional) Customize
+
+Edit configuration as needed:
+```bash
+sudo nano /etc/nixos/SpidyNix/Spidy/spider-config.nix
+```
+
+### Live ISO Installation (Spider Profile)
+
+```bash
+# Clone to ISO root
+sudo git clone https://github.com/spidyx5/SpidyNix.git /mnt/etc/nixos/SpidyNix
+
+# Generate hardware config for target system
+nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/hardware-configuration.nix
+
+# Install with spider profile
+sudo nixos-install --root /mnt --flake /mnt/etc/nixos/SpidyNix#spider
+```
+
+## Default Credentials
+
+| Setting | Value |
+|---------|-------|
+| **Username** | `spidy` |
+| **Password** | `spidy` |
+| **Hostname** | `Spidy` or `spider` |
+
+⚠️ **Change password after first login:**
+```bash
+passwd
+```
+
+## Troubleshooting Hardware Generation
+
+### Hardware Config Not Found
+```bash
+# Manually generate
+sudo nixos-generate-config --root /
+
+# Check it was created
+cat /etc/nixos/hardware-configuration.nix
+```
+
+### Different Devices/Filesystems
+The auto-generated config should handle most cases. If you have:
+- Custom LVM setup
+- Multiple drives
+- Special RAID configuration
+
+Edit `/etc/nixos/hardware-configuration.nix` manually after generation.
+
+### Rebuild After Generation
+```bash
+# If hardware config changes
+sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#spider
+```
 
 ## Directory Structure
 
 ```
-SpidyNix/
+/etc/nixos/SpidyNix
 ├── flake.nix
-├── flake.lock
-├── readme.md
-├── Homes/
-│   ├── home.nix
-│   ├── apps/           
-│   │   ├── chromium-flag.nix
-│   │   ├── edge.nix
-│   │   ├── fuzzel.nix
-│   │   ├── obs.nix
-│   │   ├── qutebrowser.nix
-│   │   ├── twitch.nix
-│   │   ├── yazi.nix
-│   │   └── zen-browser.nix
-│   ├── configs/        
-│   │   ├── mako.nix
-│   │   ├── niri.nix
-│   │   ├── rnnoise.nix
-│   │   ├── theme.nix
-│   │   ├── vm.nix
-│   │   └── xdg.nix
-│   ├── devs/           
-│   │   ├── git.nix
-│   │   ├── helix.nix
-│   │   ├── neovim.nix
-│   │   ├── nushell.nix
-│   │   ├── terminal.nix
-│   │   ├── vscode.nix
-│   │   └── zed.nix
-│   └── packages/       
-│       ├── desktop.nix
-│       ├── development.nix
-│       ├── gaming.nix
-│       └── productive.nix
-├── Nix/
-│   ├── Persist/        
-│   │   ├── niri.md
-│   │   └── user_readme.md
-│   ├── Secrets/        
-│   │   ├── .sops.yaml
-│   │   └── secrets.yaml
-│   └── Spidy/          
-│       ├── configuration.nix
-│       ├── hardware-configuration.nix
-│       └── spidy-profile.nix
-├── Softwares/          
-│   ├── basic.nix
-│   ├── font.nix
-│   ├── program.nix
-│   ├── software.nix
-│   ├── virtualization.nix
-│   └── wayland.nix
-└── Systems/            
-    ├── blacklist.nix
-    ├── boot.nix
-    ├── hardware.nix
-    ├── login.nix
-    ├── network.nix
-    ├── nixos.nix
-    ├── power.nix
-    ├── security.nix
-    ├── service.nix
-    ├── sound.nix
-    ├── system.nix
-    └── user.nix
+├── README.md
+└── Spidy
+    ├── configuration.nix
+    └── hardware-configuration.nix
 ```
 
-## Credits
-
-- [linuxmobile/kaku](https://github.com/linuxmobile/kaku)
-- [theblackdon/black-don-os](https://gitlab.com/theblackdon/black-don-os)

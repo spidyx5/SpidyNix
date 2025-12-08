@@ -1,50 +1,67 @@
-# /etc/nixos/SpidyNix/Homes/home.nix
 { config, pkgs, lib, inputs, ... }:
 
 {
-  # ============================================================================
-  # IMPORTS
-  # ============================================================================
+  # =========================================================================
+  # HOME MANAGER CONFIGURATION
+  # =========================================================================
+  # Main entry point for user 'spidy' home configuration
+  # Imports all application, dotfile, and config modules
+  # =========================================================================
+
   imports = [
-    inputs.dms.homeModules.dankMaterialShell.default
-    inputs.niri.homeModules.niri
-    # Devs
-    ./devs/git.nix
-    ./devs/nushell.nix
-    ./devs/helix.nix
-    #./devs/neovim.nix
-    #./devs/vscode.nix
-    #./devs/zed.nix
-    ./devs/terminal.nix
+    # Application configurations
+    #./app/git.nix
+    ./app/helix.nix
+    #./app/neovim.nix
+    ./app/nushell.nix
+    ./app/starship.nix
+    #./app/vscode.nix
+    #./app/zed.nix
+    ./app/xdg.nix
 
-    # Apps
-    ./apps/chromium-flag.nix
-    #./apps/qutebrowser.nix
-    ./apps/zen-browser.nix
-    #./apps/edge.nix
-    ./apps/fuzzel.nix
-    ./apps/obs.nix
-    ./apps/twitch.nix
-    ./apps/yazi.nix
+    # Dotfile configurations
+    #./dotfile/dms.nix
+    ./dotfile/noctalia.nix
+    ./dotfile/niri.nix
+    ./dotfile/theme.nix
+    ./dotfile/wayland.nix
+    ./dotfile/yazi.nix
+    ./dotfile/mako.nix
+    ./dotfile/fuzzel.nix
 
-    # Configs
-    ./configs/vm.nix
-    ./configs/mako.nix
-    ./configs/niri.nix
-    ./configs/rnnoise.nix
-    ./configs/theme.nix
-    ./configs/xdg.nix
+    # Configuration files
+    ./config/chromium.nix
+    #./config/edge.nix
+    ./config/obs.nix
+    #./config/qutebrowser.nix
+    ./config/rnnoise.nix
+    ./config/twitch.nix
+    ./config/vm.nix
+    ./config/zen.nix
 
-    # Packages
-    #./packages/gaming.nix
-    #./packages/desktop.nix
-    #./packages/productive.nix
-    #./packages/development.nix
+    #inputs.niri.homeModules.niri  
+    #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    #inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    inputs.noctalia.homeModules.default
+    #inputs.dankMaterialShell.nixosModules.greeter
   ];
 
-  config.home = {
-    username = "spidy";
-    homeDirectory = "/home/spidy";
-    stateVersion = "26.05";
-  };
+  # =========================================================================
+  # HOME MANAGER BASICS
+  # =========================================================================
+  home.username = "spidy";
+  home.homeDirectory = "/home/spidy";
+  home.stateVersion = "26.05";
+
+  # =========================================================================
+  # PROGRAMS
+  # =========================================================================
+  programs.home-manager.enable = true;
+
+  # =========================================================================
+  # HOME PACKAGES
+  # =========================================================================
+  home.packages = with pkgs; [
+    # Add any user-specific packages here
+  ];
 }
