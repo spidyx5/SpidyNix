@@ -1,0 +1,39 @@
+{ config, pkgs, lib, ... }:
+
+{
+  # =========================================================================
+  # TWITCH HLS CLIENT CONFIGURATION
+  # =========================================================================
+  home.file.".config/twitch-hls-client/config".text = ''
+    # ===================================================================
+    # GENERAL SETTINGS
+    # ===================================================================
+    quality=best
+    debug=false
+
+    # ===================================================================
+    # PLAYER SETTINGS
+    # ===================================================================
+    player=${pkgs.mpv}/bin/mpv
+    player-args=- --profile=low-latency
+    quiet=true
+    no-kill=false
+
+    # ===================================================================
+    # HLS SETTINGS
+    # ===================================================================
+    servers=https://eu.luminous.dev/live/[channel],https://eu2.luminous.dev/live/[channel],https://as.luminous.dev/live/[channel]
+    print-streams=false
+    no-low-latency=false
+    codecs=av1,h265,h264
+
+    # ===================================================================
+    # HTTP SETTINGS
+    # ===================================================================
+    force-https=true
+    force-ipv4=false
+    user-agent=Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0
+    http-retries=3
+    http-timeout=10
+  '';
+}
