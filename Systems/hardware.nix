@@ -50,7 +50,7 @@
 
   powerManagement = {
     enable = true;
-    powertop.enable = true;
+   # powertop.enable = true;
   };
 
   services.tuned.enable = true;
