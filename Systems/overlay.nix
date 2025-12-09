@@ -128,7 +128,7 @@ in
   # Use LLVM as default stdenv for best performance with modern LTO and mold
   # NOTE: Commenting out to avoid infinite recursion - apply at flake level instead
   # ============================================================================
-   stdenv = llvmStdenv;
+   #stdenv = llvmStdenv;
 
   # ============================================================================
   # Fix xpadneo for newer kernels (IDA API changes)
