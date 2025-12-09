@@ -117,7 +117,7 @@
     helium-browser, 
     nix-gaming, 
     nix-index-db, 
-    #dankMaterialShell, 
+    dankMaterialShell, 
     nur, 
     nix-topology, 
     hosts, 
@@ -153,7 +153,7 @@
           nur.modules.nixos.default
           hosts.nixosModule { networking.stevenBlackHosts.enable = true; }
           nix-topology.nixosModules.default
-          sops-nix.nixosModules.sops
+          inputs.sops-nix.nixosModules.sops
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
