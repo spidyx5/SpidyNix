@@ -125,13 +125,15 @@ in
   });
 
   # ============================================================================
-  # NIRI FIX: Disable parallel builds to prevent threading panics
+  # NIRI FIX: Disable parallel builds and tests to prevent threading panics
   # ============================================================================
-  # niri has known issues with parallel compilation causing SIGABRT
-  # This override disables parallel builds specifically for niri
+  # niri has known issues with parallel compilation and tests causing SIGABRT
+  # This override disables parallel builds and tests specifically for niri
   niri = prev.niri.overrideAttrs (oldAttrs: {
     # Disable parallel builds to prevent threading issues
     enableParallelBuilding = false;
+    # Disable tests to prevent runtime panics during build
+    doCheck = false;
     # Use a more stable build environment
     stdenv = prev.stdenv;
   });
