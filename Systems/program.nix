@@ -81,8 +81,8 @@
     #proton-cachyos_nightly_x86_64_v3
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
-    
-    inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #niri
+
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     #inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default

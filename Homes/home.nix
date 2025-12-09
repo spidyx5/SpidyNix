@@ -39,7 +39,7 @@
     ./config/zen.nix
 
 
-    #inputs.niri.homeModules.niri  
+    inputs.niri.homeModules.niri  
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.noctalia.homeModules.default
