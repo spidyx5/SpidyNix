@@ -98,7 +98,6 @@ passwd
     ├── overlay.nix
     ├── program.nix
     ├── service.nix
-    ├── user.nix
     └── virtualization.nix
 ```
 
