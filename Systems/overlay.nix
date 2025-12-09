@@ -125,22 +125,10 @@ in
   });
 
   # ============================================================================
-  # NIRI FIX: Disable parallel builds and tests to prevent threading panics
+  # NIRI FIX: Use nixpkgs version instead of flake version to avoid build issues
   # ============================================================================
-  # niri has known issues with parallel compilation and tests causing SIGABRT
-  # This override disables parallel builds and tests specifically for niri
-  niri = prev.niri.overrideAttrs (oldAttrs: {
-    # Disable parallel builds to prevent threading issues
-    enableParallelBuilding = false;
-    # Disable tests to prevent runtime panics during build
-    doCheck = false;
-    # Use a more stable build environment
-    stdenv = prev.stdenv;
-  });
-
-  # Alternative: Use nixpkgs version instead of flake version
-  # Uncomment the line below to use nixpkgs niri instead of flake niri
-  # niri = prev.niri;
+  # The flake version has threading issues during tests. Using nixpkgs version instead.
+  niri = prev.niri;
 
   # ============================================================================
   # Use LLVM as default stdenv for best performance with modern LTO and mold
