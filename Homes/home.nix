@@ -20,7 +20,7 @@
 
 
     #./dotfile/dms.nix
-    ./dotfile/noctalia.nix
+    #./dotfile/noctalia.nix
     #./dotfile/niri.nix
     ./dotfile/theme.nix
     ./dotfile/wayland.nix
