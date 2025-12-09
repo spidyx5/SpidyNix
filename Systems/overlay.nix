@@ -128,18 +128,5 @@ in
   # Use LLVM as default stdenv for best performance with modern LTO and mold
   # NOTE: Commenting out to avoid infinite recursion - apply at flake level instead
   # ============================================================================
-   #stdenv = llvmStdenv;
-
-  # ============================================================================
-  # Fix xpadneo for newer kernels (IDA API changes)
-  # ============================================================================
-  linuxPackages = prev.linuxPackages.overrideScope (self: super: {
-    xpadneo = super.xpadneo.overrideAttrs (oldAttrs: {
-      postPatch = (oldAttrs.postPatch or "") + ''
-        substituteInPlace hid-xpadneo/src/hid-xpadneo.c \
-          --replace "ida_simple_get(&xpadneo_device_id_allocator, 0, 0, GFP_KERNEL)" "ida_alloc(&xpadneo_device_id_allocator, GFP_KERNEL)" \
-          --replace "ida_simple_remove(&xpadneo_device_id_allocator, xdata->id)" "ida_free(&xpadneo_device_id_allocator, xdata->id)"
-      '';
-    });
-  });
+   stdenv = llvmStdenv;
 }

@@ -35,7 +35,7 @@
   };
 
   #hardware.steam-hardware.enable = true;
-  hardware.xpadneo.enable = true;
+  #hardware.xpadneo.enable = true;
   hardware.brillo.enable = true;
 
   time.hardwareClockInLocalTime = lib.mkDefault true;
