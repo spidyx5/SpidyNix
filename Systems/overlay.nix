@@ -125,12 +125,6 @@ in
   });
 
   # ============================================================================
-  # NIRI FIX: Use nixpkgs version instead of flake version to avoid build issues
-  # ============================================================================
-  # The flake version has threading issues during tests. Using nixpkgs version instead.
-  niri = prev.niri;
-
-  # ============================================================================
   # Use LLVM as default stdenv for best performance with modern LTO and mold
   # NOTE: Commenting out to avoid infinite recursion - apply at flake level instead
   # ============================================================================
