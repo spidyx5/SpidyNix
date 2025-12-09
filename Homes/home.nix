@@ -9,7 +9,6 @@
   # =========================================================================
 
   imports = [
-    # Application configurations
     #./app/git.nix
     ./app/helix.nix
     #./app/neovim.nix
@@ -19,7 +18,7 @@
     #./app/zed.nix
     ./app/xdg.nix
 
-    # Dotfile configurations
+
     #./dotfile/dms.nix
     ./dotfile/noctalia.nix
     ./dotfile/niri.nix
@@ -29,7 +28,7 @@
     ./dotfile/mako.nix
     ./dotfile/fuzzel.nix
 
-    # Configuration files
+
     ./config/chromium.nix
     #./config/edge.nix
     ./config/obs.nix
@@ -38,6 +37,7 @@
     ./config/twitch.nix
     ./config/vm.nix
     ./config/zen.nix
+
 
     #inputs.niri.homeModules.niri  
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri

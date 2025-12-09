@@ -28,6 +28,11 @@
     LIBGL_ALWAYS_INDIRECT = "0";
 
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+
+    WLR_RENDERER = "vulkan";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+    GTK_IM_MODULE = "simple";
   };
 
   # =========================================================================
@@ -41,3 +46,4 @@
     # Add any shell-specific Wayland aliases here if needed
   };
 }
+
