@@ -72,7 +72,7 @@
   # =========================================================================
   # VFIO - VIRTUAL FUNCTION I/O (For GPU Passthrough)
   # =========================================================================
-  boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" ];
+  #boot.kernelModules = [ "vfio" "vfio_iommu_type1" "vfio_pci" ];
 
   # ========================================================================
   # WAYDROID - ANDROID CONTAINER

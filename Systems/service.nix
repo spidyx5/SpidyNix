@@ -157,8 +157,8 @@
   # ============================================================================
   # MUSNIX - MUSIC/AUDIO PRODUCTION
   # ============================================================================
-  musnix.enable = true;
-  musnix.kernel.realtime = false;
+  #musnix.enable = true;
+  #musnix.kernel.realtime = true;
 
   # ============================================================================
   # FSTRIM - SSD OPTIMIZATION
