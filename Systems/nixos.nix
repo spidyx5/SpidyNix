@@ -19,7 +19,7 @@
 
       substituters = [
         "https://cache.nixos.org?priority=10"
-        "https://chaotic-nyx.cachix.org?priority=12"
+        "https://chaotic-nyx.cachix.org"
         "https://nix-gaming.cachix.org"
         "https://niri.cachix.org"
         "https://nix-community.cachix.org?priority=8"
