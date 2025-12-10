@@ -48,11 +48,6 @@
     intel-vaapi-driver
   ];
 
-  powerManagement = {
-    enable = true;
-   # powertop.enable = true;
-  };
-
   services.tuned.enable = true;
   services.tuned.settings.dynamic_tuning = true;
 

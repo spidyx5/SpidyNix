@@ -135,7 +135,7 @@
         "Super+Shift+Q".action.close-window = { };
         "Super+Shift+R".action.spawn = [ "niri" "msg" "debug" "reconfigure" ];
 
-        "Super+Return".action.spawn = [ "kitty" ];
+        "Super+Return".action.spawn = [ "ghostty" ];
         "Super+Space".action.spawn = [ "fuzzel" ];
 
         # Navigation (QWERTY - will be Colemak DH when keyd remaps)
