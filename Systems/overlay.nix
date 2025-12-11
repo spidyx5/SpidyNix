@@ -126,7 +126,7 @@ in
   niri = prev.niri.overrideAttrs (old: {
     # Disable tests because they require a GPU/Display,
     # which is not available during the build.
-    doCheck = false;
+    doCheck = false; };
   # ============================================================================
   # Use LLVM as default stdenv for best performance with modern LTO and mold
   # NOTE: Commenting out to avoid infinite recursion - apply at flake level instead
