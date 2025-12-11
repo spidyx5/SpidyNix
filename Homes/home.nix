@@ -9,19 +9,19 @@
   # =========================================================================
 
   imports = [
-    #./app/git.nix
+    ./app/git.nix
     ./app/helix.nix
     #./app/neovim.nix
     ./app/nushell.nix
     ./app/starship.nix
-    #./app/vscode.nix
+    ./app/vscode.nix
     #./app/zed.nix
     ./app/xdg.nix
 
 
     #./dotfile/dms.nix
-    #./dotfile/noctalia.nix
-    #./dotfile/niri.nix
+    ./dotfile/noctalia.nix
+    ./dotfile/niri.nix
     ./dotfile/theme.nix
     ./dotfile/wayland.nix
     ./dotfile/yazi.nix
@@ -39,7 +39,7 @@
     ./config/zen.nix
 
 
-    #inputs.niri.homeModules.niri  
+    inputs.niri.homeModules.niri  
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.noctalia.homeModules.default

@@ -6,6 +6,7 @@ let
 
   # Zen Browser package from flake input
   zenPackage = inputs.zen-browser.packages.${system}.default;
+  helium = inputs.helium-browser.packages.${system}.helium-browser;
 
   # Override package to add dependencies and Wayland support
   zenFixed = zenPackage.overrideAttrs (old: {

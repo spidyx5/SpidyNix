@@ -69,12 +69,12 @@
     brightnessctl         # Brightness control
     gammastep             # Screen temperature adjustment
     wlsunset              # Day/night gamma adjustments
-    libnotify             # Desktop notifications
+    #libnotify             # Desktop notifications
 
     # ========================================================================
     # SYSTEM UTILITIES & TOOLS
     # ========================================================================
-    cryptsetup            # Disk encryption utilities
+    #cryptsetup            # Disk encryption utilities
     ffmpeg
     nix-output-monitor    # Better build output
     nvd                   # Nix version diff tool
@@ -152,17 +152,17 @@
     # ========================================================================
     llvm                  # LLVM compiler infrastructure
     clang                 # LLVM C/C++/Objective-C compiler
-    #llvmPackages.clang-unwrapped
-    #llvmPackages.clang-tools
-    #llvm-manpages
-    #libllvm
-    #llvmPackages.libc-full
+    llvmPackages.clang-unwrapped
+    llvmPackages.clang-tools
+    llvm-manpages
+    libllvm
+    llvmPackages.libc-full
     llvmPackages.libllvm
-    #llvmPackages.stdenv
-    #libclang
-    #llvmPackages.bintools
-    #llvmPackages.compiler-rt
-    #llvmPackages.libcxxClang
+    llvmPackages.stdenv
+    libclang
+    llvmPackages.bintools
+    llvmPackages.compiler-rt
+    llvmPackages.libcxxClang
     llvmPackages.clangUseLLVM
     mold                  # Linker (faster than lld)
     flang                 # Fortran frontend for LLVM

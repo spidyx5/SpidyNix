@@ -70,7 +70,7 @@
     # ========================================================================
     # VIDEO EDITING
     # ========================================================================
-    davinci-resolve-studio # DaVinci Resolve Studio
+    #davinci-resolve-studio # DaVinci Resolve Studio
     
     #quickshell
     # Gaming overlays and tools
@@ -82,7 +82,7 @@
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
     #niri
-
+    
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     #inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -116,6 +116,16 @@
     path = "/tmp/dms-greeter.log";
   };
 };
+
+  #services.sysc-greet.enable = false;
+
+  # Keep niri available at system level for ly display manager to detect it
+  programs.niri.package = pkgs.niri;
+
+  # Ensure niri session is available to display manager
+  services.displayManager.sessionPackages = [ pkgs.niri ];
+
+
   # ========================================================================
   # ANDROID DEBUG BRIDGE (ADB)
   # ========================================================================
