@@ -109,7 +109,7 @@
     nixpkgs, 
     home-manager, 
     chaotic, 
-    niri, 
+    #niri, 
     zen-browser, 
     flake-utils, 
     musnix, 

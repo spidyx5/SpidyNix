@@ -122,9 +122,7 @@
   # Keep niri available at system level for ly display manager to detect it
   programs.niri.package = pkgs.niri;
   programs.niri.enable = true;
-  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri.overrideAttrs (old: {
-    doCheck = false;
-  });
+
   # Ensure niri session is available to display manager
   services.displayManager.sessionPackages = [ pkgs.niri ];
 

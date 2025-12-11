@@ -123,7 +123,10 @@ in
     NIX_CFLAGS_COMPILE = "${cflagsStr}${prev.lib.optionalString (oldAttrs.NIX_CFLAGS_COMPILE or "" != "") " ${oldAttrs.NIX_CFLAGS_COMPILE or ""}"}";
     NIX_LDFLAGS = "${ldflagsStr}${prev.lib.optionalString (oldAttrs.NIX_LDFLAGS or "" != "") " ${oldAttrs.NIX_LDFLAGS or ""}"}";
   });
-
+  niri = prev.niri.overrideAttrs (old: {
+    # Disable tests because they require a GPU/Display,
+    # which is not available during the build.
+    doCheck = false;
   # ============================================================================
   # Use LLVM as default stdenv for best performance with modern LTO and mold
   # NOTE: Commenting out to avoid infinite recursion - apply at flake level instead
