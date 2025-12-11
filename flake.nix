@@ -130,6 +130,7 @@
         inherit system;
         overlays = [
           (import ./Systems/overlay.nix)
+          inputs.niri.overlays.niri
         ];
       };
     in
