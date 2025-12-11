@@ -21,7 +21,7 @@
       jnoortheen.nix-ide
 
       # Language support
-      ms-vscode.cpptools
+      #ms-vscode.cpptools
       rust-lang.rust-analyzer
       ms-python.python
       tamasfe.even-better-toml
