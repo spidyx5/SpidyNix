@@ -5,7 +5,7 @@
     limine = {
       enable = true;
       efiSupport = true;
-      style.wallpapers = [ pkgs.nixos-artwork.wallpapers.simple-dark-gray-bootloader.gnomeFilePath ];
+      style.wallpapers = [ ./Spidy/wallpaper/chillbill.jpg ];
       maxGenerations = 10;
       #secureBoot.enable = true;
     };

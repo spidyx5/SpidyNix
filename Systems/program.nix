@@ -81,11 +81,10 @@
     #proton-cachyos_nightly_x86_64_v3
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
-    #niri
     
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-    #inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # ========================================================================
@@ -95,28 +94,9 @@
   programs.spicetify.enable = true;
   
   programs.dankMaterialShell.greeter = {
-  compositor = {
-    name = "niri"; # Required. Can be also "hyprland" or "sway"
-    customConfig = ''
-      # Optional custom compositor configuration
-    '';
+  enable = true;
+  compositor.name = "niri";  # Or "hyprland" or "sway"
   };
-
-  # Sync your user's DankMaterialShell theme with the greeter. You'll probably want this
-  configHome = "/home/spidy";
-
-  # Custom config files for non-standard config locations
-  configFiles = [
-    "/home/spidy/.config/DankMaterialShell/settings.json"
-  ];
-
-  # Save the logs to a file
-  logs = {
-    save = true; 
-    path = "/tmp/dms-greeter.log";
-  };
-};
-
   #services.sysc-greet.enable = false;
 
   # Keep niri available at system level for ly display manager to detect it

@@ -17,7 +17,6 @@
     ../Systems/program.nix
     ../Systems/virtualization.nix
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.dankMaterialShell.nixosModules.greeter
   ];
 
   # =========================================================================

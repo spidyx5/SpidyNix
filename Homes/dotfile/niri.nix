@@ -18,7 +18,7 @@
             variant = "qwerty";
             options = "caps:super";
           };
-          repeat-delay = 600;
+          repeat-delay = 400;
           repeat-rate = 25;
         };
         touchpad = {
@@ -33,7 +33,7 @@
           accel-profile = "adaptive";
         };
         mouse = {
-          natural-scroll = true;
+          natural-scroll = false;
         };
         focus-follows-mouse = {
           enable = true;
@@ -116,7 +116,7 @@
         { matches = [ { app-id = "org.gnome.FileRoller"; } ]; open-floating = true; }
         { matches = [ { app-id = "nm-connection-editor"; } ]; open-floating = true; }
         { matches = [ { app-id = "blueman-manager"; } ]; open-floating = true; }
-        { matches = [ { app-id = "xdg-desktop-portal-gtk"; } ]; open-floating = true; }
+        { matches = [ { app-id = "xdg-desktop-portal-wlr"; } ]; open-floating = true; }
         { matches = [ { app-id = "pinentry"; } ]; open-floating = true; }
         { matches = [ { title = "Progress"; } ]; open-floating = true; }
         { matches = [ { title = "Confirm"; } ]; open-floating = true; }

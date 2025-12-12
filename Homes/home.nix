@@ -14,13 +14,13 @@
     #./app/neovim.nix
     ./app/nushell.nix
     ./app/terminal.nix
-    #./app/vscode.nix
+    ./app/vscode.nix
     #./app/zed.nix
     ./app/xdg.nix
 
 
     #./dotfile/dms.nix
-    ./dotfile/noctalia.nix
+    #./dotfile/noctalia.nix
     ./dotfile/niri.nix
     ./dotfile/theme.nix
     ./dotfile/wayland.nix
@@ -42,8 +42,7 @@
     #inputs.niri.homeModules.niri  
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-    inputs.noctalia.homeModules.default
-    #inputs.dankMaterialShell.nixosModules.greeter
+    #inputs.noctalia.homeModules.default
   ];
 
   # =========================================================================

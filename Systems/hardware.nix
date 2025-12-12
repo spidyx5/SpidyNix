@@ -132,6 +132,7 @@
       '')
     ];
   };
+  services.pipewire.lowLatency.enable = true;
 
   hardware.bluetooth = {
     enable = true;

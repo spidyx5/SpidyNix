@@ -31,7 +31,7 @@
       vscodevim.vim
       eamodio.gitlens
       rooveterinaryinc.roo-cline
-      kilocode.kilo-code
+      #kilocode.kilo-code
       continue.continue
     ];
 
