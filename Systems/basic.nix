@@ -129,11 +129,6 @@
     kdePackages.kate        # KDE text editor
 
     # ========================================================================
-    # TERMINAL EMULATORS & SHELL UI
-    # ========================================================================
-    ghostty                 # GPU-accelerated terminal emulator
-
-    # ========================================================================
     # AUDIO & MULTIMEDIA GUI
     # ========================================================================
     pavucontrol           # PulseAudio/PipeWire volume control
