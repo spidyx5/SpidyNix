@@ -195,7 +195,7 @@
       # ===================================================================
       # DEFAULT PACKAGE
       # ===================================================================
-      packages.${pkgs.stdenv.hostPlatform.system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
+      packages.${stdenv.hostPlatform.system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
     };
 }
 # FLAKE COMMANDS:

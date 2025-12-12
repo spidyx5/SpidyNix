@@ -1,56 +1,30 @@
 { config, pkgs, lib, ... }:
 
-# ============================================================================
-# SPIDYNIX NUSHELL CONFIGURATION
-# ============================================================================
-# Modern shell with structured data, Vi mode, and Carapace completions
-# Optimized for Colemak DH and developer workflow
-# ============================================================================
-
 {
-  # =========================================================================
-  # CARAPACE - MULTI-SHELL COMPLETION
-  # =========================================================================
   programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
   };
 
-  # =========================================================================
-  # NUSHELL - MODERN SHELL
-  # =========================================================================
   programs.nushell = {
     enable = true;
 
-    plugins = with pkgs.nushellPlugins; [
-      query
-      gstat
-      polars
-    ];
-
+    plugins = with pkgs.nushellPlugins; [ query gstat polars ];
+    
     shellAliases = {
-      # Nix system management
       cleanup = "sudo nix-collect-garbage --delete-older-than 1d";
       listgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nixremove = "nix-store --gc";
       bloat = "nix path-info -Sh /run/current-system";
-
-      # NixOS rebuild
       test-build = "nh os test";
       switch-build = "nh os switch";
-
-      # System utilities
       c = "clear";
       q = "exit";
       cleanram = "sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'";
       trimall = "sudo fstrim -va";
       temp = "cd /tmp/";
-
-      # Application shortcuts
       zed = "zeditor";
       lg = "lazygit";
-
-      # Git shortcuts
       g = "git";
       add = "git add .";
       commit = "git commit";
@@ -60,20 +34,14 @@
       gcld = "git clone --depth 1";
       gco = "git checkout";
       gitgrep = "git ls-files | rg";
-
-      # Modern CLI tools
       cat = "bat --number --color=always --paging=never --tabs=2 --wrap=never";
       grep = "rg";
       l = "eza -lF --time-style=long-iso --icons";
       ll = "eza -lh --git --icons --color=auto --group-directories-first -s extension";
       tree = "eza --tree --icons";
       ls = "eza --icons";
-
-      # Systemctl
       us = "systemctl --user";
       rs = "sudo systemctl";
-
-      # Clipboard shortcuts (alternative to Ctrl+Shift+C/V)
       copy = "wl-copy";
       paste = "wl-paste";
     };
@@ -144,6 +112,28 @@
         ls = { use_ls_colors = true; };
         rm = { always_trash = false; };
 
+        # === FIXED: Keybindings are defined here, not with 'bind' ===
+        keybindings = [
+          # Ctrl+C to Interrupt
+          {
+            name = "unix_line_discard_on_ctrl_c";
+            modifier = "control";
+            keycode = "c";
+            mode = [ "vi_normal" "vi_insert" ];
+            event = { send = "CtrlC"; };
+          }
+          # Ctrl+V to Paste
+          {
+            name = "paste_on_ctrl_v";
+            modifier = "control";
+            keycode = "v";
+            mode = [ "vi_normal" "vi_insert" ];
+            event = { send = "Paste"; };
+          }
+          # Note: 'Copy' in normal mode (Ctrl+C) is usually handled by 
+          # your terminal emulator (e.g., Alacritty/Kitty), not the shell.
+        ];
+
         menus = [
           {
             name = "completion_menu";
@@ -194,23 +184,9 @@
       ${completionScripts}
 
       # ===================================================================
-      # CUSTOM KEYBINDINGS - COPY/PASTE
+      # CUSTOM FUNCTIONS
       # ===================================================================
-      # Note: Ctrl+C/Ctrl+V work in most terminals via system clipboard
-      # These keybindings are for Vi mode navigation
       
-      # In insert mode:
-      # Ctrl+C sends SIGINT (standard terminal behavior)
-      # For copy: use Ctrl+Shift+C in terminal, or use wl-copy in scripts
-      # For paste: use Ctrl+Shift+V in terminal, or use wl-paste in scripts
-
-      bind ctrl+c to-interrupt
-      bind ctrl+v to-paste
-
-      # In normal mode:
-      bind ctrl+c copy
-      bind ctrl+v paste
-
       # Custom function: Fuzzy directory change
       def --env fcd [] {
         let selected = (fd --type d --strip-cwd-prefix | sk --ansi)
