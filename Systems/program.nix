@@ -120,9 +120,8 @@
   #services.sysc-greet.enable = false;
 
   # Keep niri available at system level for ly display manager to detect it
-  programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   programs.niri.enable = true;
-
+  programs.niri.package = pkgs.niri-unstable;
   # Ensure niri session is available to display manager
   services.displayManager.sessionPackages = [ pkgs.niri ];
 
