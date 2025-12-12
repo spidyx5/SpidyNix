@@ -125,8 +125,8 @@
       ];
 
       binds = {
-        "Super+Q".action.quit = { };
-        "Super+Shift+Q".action.close-window = { };
+        #"Super+Q".action.quit = { };
+        "Super+Q".action.close-window = { };
         "Super+Shift+R".action.spawn = [ "niri" "msg" "debug" "reconfigure" ];
 
         "Super+Return".action.spawn = [ "ghostty" ];

@@ -35,7 +35,7 @@
     dopamine              # Music player
     smplayer              # Video player
     spotify               # Music player
-    
+
     # ========================================================================
     # BROWSERS & WEB
     # ========================================================================
@@ -71,7 +71,7 @@
     # VIDEO EDITING
     # ========================================================================
     #davinci-resolve-studio # DaVinci Resolve Studio
-    
+
     #quickshell
     # Gaming overlays and tools
     mangohud              # Gaming overlay for FPS/performance
@@ -82,8 +82,8 @@
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
     opentabletdriver
-    
-    inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
+
+    #inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
 
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -95,30 +95,34 @@
   # ========================================================================
   programs.virt-manager.enable = true;
   programs.spicetify.enable = true;
-  
-programs.dankMaterialShell.greeter = {
-  compositor = {
-    name = "niri"; 
-    customConfig = ''
+
+#programs.dankMaterialShell.greeter = {
+  #compositor = {
+  #  name = "niri";
+    #customConfig = ''
       # Optional custom compositor configuration
-    '';
-  };
-  configHome = "/home/spidy";
+    #'';
+ # };
+  #configHome = "/home/spidy";
 
   # Custom config files for non-standard config locations
-  configFiles = [
-    "/home/spidy/.config/DankMaterialShell/settings.json"
-  ];
+  #configFiles = [
+   # "/home/spidy/.config/DankMaterialShell/settings.json"
+  #];
 
   # Save the logs to a file
-  logs = {
-    save = true; 
-    path = "/tmp/dms-greeter.log";
+  #logs = {
+   # save = true;
+   # path = "/tmp/dms-greeter.log";
+  #};
+#};
+  programs.dankMaterialShell.greeter = {
+  enable = true;
+  compositor.name = "niri";  # Or "hyprland" or "sway"
   };
-};
-  
   # Keep niri available at system level for ly display manager to detect it
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+
   programs.niri.enable = true;
   # Ensure niri session is available to display manager
   services.displayManager.sessionPackages = [ inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable ];

@@ -16,6 +16,7 @@
     matugen               # Material Design color generation
     lvm2
     git
+    xwayland-satellite
     # ========================================================================
     # FILE MANAGEMENT CLI
     # ========================================================================

@@ -10,9 +10,9 @@
 
   imports = [
     ./app/git.nix
-    ./app/helix.nix
+    #./app/helix.nix
     #./app/neovim.nix
-    ./app/nushell.nix
+    #./app/nushell.nix
     ./app/terminal.nix
     ./app/vscode.nix
     #./app/zed.nix
@@ -35,7 +35,7 @@
     #./config/qutebrowser.nix
     ./config/rnnoise.nix
     ./config/twitch.nix
-    ./config/vm.nix
+    #./config/vm.nix
     ./config/zen.nix
 
 

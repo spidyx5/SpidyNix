@@ -55,11 +55,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helium-browser = {
-      url = "github:fpletz/flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-topology = {
       url = "github:oddlama/nix-topology";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -113,8 +108,7 @@
     zen-browser, 
     flake-utils, 
     musnix, 
-    spicetify-nix, 
-    helium-browser, 
+    spicetify-nix,  
     nix-gaming, 
     nix-index-db, 
     nur, 
