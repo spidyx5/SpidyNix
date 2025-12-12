@@ -121,7 +121,7 @@ programs.dankMaterialShell.greeter = {
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   programs.niri.enable = true;
   # Ensure niri session is available to display manager
-  services.displayManager.sessionPackages = [ pkgs.niri-unstable ];
+  services.displayManager.sessionPackages = [ inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable ];
 
 
   # ========================================================================
