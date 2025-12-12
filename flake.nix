@@ -145,7 +145,7 @@
         modules = [
           ./Spidy/spidy-config.nix
           chaotic.nixosModules.default
-          #niri.nixosModules.niri
+          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           musnix.nixosModules.musnix
           spicetify-nix.nixosModules.default
