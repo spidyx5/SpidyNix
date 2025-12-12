@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   # Enable NetworkManager for easy network configuration
@@ -138,7 +138,7 @@
   };
 
   boot.initrd.services.lvm.enable = true;
-
+  services.upower.enable = true;
   # ============================================================================
   # FLATPAK - SANDBOXED APPLICATIONS
   # ============================================================================

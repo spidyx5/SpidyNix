@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 # ============================================================================
 # SPIDYNIX GIT CONFIGURATION MODULE

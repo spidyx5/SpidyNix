@@ -85,9 +85,9 @@
     
     inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
 
-    #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   services.greetd.enable = true;
   # ========================================================================
@@ -96,10 +96,26 @@
   programs.virt-manager.enable = true;
   programs.spicetify.enable = true;
   
-  programs.dankMaterialShell.greeter = {
-  enable = true;
-  compositor.name = "niri";  # Or "hyprland" or "sway"
+programs.dankMaterialShell.greeter = {
+  compositor = {
+    name = "niri"; 
+    customConfig = ''
+      # Optional custom compositor configuration
+    '';
   };
+  configHome = "/home/spidy";
+
+  # Custom config files for non-standard config locations
+  configFiles = [
+    "/home/spidy/.config/DankMaterialShell/settings.json"
+  ];
+
+  # Save the logs to a file
+  logs = {
+    save = true; 
+    path = "/tmp/dms-greeter.log";
+  };
+};
   
   # Keep niri available at system level for ly display manager to detect it
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;

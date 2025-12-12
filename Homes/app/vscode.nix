@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 # ============================================================================
 # SPIDYNIX VSCODE CONFIGURATION
@@ -22,9 +22,9 @@
 
       # Language support
       #ms-vscode.cpptools
-      rust-lang.rust-analyzer
+      #rust-lang.rust-analyzer
       ms-python.python
-      tamasfe.even-better-toml
+      #tamasfe.even-better-toml
       yzhang.markdown-all-in-one
 
       # Tools and utilities

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   boot.loader = {
@@ -63,6 +63,8 @@
     "i915.enable_gvt=1"                      # Enable Intel GVT-g
     "kvm-intel.nested=0"                     # Disable nested virtualization
     "iommu=pt"                               # Enable IOMMU passthrough
+    "rd.systemd.show_status=false"           # Hides systemd status messages
+    "udev.log_level=3"                       # Further reduces udev/systemd logging
   ];
 
   boot.kernelModules = [

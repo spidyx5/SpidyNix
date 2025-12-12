@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   nixpkgs.config.cudaSupport = false;

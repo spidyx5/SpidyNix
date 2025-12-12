@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   # =========================================================================
@@ -124,19 +124,13 @@
         { matches = [ { title = "Error"; } ]; open-floating = true; }
       ];
 
-      # ===================================================================
-      # KEYBINDINGS (QWERTY - keyd will remap to Colemak DH)
-      # ===================================================================
-      # Keybinds are in QWERTY layout here
-      # keyd remaps QWERTY→Colemak DH at kernel level
-      # So pressing Colemak DH keys triggers these QWERTY binds
       binds = {
         "Super+Q".action.quit = { };
         "Super+Shift+Q".action.close-window = { };
         "Super+Shift+R".action.spawn = [ "niri" "msg" "debug" "reconfigure" ];
 
         "Super+Return".action.spawn = [ "ghostty" ];
-        "Super+Space".action.spawn = [ "fuzzel" ];
+        "Super".action.spawn = [ "fuzzel" ];
 
         # Navigation (QWERTY - will be Colemak DH when keyd remaps)
         "Super+H".action.focus-column-left = { };
