@@ -429,5 +429,5 @@
     enable = true;
     decompressFonts = true;
   };
-  #fonts.enableDefaultPackages = false;
+  fonts.enableDefaultPackages = false;
 }

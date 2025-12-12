@@ -5,9 +5,7 @@ let
   system = pkgs.stdenv.hostPlatform.system;
 
   # Zen Browser package from flake input
-  zenPackage = inputs.zen-browser.packages.${system}.default;
-  helium = inputs.helium-browser.packages.${system}.helium-browser;
-
+  zenPackage = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
   # Override package to add dependencies and Wayland support
   zenFixed = zenPackage.overrideAttrs (old: {
     nativeBuildInputs = (old.nativeBuildInputs or []) ++ [

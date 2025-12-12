@@ -82,6 +82,8 @@
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
     
+    inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
+
     #inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -168,7 +170,7 @@
 
     config = {
       common = {
-        default = [ "gtk" ];
+        default = [ "wlr" ];
       };
       niri = {
         default = [ "wlr" ];

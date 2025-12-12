@@ -225,11 +225,15 @@
       # Custom function: List installed packages
       def installed [] {
         nix-store --query --requisites /run/current-system/ | parse --regex '.*?-(.*)' | get capture0 | sk
+      }
 
 
 
 
-      def installedall [] {      # Custom function: Copy all installed packages      }        nix-store --query --requisites /run/current-system/ | sk | wl-copy
+      # Custom function: Copy all installed packages
+      def installedall [] {
+        nix-store --query --requisites /run/current-system/ | sk | wl-copy
+      }
       }
 
       # Custom function: Yazi file manager with cd integration

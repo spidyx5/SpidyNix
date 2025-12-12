@@ -5,7 +5,7 @@
     limine = {
       enable = true;
       efiSupport = true;
-      style.wallpapers = [ ./Spidy/wallpaper/chillbill.jpg ];
+      style.wallpapers = [ ../Spidy/wallpaper/chillbill.jpg ];
       maxGenerations = 10;
       #secureBoot.enable = true;
     };

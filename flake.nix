@@ -120,7 +120,9 @@
     nur, 
     nix-topology, 
     hosts, 
-    sops-nix, ... }:
+    sops-nix,
+    dankMaterialShell, 
+    ... }:
     let
       system = "x86_64-linux";
       
@@ -164,7 +166,7 @@
       # ===================================================================
       # DEVELOPMENT SHELL
       # ===================================================================
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${pkgs.stdenv.hostPlatform.system}.default = pkgs.mkShell {
         name = "SpidyNix-Dev";
         packages = with pkgs; [
           git
@@ -188,12 +190,12 @@
       # ===================================================================
       # FORMATTER
       # ===================================================================
-      formatter.${system} = pkgs.alejandra;
+      formatter.${pkgs.stdenv.hostPlatform.system} = pkgs.alejandra;
 
       # ===================================================================
       # DEFAULT PACKAGE
       # ===================================================================
-      packages.${system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
+      packages.${pkgs.stdenv.hostPlatform.system}.default = self.nixosConfigurations.Spidy.config.system.build.toplevel;
     };
 }
 # FLAKE COMMANDS:
