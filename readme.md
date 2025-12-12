@@ -88,7 +88,8 @@ passwd
 │       └── yazi.nix
 ├── Spidy/
 │   ├── niri.md
-│   ├── secrets.yaml
+│   ├── secrets/
+|   |── wallpaper/
 │   └── spidy-config.nix
 └── Systems/
     ├── basic.nix

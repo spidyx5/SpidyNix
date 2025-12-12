@@ -81,6 +81,7 @@
     #proton-cachyos_nightly_x86_64_v3
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
+    opentabletdriver
     
     inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
 
