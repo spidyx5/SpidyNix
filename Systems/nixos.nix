@@ -18,10 +18,10 @@
       trusted-users = [ "root" "@wheel" ];
 
       substituters = [
-        "https://cache.nixos.org?priority=10"
+        "https://cache.nixos.org"
         "https://chaotic-nyx.cachix.org"
         "https://nix-gaming.cachix.org"
-        "https://nix-community.cachix.org?priority=8"
+        "https://nix-community.cachix.org"
       ];
 
       trusted-public-keys = [

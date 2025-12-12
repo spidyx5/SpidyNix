@@ -21,6 +21,8 @@ sudo git clone https://github.com/spidyx5/SpidyNix.git /mnt/etc/nixos/SpidyNix
 # Using nh (recommended)
 cd /etc/nixos/SpidyNix
 nh os switch --hostname Spidy
+or
+NH_FLAKE=/etc/nixos/SpidyNix nh os switch . --hostname Spidy
 
 # Or using nixos-rebuild
 sudo nixos-rebuild switch --flake /etc/nixos/SpidyNix#Spidy
