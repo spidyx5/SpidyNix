@@ -130,7 +130,7 @@
         "Super+Shift+R".action.spawn = [ "niri" "msg" "debug" "reconfigure" ];
 
         "Super+Return".action.spawn = [ "ghostty" ];
-        "Super".action.spawn = [ "fuzzel" ];
+        "Super+Space".action.spawn = [ "fuzzel" ];
 
         # Navigation (QWERTY - will be Colemak DH when keyd remaps)
         "Super+H".action.focus-column-left = { };
