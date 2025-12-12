@@ -89,7 +89,7 @@
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
-
+  services.greetd.enable = true;
   # ========================================================================
   # VIRTUALIZATION - VIRT-MANAGER
   # ========================================================================
@@ -100,8 +100,7 @@
   enable = true;
   compositor.name = "niri";  # Or "hyprland" or "sway"
   };
-  #services.sysc-greet.enable = false;
-
+  
   # Keep niri available at system level for ly display manager to detect it
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   programs.niri.enable = true;

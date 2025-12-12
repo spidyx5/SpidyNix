@@ -182,21 +182,16 @@
         highlight_resolved_externals = true;
       };
 
-      completions = let
-        completion = name: ''
-          source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
-        '';
-      in
-        names:
-          builtins.foldl'
-          (prev: str: "${prev}\n${str}") ""
-          (map completion names);
+      completionScripts = builtins.concatStringsSep "\n" (
+        map (name: "source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu")
+        ["git" "nix" "man" "rg" "gh" "glow" "bat"]
+      );
     in ''
       # Nushell configuration
       $env.config = ${conf};
 
       # Load completion scripts
-      ${completions ["git" "nix" "man" "rg" "gh" "glow" "bat"]}
+      ${completionScripts}
 
       # ===================================================================
       # CUSTOM KEYBINDINGS - COPY/PASTE
@@ -227,13 +222,9 @@
         nix-store --query --requisites /run/current-system/ | parse --regex '.*?-(.*)' | get capture0 | sk
       }
 
-
-
-
       # Custom function: Copy all installed packages
       def installedall [] {
         nix-store --query --requisites /run/current-system/ | sk | wl-copy
-      }
       }
 
       # Custom function: Yazi file manager with cd integration
