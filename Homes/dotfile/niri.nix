@@ -197,7 +197,7 @@
         "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "toggle" ];
         "Mod+Space".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
         "Mod+P".action.spawn = [ "noctalia-shell" "ipc" "call" "sessionMenu" "toggle" ];
-
+        "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "clipboard" "toggle" ];
         # Screenshots
         "Print".action.screenshot-screen = { write-to-disk = true; };
         "Super+Shift+S".action.screenshot = { show-pointer = false; };

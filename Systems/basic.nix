@@ -91,7 +91,16 @@
     # ========================================================================
     btrfs-progs           # Btrfs utilities
     f2fs-tools            # F2fs utilities
-    btrfs-assistant
+    #btrfs-assistant
+      (symlinkJoin {
+    name = "btrfs-assistant-wrapped";
+    paths = [ btrfs-assistant ];
+    buildInputs = [ makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/btrfs-assistant \
+        --set QT_QPA_PLATFORM xcb
+    '';
+  })
     busybox               # Core utilities replacement
     mimalloc
     bees
@@ -197,6 +206,7 @@
     carapace              # Multi-shell completion
     inshellisense         # IDE-like shell completions
     fzf                   # Fuzzy finder
+    skim
 
     # ========================================================================
     # VIRTUALIZATION - VM MANAGEMENT
@@ -241,7 +251,7 @@
     # ========================================================================
     # QT5 COMPATIBILITY
     # ========================================================================
-    libsForQt5.qt5.qtgraphicaleffects 
+    libsForQt5.qt5.qtgraphicaleffects
     kdePackages.qtquick3d
     python313Packages.pyqt6-webengine
     kdePackages.qtwebengine

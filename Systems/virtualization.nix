@@ -2,6 +2,12 @@
 
 {
   # ========================================================================
+  # GUI & FIREWALL (Required for functional VMs)
+  # ========================================================================
+  programs.virt-manager.enable = true;
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
+
+  # ========================================================================
   # LIBVIRTD - VIRTUALIZATION DAEMON
   # ========================================================================
   virtualisation.libvirtd = {
@@ -11,32 +17,22 @@
 
     qemu = {
       package = pkgs.qemu_kvm;
+
+      # Run as root (as you requested)
       runAsRoot = true;
       swtpm.enable = true;
 
+
       verbatimConfig = ''
-        ${builtins.readFile ./virtualization.nix}
-        
-        #  Hide hypervisor
-        # Uncomment in your VM XML: <kvm><hidden state="on"/></kvm>
-        
         # GPU Passthrough requirements:
-        # 1. Enable IOMMU in boot.nix (already done with iommu=pt)
-        # 2. Create IOMMU groups for your GPU
-        # 3. Use vfio driver instead of native driver
-        # 4. Bind GPU to vfio-pci in the VM XML
-        
-        # Example VM XML for GPU passthrough:
-        # <hostdev mode="subsystem" type="pci" managed="yes">
-        #   <source>
-        #     <address domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
-        #   </source>
-        # </hostdev>
-        
-        user = "qemu-libvirtd"
-        group = "kvm"
-        dynamic_ownership = 1
+        # 1. Enable IOMMU in boot.nix (iommu=pt)
+        # 2. Bind GPU to vfio-pci
+
+        # Ownership settings for running as root
+        dynamic_ownership = 0
         remember_owner = 0
+
+        # Guest Agent
         ga = "enabled"
       '';
     };
@@ -69,7 +65,7 @@
   # ========================================================================
   virtualisation.spiceUSBRedirection.enable = true;
 
- 
+
   # ========================================================================
   # WAYDROID - ANDROID CONTAINER
   # ========================================================================

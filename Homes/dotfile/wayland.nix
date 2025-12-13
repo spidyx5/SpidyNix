@@ -21,7 +21,7 @@
     ELM_ENGINE = "wayland_egl";
     # DISPLAY is not used in Wayland sessions
     GDK_BACKEND = "wayland,x11";
-    NIXOS_OZONE_WL = "1";
+    #NIXOS_OZONE_WL = "1";
 
     _JAVA_AWT_WM_NONREPARENTING = "1";
 

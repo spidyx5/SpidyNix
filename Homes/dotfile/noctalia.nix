@@ -15,7 +15,7 @@ in
       spawn-at-startup = [
         {
           command = [
-            "noctalia-shell"
+            "noctalia-shell" "wl-paste" "--watch" "cliphist" "store"
           ];
         }
       ];

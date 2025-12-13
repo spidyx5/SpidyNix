@@ -26,7 +26,7 @@
   };
 
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
+    #LIBVA_DRIVER_NAME = "iHD";
   };
 
   hardware.opentabletdriver = {

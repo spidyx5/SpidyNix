@@ -66,7 +66,7 @@
   # SESSION VARIABLES - HARDWARE VIDEO ACCELERATION
   # =========================================================================
   home.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
+    #LIBVA_DRIVER_NAME = "iHD";
     LIBVA_MESSAGING_LEVEL = "1";
     LIBGL_ALWAYS_SOFTWARE = "0";
     ENABLE_VAAPI = "1";

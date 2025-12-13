@@ -171,7 +171,7 @@
     dedicatedServer.openFirewall = true;
     gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [
-      proton-ge-bin                   # Proton GE for better compatibility
+      proton-ge-bin                    # Proton GE for better compatibility
     ];
     platformOptimizations.enable = true;
   };
