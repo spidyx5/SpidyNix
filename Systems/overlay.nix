@@ -44,7 +44,7 @@ let
               else prev.binutils; # last resort
 
     ccChoice = if llvmPkgs != null && llvmPkgs ? clang then llvmPkgs.clang else prev.clang or prev.stdenv.cc;
-    
+
     baseOverride = {
       cc = ccChoice;
       bintools = moldPkg;
@@ -61,7 +61,7 @@ in
   # ============================================================================
   # PRIMARY: Override mkDerivation with performance flags
   # ============================================================================
-  mkDerivation = args: 
+  mkDerivation = args:
     let
       existingCFlags = args.NIX_CFLAGS_COMPILE or "";
       existingLdFlags = args.NIX_LDFLAGS or "";
@@ -69,7 +69,7 @@ in
     prev.mkDerivation (args // {
       NIX_CFLAGS_COMPILE = "${cflagsStr}${prev.lib.optionalString (existingCFlags != "") " ${existingCFlags}"}";
       NIX_LDFLAGS = "${ldflagsStr}${prev.lib.optionalString (existingLdFlags != "") " ${existingLdFlags}"}";
-      
+
       configureFlags = (args.configureFlags or []) ++ [
         "CFLAGS=${cflagsStr}"
         "LDFLAGS=${ldflagsStr}"

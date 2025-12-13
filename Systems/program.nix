@@ -190,7 +190,7 @@
 
     config = {
       common = {
-        default = [ "wlr" ];
+        default = [ "gtk" ];
       };
       niri = {
         default = [ "wlr" ];

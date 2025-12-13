@@ -98,6 +98,7 @@
       "adbusers"       # Android Debug Bridge
       "plugdev"        # Pluggable devices
       "docker"         # Docker containers
+      "libvirt"
     ];
     password = "spidy";
   };
