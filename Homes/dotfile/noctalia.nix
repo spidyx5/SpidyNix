@@ -9,7 +9,7 @@ in
     enable = true;
     systemd.enable = true;
     };
-  }
+  };
   programs.niri = {
     settings = {
       # ...
