@@ -12,7 +12,7 @@
     extraPackages = with pkgs; [
       libva-utils
       libva
-      mesa-gl-headers
+      mesa
       intel-media-driver
       intel-compute-runtime
       vpl-gpu-rt
@@ -40,13 +40,6 @@
 
   time.hardwareClockInLocalTime = lib.mkDefault true;
 
-  chaotic.mesa-git.enable = true;
-  chaotic.mesa-git.extraPackages = with pkgs; [
-    mesa_git.opencl
-    intel-media-driver
-    intel-ocl
-    intel-vaapi-driver
-  ];
 
   services.tuned.enable = true;
   services.tuned.settings.dynamic_tuning = true;

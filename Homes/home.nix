@@ -34,12 +34,11 @@
     ./config/obs.nix
     #./config/qutebrowser.nix
     ./config/rnnoise.nix
-    ./config/twitch.nix
     #./config/vm.nix
     ./config/zen.nix
 
 
-    #inputs.niri.homeModules.niri  
+    #inputs.niri.homeModules.niri
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.noctalia.homeModules.default

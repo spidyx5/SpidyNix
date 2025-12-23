@@ -7,6 +7,13 @@
   programs.niri = {
     settings = {
       screenshot-path = "~/Pictures/Screenshots/Screenshot-from-%Y-%m-%d-%H-%M-%S.png";
+      spawn-at-startup = [
+        {
+          command = [
+            "noctalia-shell" "wl-clipboard" "wl-paste" "--watch" "cliphist" "store"
+          ];
+        }
+      ];
 
       # ===================================================================
       # INPUT CONFIGURATION

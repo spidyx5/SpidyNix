@@ -83,11 +83,8 @@
     obs-studio-plugins.obs-vkcapture
     opentabletdriver
 
-    #inputs.helium-browser.packages.${pkgs.stdenv.hostPlatform.system}.helium-browser
-
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
-    #inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   services.greetd.enable = true;
   # ========================================================================
@@ -96,7 +93,7 @@
   programs.virt-manager.enable = true;
   programs.spicetify.enable = true;
 
-#programs.dankMaterialShell.greeter = {
+#programs.dank-material-shell.greeter = {
   #compositor = {
   #  name = "niri";
     #customConfig = ''
@@ -116,7 +113,7 @@
    # path = "/tmp/dms-greeter.log";
   #};
 #};
-  programs.dankMaterialShell.greeter = {
+  programs.dank-material-shell.greeter = {
   enable = true;
   compositor.name = "niri";  # Or "hyprland" or "sway"
   };
@@ -132,15 +129,6 @@
   # ANDROID DEBUG BRIDGE (ADB)
   # ========================================================================
   programs.adb.enable = true;
-
-  # ========================================================================
-  # CHAOTIC-AUR INTEGRATION
-  # ========================================================================
-  chaotic.nyx.cache.enable = true;
-  chaotic.nyx.nixPath.enable = true;
-  chaotic.nyx.overlay.enable = true;
-  chaotic.nyx.registry.enable = true;
-
   # ========================================================================
   # DIRENV - AUTOMATIC ENVIRONMENT SWITCHING
   # ========================================================================

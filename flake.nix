@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,9 +15,6 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    chaotic.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -50,16 +47,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nix-topology = {
       url = "github:oddlama/nix-topology";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,27 +91,26 @@
     };
   };
 
-  outputs = inputs@{ 
+  outputs = inputs@{
     self,
-    nixpkgs, 
-    home-manager, 
-    chaotic, 
+    nixpkgs,
+    home-manager,
     niri,
-    zen-browser, 
-    flake-utils, 
-    musnix, 
-    spicetify-nix,  
-    nix-gaming, 
-    nix-index-db, 
-    nur, 
-    nix-topology, 
-    hosts, 
+    zen-browser,
+    flake-utils,
+    musnix,
+    spicetify-nix,
+    nix-gaming,
+    nix-index-db,
+    nur,
+    nix-topology,
+    hosts,
     sops-nix,
-    dankMaterialShell, 
+    dankMaterialShell,
     ... }:
     let
       system = "x86_64-linux";
-      
+
       # Create a nixpkgs instance with overlays applied
       pkgs = import nixpkgs {
         inherit system;
@@ -138,7 +129,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./Spidy/spidy-config.nix
-          chaotic.nixosModules.default
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           musnix.nixosModules.musnix

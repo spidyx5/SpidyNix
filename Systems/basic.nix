@@ -66,12 +66,11 @@
     # SYSTEM MONITORING & MANAGEMENT
     # ========================================================================
     lm_sensors            # Hardware temperature monitoring
-    ananicy-rules-cachyos_git  # CPU scheduling rules for improved system performance
     brightnessctl         # Brightness control
     gammastep             # Screen temperature adjustment
     wlsunset              # Day/night gamma adjustments
     #libnotify             # Desktop notifications
-
+    jq
     # ========================================================================
     # SYSTEM UTILITIES & TOOLS
     # ========================================================================

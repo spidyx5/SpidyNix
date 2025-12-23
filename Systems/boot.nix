@@ -12,23 +12,8 @@
     systemd-boot.enable = lib.mkForce false;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  
-  boot.kernelPackages = lib.mkForce (pkgs.linuxPackages_cachyos-lto.override {
-    stdenv = pkgs.llvmStdenv or pkgs.llvmPackages_latest.stdenv;
-  });
 
-  specialisation = {
-    lqx-kernel.configuration = {
-      boot.kernelPackages = pkgs.linuxPackages_lqx;
-    };
-    xanmod-kernel.configuration = {
-      boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    };
-    rt-kernel.configuration = {
-      boot.kernelPackages = pkgs."linuxPackages-rt_latest";
-    };
-  };
-
+  boot.kernelPackages =pkgs.linuxPackages_xanmod_latest;
   boot.kernelParams = [
     # --- Performance Optimizations ---
     "nvme_core.default_ps_max_latency_us=0"  # NVMe max performance

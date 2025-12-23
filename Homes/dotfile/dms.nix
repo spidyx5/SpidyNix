@@ -7,7 +7,7 @@
   # Custom startup behavior for DMS shell environment
   # Clipboard history tracking and quick settings launcher
   # =========================================================================
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
   enable = true;
   niri = {
     enableKeybinds = true;   # Automatic keybinding configuration
