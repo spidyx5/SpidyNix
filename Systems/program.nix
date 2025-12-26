@@ -82,6 +82,7 @@
     twitch-hls-client
     obs-studio-plugins.obs-vkcapture
     opentabletdriver
+    vscode
 
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -93,26 +94,6 @@
   programs.virt-manager.enable = true;
   programs.spicetify.enable = true;
 
-#programs.dank-material-shell.greeter = {
-  #compositor = {
-  #  name = "niri";
-    #customConfig = ''
-      # Optional custom compositor configuration
-    #'';
- # };
-  #configHome = "/home/spidy";
-
-  # Custom config files for non-standard config locations
-  #configFiles = [
-   # "/home/spidy/.config/DankMaterialShell/settings.json"
-  #];
-
-  # Save the logs to a file
-  #logs = {
-   # save = true;
-   # path = "/tmp/dms-greeter.log";
-  #};
-#};
   programs.dank-material-shell.greeter = {
   enable = true;
   compositor.name = "niri";  # Or "hyprland" or "sway"
