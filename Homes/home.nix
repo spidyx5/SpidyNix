@@ -14,7 +14,6 @@
     #./app/neovim.nix
     #./app/nushell.nix
     ./app/terminal.nix
-    ./app/vscode.nix
     #./app/zed.nix
     ./app/xdg.nix
 

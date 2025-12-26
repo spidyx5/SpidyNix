@@ -41,8 +41,8 @@ nixos-generate-config --root /mnt --show-hardware-config > /mnt/etc/nixos/hardwa
 
 ## Default Credentials
 
-| Setting | Value |
-|---------|-------|
+| Setting      | Value   |
+| ------------ | ------- |
 | **Username** | `spidy` |
 | **Password** | `spidy` |
 | **Hostname** | `Spidy` |
@@ -67,7 +67,6 @@ passwd
 │   │   ├── neovim.nix
 │   │   ├── nushell.nix
 │   │   ├── starship.nix
-│   │   ├── vscode.nix
 │   │   ├── xdg.nix
 │   │   └── zed.nix
 │   ├── config/

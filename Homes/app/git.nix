@@ -51,7 +51,7 @@
     };
 
     ignores = [
-      ".DS_Store" "Thumbs.db" "*.swp" ".vscode/" "node_modules/" "result"
+      ".DS_Store" "Thumbs.db" "*.swp" "node_modules/" "result"
     ];
   };
 
